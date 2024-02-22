@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Subjects {
+  Scode   String  @id
+  Sname   String
+  batches Batch[]
+  teachers Teacher[]
+}
+
+model Batch {
+  batchId  String     @id
+  branch   String
+  semester Int
+  Scode    Subjects[]
+  sections Section[]
+}
+model Teacher {
+  ECode String @id
+  name String
+  subjectsTag Subjects[]
+}
+model Section {
+  sectionId String @id
+  batch     String
+  Batch        Batch  @relation(fields: [batchId], references: [batchId])
+  batchId String
+  Group String[]
+  ECode Json
+  StudentCount Int
+}
+
+model AvailableRooms {
+  Roomid String @id
+  RoomType String
+  Capacity Int
+}
