@@ -81,6 +81,10 @@ export function LoginForm(){
       </form>
     </Form>
             </CardItem>
+            <CardItem
+              className="flex text-sm underline text-blue-500 max-w-sm mt-2 dark:text-neutral-300">
+            <a href="https://github.com/godsplanhk/CUXAM">Forgot Password?</a>
+          </CardItem>
         </CardBody>
       </CardContainer>
     );
