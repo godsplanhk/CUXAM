@@ -35,14 +35,14 @@ export function LoginForm(){
         console.log(values);
     }
     return (
-        <CardContainer className="inter-var justify-center">
-        <CardBody className="h-full backdrop-blur-sm bg-white relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.5] dark:bg-black dark:border-white/[0.2] border-green/[0.3] sm:w-[30rem] rounded-xl p-6 border  ">
+        <CardContainer className="inter-var justify-center backdrop-blur-sm">
+        <CardBody className="w-56 sbackdrop-blur-sm bg-white/30 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.5] dark:bg-black dark:border-white/[0.2] border-green/[0.3] sm:w-[30rem] rounded-xl p-6 border  ">
           <CardItem
             className="text-xl text-red-500 font-bold dark:text-Red"
           >
             CUXAM
           </CardItem>
-          <CardItem   className="text-xl text-blue-500 max-w-sm mt-2 dark:text-neutral-300">
+          <CardItem   className="text-xl text-blue-500 font-bold max-w-sm mt-2 dark:text-neutral-300">
             Login
           </CardItem>
           <CardItem
