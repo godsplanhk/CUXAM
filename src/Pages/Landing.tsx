@@ -4,7 +4,7 @@ import { WavyBackground } from "@/components/ui/wavy-background";
 
 export function Landing(){
     return (
-        <WavyBackground>
+        <WavyBackground backgroundFill={['white','black']}>
             <ModeToggle></ModeToggle>
             <LoginForm></LoginForm>
         </WavyBackground>

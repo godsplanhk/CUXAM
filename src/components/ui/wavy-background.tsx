@@ -2,6 +2,7 @@
 import { cn } from "@/utils/cn";
 import { useEffect, useRef } from "react";
 import { createNoise3D } from "simplex-noise";
+import { useTheme } from "../theme-provider";
 
 export const WavyBackground = ({
   children,
@@ -20,12 +21,15 @@ export const WavyBackground = ({
   containerClassName?: string;
   colors?: string[];
   waveWidth?: number;
-  backgroundFill?: string;
+  backgroundFill?: string[];
   blur?: number;
   speed?: "slow" | "fast";
   waveOpacity?: number;
   [key: string]: any;
 }) => {
+  const {theme} = useTheme();
+  let bgFill = 'black';
+  console.log(theme);
   const noise = createNoise3D();
   let w: number,
     h: number,
@@ -82,10 +86,9 @@ export const WavyBackground = ({
       ctx.closePath();
     }
   };
-
   let animationId: number;
   const render = () => {
-    ctx.fillStyle = backgroundFill || "black";
+    ctx.fillStyle = bgFill;
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, w, h);
     drawWave(2);
@@ -94,15 +97,16 @@ export const WavyBackground = ({
 
   useEffect(() => {
     init();
+    bgFill= ((backgroundFill)?((theme=='dark')?backgroundFill[1]:backgroundFill[0]):"black");
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <div
       className={cn(
-        "flex items-center absolute inset-0 justify-center ",
+        "flex items-center absolute inset-0 justify-center",
         containerClassName
       )}
     >
