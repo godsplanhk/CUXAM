@@ -16,8 +16,10 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { useNavigate } from "react-router-dom";
 
 export function LoginForm(){
+    const navigate = useNavigate();
     const formSchema = z.object({
         username: z.string().min(2).max(50),
         password: z.string().min(5),
@@ -35,8 +37,8 @@ export function LoginForm(){
         console.log(values);
     }
     return (
-        <CardContainer className="inter-var justify-center backdrop-blur-sm">
-        <CardBody className="h-auto w-56 sbackdrop-blur-sm bg-white/30 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.5] dark:bg-black dark:border-white/[0.2] border-green/[0.3] sm:w-[30rem] rounded-xl p-6 border  ">
+        <CardContainer className="inter-var justify-center">
+        <CardBody className="h-auto w-56 bg-white/30 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.5] dark:bg-black dark:border-white/[0.2] border-green/[0.3] sm:w-[30rem] rounded-xl p-6 border  ">
           <CardItem
             className="text-xl text-red-500 font-bold dark:text-Red"
           >
@@ -77,7 +79,9 @@ export function LoginForm(){
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" onClick={()=>{
+          navigate('/dashboard');
+        }}>Submit</Button>
       </form>
     </Form>
             </CardItem>
