@@ -37,8 +37,8 @@ export function LoginForm(){
         console.log(values);
     }
     return (
-        <CardContainer className="inter-var justify-center">
-        <CardBody className="h-auto w-56 bg-white/30 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.5] dark:bg-black dark:border-white/[0.2] border-green/[0.3] sm:w-[30rem] rounded-xl p-6 border  ">
+        <CardContainer className="inter-var justify-center w-96">
+        <CardBody className="backdrop-blur-sm h-auto w-auto bg-white/30 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.5] dark:bg-black dark:border-white/[0.2] border-green/[0.3] sm:w-[30rem] rounded-xl p-6 border  ">
           <CardItem
             className="text-xl text-red-500 font-bold dark:text-Red"
           >

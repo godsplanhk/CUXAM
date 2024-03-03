@@ -8,11 +8,15 @@ import { RxAvatar } from "react-icons/rx";
 import { TypewriterEffectSmooth } from "./typewriter";
 import { TbSettings } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { isSidebarOpenState } from "@/state/atoms/sidebar";
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
-
+  isOpen?: boolean;
+  setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function Sidebar({ className }: SidebarProps){
+export function Sidebar({ className, isOpen, setIsOpen }: SidebarProps){
+  const [isSidebarOpen, setIsSidebarOpen] = useRecoilState(isSidebarOpenState); 
   const navigate = useNavigate();
   const words = [
     {
@@ -21,8 +25,10 @@ export function Sidebar({ className }: SidebarProps){
     }
     
   ]
+  isOpen = isOpen ?? isSidebarOpen;
+  setIsOpen = setIsOpen ?? setIsSidebarOpen;
   return (
-    <div className={cn("pb-1 flex flex-col justify-between h-screen", className)}>
+    <div className={cn("pb-1 flex flex-col justify-between max-h-screen", className, {"hidden":!isOpen})}>
       <div className="space-y-2 py-2">
         <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
@@ -30,7 +36,7 @@ export function Sidebar({ className }: SidebarProps){
           </h2>
           <div className="space-y-1">
             <Button onClick={()=>{
-              navigate('/dashboard/generate');
+              navigate('/generate');
             }} variant="secondary" className="w-full justify-start">
              <RiAiGenerate className="mr-2 h-4 w-4"/>
               Generate
@@ -39,16 +45,14 @@ export function Sidebar({ className }: SidebarProps){
               <FaDatabase className="mr-2 h-4 w-4"/>
               Database
             </Button>
-          </div>
-        </div>
-        <div>
-          <h2 className="relative px-7 text-lg font-semibold tracking-tight">
+          <h2 className="px-7 text-lg font-semibold tracking-tight">
             History
           </h2>
-          <ScrollArea className="grow h-[300px] px-1">
+          <ScrollArea className="h-[300px] px-1">
             <div className="space-y-1 p-2">
              </div>
           </ScrollArea>
+          </div>
         </div>
       </div>
       <div className="relative border-2 rounded-lg mx-2 my-1 border-white-300"   >
