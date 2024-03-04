@@ -30,26 +30,24 @@ function App() {
   const location = useLocation();
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup'||location.pathname === '/'; 
   return (
-    <>
-      <div className='sticky top-0'>
-        <div className='relative flex z-20'>
-          <ModeToggle></ModeToggle>
-          </div>
-    {!isAuthPage && <div>
-     <Navbar className= 'z-10 shadow-sm border-b backdrop-blur-md dark:backdrop-blur-md bg-white-500/3 dark:bg-black-500/30 dark:border-gray-700 '></Navbar></div>}
+    <div>
+      <div className='grid sticky top-0 shadow-sm border-b backdrop-blur-md dark:backdrop-blur-md bg-black-500/3 dark:bg-black-500/30 dark:border-gray-700 '>
+            <ModeToggle></ModeToggle>
+
+    {!isAuthPage && <Navbar></Navbar>}
       </div>
-    <div className='flex z-10 max-h-screen' style={{height:'100vh'}}>
-    {!isAuthPage && <Sidebar className="static inset-0 justify-left w-52  border-r rounded-r-lg shadow-sm"></Sidebar>}
-    <div className='flex-1'>
+    {!isAuthPage && <Sidebar className="float-left h-full justify-left border-b border-r rounded-br-lg shadow-sm"></Sidebar>}
+    <div className='flex z-10 justify-items-start' >
+      <div className='grow h-screen overflow-y-auto no-scrollbar'>
       <Routes>
       <Route path='/' element={Landing()}></Route>
       <Route path='/login' element={Landing()}></Route>
       <Route path='/dashboard' element={Dashboard()}></Route>
       <Route path = '/generate' element={Generate()}></Route>
       </Routes>
-    </div>
       </div>
-      </>
+      </div>
+      </div>
   )
 }
 
