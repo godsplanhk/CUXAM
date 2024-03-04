@@ -28,8 +28,8 @@ export function Sidebar({ className, isOpen, setIsOpen }: SidebarProps){
   isOpen = isOpen ?? isSidebarOpen;
   setIsOpen = setIsOpen ?? setIsSidebarOpen;
   return (
-    <div className={cn("pb-1 flex flex-col justify-between max-h-screen", className, {"hidden":!isOpen})}>
-      <div className="space-y-2 py-2">
+    <div className={cn("pb-1 flex flex-col justify-between w-40", className, {"hidden":!isOpen})}>
+      <div className="space-y-2 py-2 items-strectch">
         <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
             Actions
@@ -45,23 +45,19 @@ export function Sidebar({ className, isOpen, setIsOpen }: SidebarProps){
               <FaDatabase className="mr-2 h-4 w-4"/>
               Database
             </Button>
-          <h2 className="px-7 text-lg font-semibold tracking-tight">
+          <h2 className="px-7 text-lg font-semibold tracking-tight self-stretch">
             History
           </h2>
-          <ScrollArea className="h-[300px] px-1">
-            <div className="space-y-1 p-2">
-             </div>
-          </ScrollArea>
           </div>
         </div>
       </div>
-      <div className="relative border-2 rounded-lg mx-2 my-1 border-white-300"   >
-        <div className="flex justify-between m-4 object-center">
-          <RxAvatar className="h-8 w-8"/>
-          <TbSettings className="h-6 w-6 hover:shadow-md"/>
+      <div className="relative flex flex-col mt-3 mx-3 border-2 rounded-lg my-1 border-white-300"   >
+        <div className="grid grid-cols-2 justify-between object-center">
+          <RxAvatar className="h-8 w-8 m-2"/>
+          <TbSettings className="h-6 w-6 hover:shadow-md justify-self-end m-2"/>
         </div>
-        <div className="w-52 mx-2 flex justify">
-          <TypewriterEffectSmooth words={words}></TypewriterEffectSmooth>
+        <div className="mx-2 flex justify">
+          <TypewriterEffectSmooth className="m-0 w-min" words={words}></TypewriterEffectSmooth>
         </div>
       </div>
     </div>
