@@ -1,6 +1,8 @@
 "use client"
-
-import { ColumnDef } from "@tanstack/react-table"
+import { Button } from "@/components/ui/button";
+import { ColumnDef,  } from "@tanstack/react-table";
+import { ArrowUpDown, } from "lucide-react"
+import { Checkbox } from "@/components/ui/checkbox"
 export const BatchesList:{data:Batch[]} ={
     "data":[
         {
@@ -74,18 +76,54 @@ export const BatchesList:{data:Batch[]} ={
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 
-
 export const Batchcolumns: ColumnDef<Batch>[] = [
+    
   {
     accessorKey: "batchId",
-    header: "Batch",
-  },
+    header: ({ table }) => (
+      <Checkbox
+        checked={
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && "indeterminate")
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        aria-label="Select all"
+      >Id</Checkbox>
+    ),
+    cell: ({ row }) => (
+      <Checkbox
+        checked={row.getIsSelected()}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        aria-label="Select row"
+      >{row.id}</Checkbox>
+    ),
+    },
   {
     accessorKey: "branch",
-    header: "Branch",
-  },
-  {
+    header: ({ column }) => {
+        return (
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            Branch
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          </Button>
+        )
+      },
+  },{
+    accessorFn: (originalRow) => originalRow.semester.toString(),
     accessorKey: "semester",
-    header: "Semester",
+    header: ({ column }) => {
+        return (
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            Semester
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          </Button>
+        )
+      },
   }
 ]

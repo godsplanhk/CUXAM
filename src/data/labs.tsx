@@ -1,6 +1,8 @@
 import { rooms } from "@/types/rooms";
 import { ColumnDef } from "@tanstack/react-table";
-
+import { ArrowUpDown,  } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 export const labsList: { data: rooms[] } = {
   data: [
     { id: "1", labNo: "207", capacity: 36, block: "14-D2" },
@@ -36,20 +38,67 @@ export const labsList: { data: rooms[] } = {
 };
 
 export const LabsColumn: ColumnDef<rooms>[] = [
-    {
-        header: "ID",
+    {   
+      header: ({ table }) => (
+        <Checkbox
+          checked={
+            table.getIsAllPageRowsSelected() ||
+            (table.getIsSomePageRowsSelected() && "indeterminate")
+          }
+          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          aria-label="Select all"
+        >Id</Checkbox>
+      ),
+      cell: ({ row }) => (
+        <Checkbox
+          checked={row.getIsSelected()}
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label="Select row"
+        >{row.id}</Checkbox>
+      ),
         accessorKey: "id"
     },
     {
-        header: "Lab No",
+        header: ({ column }) => {
+            return (
+              <Button
+                variant="ghost"
+                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+              >
+                Lab No.
+                <ArrowUpDown className="ml-2 h-4 w-4" />
+              </Button>
+            )
+          },
         accessorKey: "labNo"
     },
     {
-        header: "Capacity",
-        accessorKey: "capacity"
+        header: ({ column }) => {
+            return (
+              <Button
+                variant="ghost"
+                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+              >
+                Capacity
+                <ArrowUpDown className="ml-2 h-4 w-4" />
+              </Button>
+            )
+          },
+        accessorKey: "capacity",
+        accessorFn: (originalRow) => originalRow.capacity.toString()
     },
     {
-        header: "Block",
+        header: ({ column }) => {
+            return (
+              <Button
+                variant="ghost"
+                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+              >
+                Block
+                <ArrowUpDown className="ml-2 h-4 w-4" />
+              </Button>
+            )
+          },
         accessorKey: "block"
     }
 ]

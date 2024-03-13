@@ -8,16 +8,19 @@ import { LabsColumn } from "@/data/labs";
 import { labsState } from "@/state/atoms/labs";
 export function Generate(){
     return (
-            <div className="grid md:grid-cols-10 gap-1 " >
-                <div className=" m-2 rounded-sm shadow-sm border p-2 h-min md:col-span-3 hover:shadow-md hover:shadow-green-500">
+            <div className="grid md:grid-cols-10 gap-1" >
+                <div className="md:col-span-3" >
+                <div className=" m-2 rounded-sm shadow-md border p-2 h-min hover:shadow-md hover:shadow-green-500">
                     <p className="text-left my-2">Choose Batch</p>
                     <DataTable columns={Batchcolumns} data={BatchesList['data']}></DataTable>
                 </div>
-            <div className=" justify-center w-auto md:col-span-3 my-2 rounded-sm shadow-sm border p-2 h-min hover:shadow-md hover:shadow-green-500">
+                {'hiiii'}
+                </div>
+            <div className=" justify-center w-auto md:col-span-3 my-2 rounded-sm shadow-md border p-2 h-min hover:shadow-md hover:shadow-green-500">
                     <p className="text-text-left my-2">Choose MST Dates</p>
                     {DatePickerSelection()}
                     </div>
-            <div className="md:col-span-4 m-2 rounded-sm shadow-sm border p-2 h-min hover:shadow-md hover:shadow-green-500 overflow-auto" >
+            <div className="md:col-span-4 m-2 rounded-sm shadow-md border p-2 h-min hover:shadow-md hover:shadow-green-500 overflow-auto" >
                 <p className="text-left my-2">Choose Rooms</p>
                 {RoomSelection()}
             </div>

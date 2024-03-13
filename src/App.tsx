@@ -36,8 +36,8 @@ function App() {
 
     {!isAuthPage && <Navbar></Navbar>}
       </div>
-    {!isAuthPage && <Sidebar className="float-left h-full justify-left border-b border-r rounded-br-lg shadow-sm"></Sidebar>}
-    <div className='flex z-10 justify-items-start' >
+    {!isAuthPage && <Sidebar className="md:w-52 float-left h-full justify-left border-b border-r rounded-br-lg shadow-sm"></Sidebar>}
+
       <div className='grow h-screen overflow-y-auto no-scrollbar'>
       <Routes>
       <Route path='/' element={Landing()}></Route>
@@ -45,7 +45,6 @@ function App() {
       <Route path='/dashboard' element={Dashboard()}></Route>
       <Route path = '/generate' element={Generate()}></Route>
       </Routes>
-      </div>
       </div>
       </div>
   )

@@ -1,9 +1,13 @@
 "use client"
-
+import React, { useState } from "react"
 import {
   ColumnDef,
   flexRender,
+  SortingState,
+  ColumnFiltersState,
+  getFilteredRowModel,
   getCoreRowModel,
+  getSortedRowModel,
   useReactTable,
   getPaginationRowModel
 } from "@tanstack/react-table"
@@ -16,8 +20,17 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+
+
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
@@ -27,15 +40,63 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
+  );
+  const [filter,setFilter] = useState<string>("");
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-  })
+    onSortingChange: setSorting,
+    getSortedRowModel: getSortedRowModel(),
+    onColumnFiltersChange: setColumnFilters,
+    getFilteredRowModel: getFilteredRowModel(),
+    state: {
+      sorting,
+      columnFilters,
+    }
+  });
 
   return (
     <div className="z-0">
+      <div className="flex items-center py-4 ">
+        <Input
+          placeholder={"Filter "+filter}
+          value={(table.getColumn(filter)?.getFilterValue() as string) ?? ""}
+          onChange={(event) =>
+            table.getColumn(filter)?.setFilterValue(event.target.value)
+          }
+          className="max-w-sm"
+        />
+         <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="ml-auto">
+              {filter?filter:"Select Filter"}
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="bg-white dark:bg-neutral-900">
+            {table
+              .getAllColumns()
+              .map((column) => {
+                return (
+                  <DropdownMenuCheckboxItem
+                    key={column.id}
+                    className="capitalize"
+                    checked={column.id ===filter}
+                    onCheckedChange={() =>
+                      setFilter(column.id)
+                    }
+                  >
+                    {column.id}
+                  </DropdownMenuCheckboxItem>
+                )
+              })}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
     <div className="rounded-md border">
       <Table>
         <TableHeader>
