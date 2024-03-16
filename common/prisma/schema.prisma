@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Batches{
+  id String @id
+  branch String
+  semester String
+  course BatchCourse[]
+}
+model Course{
+  code String @id
+  Cname String
+  batches BatchCourse[]
+  teacher ITeacher[]
+}
+model BatchCourse{
+  batch String
+  Ccode String
+  batchR Batches @relation(fields: [batch],references: [id])
+  courseR Course @relation(fields:[Ccode],references: [code])
+  @@unique([batch,Ccode])
+}
+model Teacher{
+  ECode String @id
+  Tname String
+  tags String[]
+  internal ITeacher[]
+}
+
+model ITeacher{
+  section String
+  Ccode String
+  Teacher String
+  sec Section @relation(fields: [section], references: [id])
+  course Course @relation(fields: [Ccode],references: [code])
+  teacher Teacher @relation(fields: [Teacher],references: [ECode])
+  @@unique([section,Ccode])
+}
+model Section{
+  id String @id
+  batch String
+  group String
+  capacity Int @default(36)
+  teacher ITeacher[]
+}
