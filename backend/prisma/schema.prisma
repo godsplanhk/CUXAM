@@ -6,6 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
@@ -13,37 +14,52 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Subjects {
-  Scode   String  @id
-  Sname   String
-  batches Batch[]
-  teachers Teacher[]
+model Batches{
+  id String @id
+  branch String
+  semester String
+  course BatchCourse[]
 }
-
-model Batch {
-  batchId  String     @id
-  branch   String
-  semester Int
-  Scode    Subjects[]
-  sections Section[]
+model Course{
+  code String @id
+  Cname String
+  batches BatchCourse[]
+  teacher ITeacher[]
 }
-model Teacher {
+model BatchCourse{
+  batch String
+  Ccode String
+  batchR Batches @relation(fields: [batch],references: [id])
+  courseR Course @relation(fields:[Ccode],references: [code])
+  @@unique([batch,Ccode])
+}
+model Teacher{
   ECode String @id
-  name String
-  subjectsTag Subjects[]
-}
-model Section {
-  sectionId String @id
-  batch     String
-  Batch        Batch  @relation(fields: [batchId], references: [batchId])
-  batchId String
-  Group String[]
-  ECode Json
-  StudentCount Int
+  Tname String
+  tags String[]
+  internal ITeacher[]
 }
 
-model AvailableRooms {
-  Roomid String @id
-  RoomType String
-  Capacity Int
+model ITeacher{
+  section String
+  Ccode String
+  Teacher String
+  sec Section @relation(fields: [section], references: [id])
+  course Course @relation(fields: [Ccode],references: [code])
+  teacher Teacher @relation(fields: [Teacher],references: [ECode])
+  @@unique([section,Ccode])
+}
+model Section{
+  id String @id
+  batch String
+  group String
+  capacity Int @default(36)
+  teacher ITeacher[]
+}
+
+model Rooms{
+  labNo String
+  block String
+  capacity Int
+  @@unique([labNo,block])
 }

@@ -6,7 +6,7 @@ import xlsx, { IJsonSheet,IContent } from 'json-as-xlsx';
 export interface Schedule{
     exam: ExamAtom,
     venue: VenueAtoms,
-    // external: Teacher
+    external: Teacher
 }
 export interface ExamAtom{
     Ccode: string;
@@ -15,11 +15,15 @@ export interface ExamAtom{
         id: string;
         capacity: number;
     }};
-function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:Schedule[]):VenueAtoms|null{
+
+function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:Schedule[],teacher: Teacher[]):{venue:VenueAtoms|null,external:Teacher|null}{
     const capacity =exam.sec.capacity;
     const sectionSchedule = schedule.filter(s=>s.exam.sec.id===exam.sec.id);
-    const internalTeacherSchedule = schedule.filter(s=>s.exam.Teacher===exam.Teacher);
+    const internalTeacherSchedule = schedule.filter(s=>s.exam.Teacher===exam.Teacher||s.external.ECode===exam.Teacher);
     let selectedVenue:VenueAtoms|null=null;
+    let externalTeacher: Teacher|null = null;
+    let maxCapacity = 0;
+    let preferredVenue:{venue:VenueAtoms,ind: number,external: Teacher}[]|null = [];
     let i=0;
     for(let venue of venueAtoms){
         let free = true;
@@ -30,15 +34,30 @@ function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:Sched
                 break;
             }
         }
+        externalTeacher = MostPreferredExternal(exam.Teacher,venue,teacher,schedule);
+        if(externalTeacher===null){
+            i++;
+            continue;
+        }
         if(free){
         const currentDaySchedule = sectionSchedule.filter(s=>s.venue.date.getTime()===venue.date.getTime());
         if(currentDaySchedule.length==0){
+            if(venue.capacity<exam.sec.capacity){
+                preferredVenue.push({venue:venue,ind:i,external:externalTeacher});
+                i++;
+                continue;
+            }
             selectedVenue = venue;
             venueAtoms.splice(i,1);
             break;
         }
         else if(currentDaySchedule.length<2){
             if(currentDaySchedule[0].venue.timeSlot!=venue.timeSlot){
+                if(venue.capacity<exam.sec.capacity){
+                    preferredVenue.push({venue:venue,ind:i,external:externalTeacher});
+                    i++;
+                    continue;
+                }
                 selectedVenue = venue;
                 venueAtoms.splice(i,1);
                 break;
@@ -46,7 +65,33 @@ function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:Sched
         }}
         i++;
         }
-        return selectedVenue;
+        if(selectedVenue ===null){
+            if(preferredVenue.length!==0){
+                const bestFitVenue = preferredVenue.reduce((prev,current)=>(prev && prev.venue.capacity>current.venue.capacity)?prev:current);
+                selectedVenue = bestFitVenue.venue;
+                externalTeacher = bestFitVenue.external;
+                venueAtoms.splice(bestFitVenue.ind,1);
+            }
+        }
+        return {venue:selectedVenue,external:externalTeacher};
+}
+
+function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teacher[],schedule: Schedule[]){
+    teacher.sort(()=>Math.random()-0.5);
+    for(let t of teacher){
+        if(t.ECode!==internal){
+            if(t.ECode==='E15043'){
+                console.log("ii");
+            }
+        const externalSchedule = schedule.filter(s=>s.exam.Teacher===t.ECode||s.external.ECode===t.ECode);
+        const externalTodaySchedule = externalSchedule.filter(s=>s.venue.date.getTime()==venue.date.getTime())
+        if(externalTodaySchedule.length<3){
+            if(externalTodaySchedule.filter(s=>s.venue.timeSlot===venue.timeSlot).length===0){
+                return t;
+            }
+        }}
+    }
+    return null;
 }
 export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],AvailableTeacher:Teacher[]){
     const schedule: Schedule[]=[];
@@ -65,19 +110,21 @@ export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],Availabl
                 {label:"Lab Capacity",value:"labCapacity"},
                 {label:"Date",value:"date"},
                 {label:"Slot",value:"timeSlot"},
+                {label:"External Tecaher",value:"external"}
             ],
             content:rows
         }
     ]
     VenueAtoms.sort(()=>Math.random()-0.5);
     examAtoms.forEach(exam=>{
-        let venue = MostPreferredVenue(exam,VenueAtoms,schedule)
-        if(venue ===null){
+        let venue = MostPreferredVenue(exam,VenueAtoms,schedule,AvailableTeacher)
+        if(venue.venue ===null||venue.external===null){
+            console.log(venue);
             unscheduled.push(exam);
         }
         else{
-            schedule.push({exam: exam,venue: venue});
-            rows.push({Ccode:exam.Ccode,sectionId:exam.sec.id,capacity:exam.sec.capacity,teacher:exam.Teacher,labNo:venue.labNo,block: venue.block,labCapacity: venue.capacity,date:venue.date,timeSlot:venue.timeSlot});
+            schedule.push({exam: exam,venue: venue.venue,external:venue.external});
+            rows.push({Ccode:exam.Ccode,sectionId:exam.sec.id,capacity:exam.sec.capacity,teacher:exam.Teacher,labNo:venue.venue.labNo,block: venue.venue.block,labCapacity: venue.venue.capacity,date:venue.venue.date,timeSlot:venue.venue.timeSlot,external:venue.external.ECode});
         }
     })
     let settings = {
@@ -90,7 +137,7 @@ export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],Availabl
     xlsx(scheduleSheet,settings);
     console.log("..........................");
     console.log(unscheduled);
-    console.log(VenueAtoms);
+    console.log(VenueAtoms.length);
 }
 
-Population(await getExamAtoms(await getAllSections()),getVenueAtoms(await getAllRooms(),[new Date(2024,3,18),new Date(2024,3,19),new Date(2024,3,20)]),await getAllTeachers());
+Population(await getExamAtoms(await getAllSections()),getVenueAtoms(await getAllRooms(),[new Date(2024,3,18),new Date(2024,3,19),new Date(2024,3,20),new Date(2024,3,21)]),await getAllTeachers());
