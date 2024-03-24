@@ -1,9 +1,5 @@
 import { Rooms } from "@prisma/client";
-import { getAllRooms } from "../../data/queries.js";
-export interface VenueAtoms extends Rooms {
-    date: Date
-    timeSlot: number;
-};
+import { VenueAtoms } from "../../types/algoAtoms.js";
 const slot:number[] = [1,2,3,4];
 export function getVenueAtoms(rooms: Rooms[],dates:Date[]){
     const PossibleVenueAtoms:VenueAtoms[] = [];

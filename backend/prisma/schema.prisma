@@ -25,6 +25,7 @@ model Course{
   Cname String
   batches BatchCourse[]
   teacher ITeacher[]
+  schedule Schedule[]
 }
 model BatchCourse{
   batch String
@@ -38,6 +39,7 @@ model Teacher{
   Tname String
   tags String[]
   internal ITeacher[]
+  exam Schedule[]
 }
 
 model ITeacher{
@@ -47,6 +49,7 @@ model ITeacher{
   sec Section @relation(fields: [section], references: [id])
   course Course @relation(fields: [Ccode],references: [code])
   teacher Teacher @relation(fields: [Teacher],references: [ECode])
+  exam Schedule[]
   @@unique([section,Ccode])
 }
 model Section{
@@ -55,11 +58,31 @@ model Section{
   group String
   capacity Int @default(36)
   teacher ITeacher[]
+  exam Schedule[]
 }
 
 model Rooms{
   labNo String
   block String
   capacity Int
+  exams Schedule[]
   @@unique([labNo,block])
+}
+
+model Schedule{
+  created DateTime @default(now())
+  Ccode String
+  sectionId String
+  capacity Int
+  labNo String
+  block String
+  date DateTime
+  timeSlot Int
+  external String
+  course Course @relation(fields: [Ccode],references: [code])
+  section Section @relation(fields: [sectionId],references: [id])
+  iTeacher ITeacher @relation(fields: [sectionId,Ccode],references: [section,Ccode])
+  externalR Teacher @relation(fields: [external], references: [ECode])
+  lab Rooms @relation(fields: [labNo,block], references: [labNo,block])
+  @@unique([sectionId,Ccode])
 }

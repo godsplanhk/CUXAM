@@ -1,22 +1,13 @@
 import { Teacher } from '@prisma/client';
-import { VenueAtoms, getVenueAtoms } from './utils/venueAtoms.js';
+import { getVenueAtoms } from './utils/venueAtoms.js';
 import { getAllRooms, getAllSections, getAllTeachers, getExamAtoms } from '../data/queries.js';
 import xlsx, { IJsonSheet,IContent } from 'json-as-xlsx';
+import { ExamAtom, lSchedule, VenueAtoms } from '../types/algoAtoms.js';
+import { fitnessCheckConsecutiveExam } from './fitness.js';
 
-export interface Schedule{
-    exam: ExamAtom,
-    venue: VenueAtoms,
-    external: Teacher
-}
-export interface ExamAtom{
-    Ccode: string;
-    Teacher: string;
-    sec: {
-        id: string;
-        capacity: number;
-    }};
 
-function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:Schedule[],teacher: Teacher[]):{venue:VenueAtoms|null,external:Teacher|null}{
+
+function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:lSchedule[],teacher: Teacher[]):{venue:VenueAtoms|null,external:Teacher|null}{
     const capacity =exam.sec.capacity;
     const sectionSchedule = schedule.filter(s=>s.exam.sec.id===exam.sec.id);
     const internalTeacherSchedule = schedule.filter(s=>s.exam.Teacher===exam.Teacher||s.external.ECode===exam.Teacher);
@@ -76,7 +67,7 @@ function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:Sched
         return {venue:selectedVenue,external:externalTeacher};
 }
 
-function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teacher[],schedule: Schedule[]){
+function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teacher[],schedule: lSchedule[]){
     teacher.sort(()=>Math.random()-0.5);
     for(let t of teacher){
         if(t.ECode!==internal){
@@ -93,8 +84,8 @@ function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teache
     }
     return null;
 }
-export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],AvailableTeacher:Teacher[]){
-    const schedule: Schedule[]=[];
+export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],AvailableTeacher:Teacher[]):lSchedule[]{
+    const schedule: lSchedule[]=[];
     const unscheduled:ExamAtom[] = [];
     const rows:IContent[]=[];
     const scheduleSheet:IJsonSheet[] = [
@@ -110,7 +101,7 @@ export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],Availabl
                 {label:"Lab Capacity",value:"labCapacity"},
                 {label:"Date",value:"date"},
                 {label:"Slot",value:"timeSlot"},
-                {label:"External Tecaher",value:"external"}
+                {label:"External Teacher",value:"external"}
             ],
             content:rows
         }
@@ -134,10 +125,15 @@ export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],Availabl
         writeOptions: {}, // Style options from https://docs.sheetjs.com/docs/api/write-options
         // RTL: true, // Display the columns from right-to-left (the default value is false)
       };
+    console.log(schedule.length,rows.length)
     xlsx(scheduleSheet,settings);
     console.log("..........................");
     console.log(unscheduled);
     console.log(VenueAtoms.length);
+    return schedule;
 }
 
-Population(await getExamAtoms(await getAllSections()),getVenueAtoms(await getAllRooms(),[new Date(2024,3,18),new Date(2024,3,19),new Date(2024,3,20),new Date(2024,3,21)]),await getAllTeachers());
+const testSchedule = await Population(await getExamAtoms(await getAllSections()),await getVenueAtoms(await getAllRooms(),[new Date(2024,3,24),new Date(2024,3,25),new Date(2024,3,26),new Date(2024,3,27),new Date(2024,3,28)]),await getAllTeachers())
+const obj = {data: testSchedule};
+const json = JSON.stringify(obj);
+await Bun.write("schedule.json",json)
