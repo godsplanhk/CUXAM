@@ -73,6 +73,7 @@ model Schedule{
   created DateTime @default(now())
   Ccode String
   sectionId String
+  internal String
   capacity Int
   labNo String
   block String
