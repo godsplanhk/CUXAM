@@ -11,4 +11,4 @@ RUN bun install --frozen-lockfile
 # If only files in the src folder changed, this is the only step that gets executed!
 COPY src ./src 
 
-CMD ["bun", "index.ts"]
+CMD ["bun", "src/index.ts"]
