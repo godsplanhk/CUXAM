@@ -1,9 +1,7 @@
 import express from "express";
-
+import dataRouter from '../routes/data/data.js'
 const router = express.Router();
-router.post('/login',(req,res)=>{
-    res.send("hiii");
-})
+router.use('/data',dataRouter);
 export default router;
 
 

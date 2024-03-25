@@ -6,7 +6,6 @@ import { ExamAtom, lSchedule, VenueAtoms } from '../types/algoAtoms.js';
 import { fitnessCheckConsecutiveExam } from './fitness.js';
 
 
-
 function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:lSchedule[],teacher: Teacher[]):{venue:VenueAtoms|null,external:Teacher|null}{
     const capacity =exam.sec.capacity;
     const sectionSchedule = schedule.filter(s=>s.exam.sec.id===exam.sec.id);
@@ -71,9 +70,6 @@ function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teache
     teacher.sort(()=>Math.random()-0.5);
     for(let t of teacher){
         if(t.ECode!==internal){
-            if(t.ECode==='E15043'){
-                console.log("ii");
-            }
         const externalSchedule = schedule.filter(s=>s.exam.Teacher===t.ECode||s.external.ECode===t.ECode);
         const externalTodaySchedule = externalSchedule.filter(s=>s.venue.date.getTime()==venue.date.getTime())
         if(externalTodaySchedule.length<3){
@@ -84,7 +80,7 @@ function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teache
     }
     return null;
 }
-export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],AvailableTeacher:Teacher[]):lSchedule[]{
+export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],AvailableTeacher:Teacher[]):{schedule:lSchedule[],unscheduled:ExamAtom[]}{
     const schedule: lSchedule[]=[];
     const unscheduled:ExamAtom[] = [];
     const rows:IContent[]=[];
@@ -125,15 +121,13 @@ export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],Availabl
         writeOptions: {}, // Style options from https://docs.sheetjs.com/docs/api/write-options
         // RTL: true, // Display the columns from right-to-left (the default value is false)
       };
-    console.log(schedule.length,rows.length)
     xlsx(scheduleSheet,settings);
     console.log("..........................");
     console.log(unscheduled);
-    console.log(VenueAtoms.length);
-    return schedule;
-}
+    return {schedule: schedule,unscheduled:unscheduled};}
+// }
 
-const testSchedule = await Population(await getExamAtoms(await getAllSections()),await getVenueAtoms(await getAllRooms(),[new Date(2024,3,24),new Date(2024,3,25),new Date(2024,3,26),new Date(2024,3,27),new Date(2024,3,28)]),await getAllTeachers())
-const obj = {data: testSchedule};
-const json = JSON.stringify(obj);
-await Bun.write("schedule.json",json)
+// const testSchedule = await Population(await getExamAtoms(await getAllSections()),await getVenueAtoms(await getAllRooms(),[new Date(2024,3,24),new Date(2024,3,25),new Date(2024,3,26),new Date(2024,3,27),new Date(2024,3,28)]),await getAllTeachers())
+// const obj = {data: testSchedule};
+// const json = JSON.stringify(obj);
+// await Bun.write("schedule.json",json)

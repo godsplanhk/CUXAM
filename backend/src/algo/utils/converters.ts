@@ -1,4 +1,4 @@
-import { Schedule } from "@prisma/client";
+import { Rooms, Schedule, Teacher, ITeacher } from '@prisma/client';
 import { prisma } from "../../data/client.js";
 import { lSchedule } from "../../types/algoAtoms.js";
 
@@ -17,8 +17,16 @@ export function convertlScheduleToDBSchedule(e: lSchedule):Schedule {
         )
   }
 //TODO dbSch to lSchedule
-// export  function convertDBScheduleTolSchedule(e: Schedule):lSchedule{
-//     return {
-//         exam: {Ccode:e.Ccode,Teacher: e.}
-//     }
-// }
+export interface ScheduleQuery extends Schedule{
+    lab: Rooms
+    externalR: Teacher
+    iTeacher: Teacher
+}
+export async function convertDBScheduleTolSchedule(e: ScheduleQuery):Promise<lSchedule>{
+
+    return {
+        exam: {Ccode:e.Ccode,Teacher: e.iTeacher.ECode,sec:{id:e.sectionId,capacity:e.capacity}},
+        venue: {labNo:e.labNo,block:e.block,capacity:e.lab.capacity,date: e.date, timeSlot:e.timeSlot},
+        external:e.externalR
+    }
+}
