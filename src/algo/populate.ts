@@ -1,7 +1,8 @@
 import { Teacher } from '@prisma/client';
 import { getVenueAtoms } from './utils/venueAtoms.js';
 import { getAllRooms, getAllSections, getAllTeachers, getExamAtoms } from '../data/queries.js';
-import xlsx, { IJsonSheet,IContent } from 'json-as-xlsx';
+import { IJsonSheet,IContent } from 'json-as-xlsx';
+import {xlsx} from 'json-as-xlsx';
 import { ExamAtom, lSchedule, VenueAtoms } from '../types/algoAtoms.js';
 import { fitnessCheckConsecutiveExam } from './fitness.js';
 
