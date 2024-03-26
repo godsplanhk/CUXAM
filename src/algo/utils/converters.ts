@@ -5,6 +5,7 @@ import { lSchedule } from "../../types/algoAtoms.js";
 export function convertlScheduleToDBSchedule(e: lSchedule):Schedule {
     return (
         {created: new Date(),
+            internal: e.exam.Teacher,
             Ccode: e.exam.Ccode,
             sectionId: e.exam.sec.id,
             capacity: e.exam.sec.capacity,
