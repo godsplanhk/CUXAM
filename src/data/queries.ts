@@ -27,8 +27,18 @@ export async function getAllRooms() {
     return await prisma.rooms.findMany();
 }
 
-export async function getAllSections(){
-    return await prisma.section.findMany();
+export async function getAllSections(batches?:string[]){
+    if(batches==undefined){
+    return await prisma.section.findMany();}
+    else{
+        return await prisma.section.findMany({
+            where: {
+                batch:{
+                    in: batches
+                }
+            }
+        })
+    }
 }
 
 export async function getAllTeachers(){

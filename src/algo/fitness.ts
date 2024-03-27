@@ -1,8 +1,6 @@
 import { Schedule, Section } from "@prisma/client";
 import { lSchedule } from "../types/algoAtoms.js";
 import { getAllSections } from "../data/queries.js";
-const testSchedule:lSchedule[] = (JSON.parse(await Bun.file("/home/hk/Project/cuxam_algorithm/backend/src/algo/schedule.json").text())['data']) as lSchedule[];
-testSchedule.forEach(e=>e.venue.date= new Date(e.venue.date));
 export function fitnessCheckConsecutiveExam(section: Section[],schedule:lSchedule[],dates:Date[]){
     const fitness:number[] = [];
     for(let s of section){

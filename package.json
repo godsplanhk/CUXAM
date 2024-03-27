@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "tsc -b",
-    "dev": "node src/index.ts",
+    "dev": "bun src/index.ts",
     "production": "node dist/index.js"
   }
 }

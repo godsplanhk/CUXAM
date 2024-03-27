@@ -1,7 +1,7 @@
 import express from "express";
 import { prisma } from '../../../data/client.js';
 import { getExamAtoms } from "../../../data/queries.js";
-import { Section } from "@prisma/client";
+import { Section, Batches } from '@prisma/client';
 
 const router = express.Router();
 router.get('/batches',async (req,res)=>{
@@ -13,7 +13,19 @@ router.get('/rooms',async (req,res)=>{
 })
 
 router.get('/sections',async (req,res)=>{
-    res.send(await prisma.section.findMany());
+    if(req.body==undefined){
+        res.send(await prisma.section.findMany());
+    }
+    else{
+        const batches = req.body;
+        res.send(await prisma.section.findMany({
+            where:{
+                batch:{
+                    in: batches
+                }
+            }
+        }))
+    }
 })
 
 router.get('/teachers',async(req,res)=>{
@@ -33,12 +45,4 @@ router.get('/teachers',async(req,res)=>{
         }
     }));
 })
-router.post('/generate',async (req,res)=>{
-    const body = (req.body);
-    const section = body.section; 
-    console.log(section);
-    res.send(await getExamAtoms(section));
-})
-
-router
 export default router;

@@ -1,10 +1,6 @@
 import { Teacher } from '@prisma/client';
-import { getVenueAtoms } from './utils/venueAtoms.js';
-import { getAllRooms, getAllSections, getAllTeachers, getExamAtoms } from '../data/queries.js';
-import { IJsonSheet,IContent } from 'json-as-xlsx';
-import {xlsx} from 'json-as-xlsx';
+
 import { ExamAtom, lSchedule, VenueAtoms } from '../types/algoAtoms.js';
-import { fitnessCheckConsecutiveExam } from './fitness.js';
 
 
 function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:lSchedule[],teacher: Teacher[]):{venue:VenueAtoms|null,external:Teacher|null}{
@@ -84,25 +80,6 @@ function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teache
 export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],AvailableTeacher:Teacher[]):{schedule:lSchedule[],unscheduled:ExamAtom[]}{
     const schedule: lSchedule[]=[];
     const unscheduled:ExamAtom[] = [];
-    const rows:IContent[]=[];
-    const scheduleSheet:IJsonSheet[] = [
-        {
-            sheet: "combined",
-            columns:[
-                {label:"Course Code",value:"Ccode"},
-                {label:"Section",value:"sectionId"},
-                {label:"Capacity",value:"capacity"},
-                {label:"Internal Teacher",value:"teacher"},
-                {label:"Lab No.",value:"labNo"},
-                {label:"Block",value:"block"},
-                {label:"Lab Capacity",value:"labCapacity"},
-                {label:"Date",value:"date"},
-                {label:"Slot",value:"timeSlot"},
-                {label:"External Teacher",value:"external"}
-            ],
-            content:rows
-        }
-    ]
     VenueAtoms.sort(()=>Math.random()-0.5);
     examAtoms.forEach(exam=>{
         let venue = MostPreferredVenue(exam,VenueAtoms,schedule,AvailableTeacher)
@@ -112,23 +89,7 @@ export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],Availabl
         }
         else{
             schedule.push({exam: exam,venue: venue.venue,external:venue.external});
-            rows.push({Ccode:exam.Ccode,sectionId:exam.sec.id,capacity:exam.sec.capacity,teacher:exam.Teacher,labNo:venue.venue.labNo,block: venue.venue.block,labCapacity: venue.venue.capacity,date:venue.venue.date,timeSlot:venue.venue.timeSlot,external:venue.external.ECode});
-        }
+                }
     })
-    let settings = {
-        fileName: "MySpreadsheet", // Name of the resulting spreadsheet
-        extraLength: 4, // A bigger number means that columns will be wider
-        writeMode: "writeFile", // The available parameters are 'WriteFile' and 'write'. This setting is optional. Useful in such cases https://docs.sheetjs.com/docs/solutions/output#example-remote-file
-        writeOptions: {}, // Style options from https://docs.sheetjs.com/docs/api/write-options
-        // RTL: true, // Display the columns from right-to-left (the default value is false)
-      };
-    xlsx(scheduleSheet,settings);
-    console.log("..........................");
-    console.log(unscheduled);
     return {schedule: schedule,unscheduled:unscheduled};}
 // }
-
-// const testSchedule = await Population(await getExamAtoms(await getAllSections()),await getVenueAtoms(await getAllRooms(),[new Date(2024,3,24),new Date(2024,3,25),new Date(2024,3,26),new Date(2024,3,27),new Date(2024,3,28)]),await getAllTeachers())
-// const obj = {data: testSchedule};
-// const json = JSON.stringify(obj);
-// await Bun.write("schedule.json",json)
