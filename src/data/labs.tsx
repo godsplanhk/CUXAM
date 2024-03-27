@@ -40,48 +40,40 @@ export const labsList: { data: rooms[] } = {
 export const LabsColumn: ColumnDef<rooms>[] = [
     {   
       header: ({ table }) => (
+        <div className="flex gap-4 justify-start">
         <Checkbox
           checked={
-            table.getIsAllPageRowsSelected() ||
-            (table.getIsSomePageRowsSelected() && "indeterminate")
+            table.getIsAllRowsSelected() ||
+            (table.getIsSomeRowsSelected() && "indeterminate")
           }
-          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          onCheckedChange={(value) => table.toggleAllRowsSelected(!!value)}
           aria-label="Select all"
-        >Id</Checkbox>
+          ></Checkbox>
+          LabNo
+          </div>
       ),
       cell: ({ row }) => (
+        <div className="flex gap-4 w-full justify-start">
         <Checkbox
           checked={row.getIsSelected()}
           onCheckedChange={(value) => row.toggleSelected(!!value)}
           aria-label="Select row"
-        >{row.id}</Checkbox>
+          >{row.id}</Checkbox>{row.getValue('labNo')}
+          </div>
       ),
-        accessorKey: "id"
-    },
-    {
-        header: ({ column }) => {
-            return (
-              <Button
-                variant="ghost"
-                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-              >
-                Lab No.
-                <ArrowUpDown className="ml-2 h-4 w-4" />
-              </Button>
-            )
-          },
         accessorKey: "labNo"
     },
     {
         header: ({ column }) => {
             return (
+              <div className="w-full flex justify-center">
               <Button
                 variant="ghost"
                 onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
               >
                 Capacity
                 <ArrowUpDown className="ml-2 h-4 w-4" />
-              </Button>
+              </Button></div>
             )
           },
         accessorKey: "capacity",
@@ -90,13 +82,14 @@ export const LabsColumn: ColumnDef<rooms>[] = [
     {
         header: ({ column }) => {
             return (
+              <div className="w-full flex justify-center">
               <Button
                 variant="ghost"
                 onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
               >
                 Block
                 <ArrowUpDown className="ml-2 h-4 w-4" />
-              </Button>
+              </Button></div>
             )
           },
         accessorKey: "block"

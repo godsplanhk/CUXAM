@@ -1,9 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { addDays, format } from "date-fns"
+import {  format } from "date-fns"
 import { Calendar as CalendarIcon } from "lucide-react"
-import { DateRange } from "react-day-picker"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import { cn } from '../../lib/utils';
@@ -19,7 +18,6 @@ interface DatePickerWithRangeProps extends React.HTMLAttributes<HTMLDivElement>{
 export function DatePickerWithRange({
   className,days,setDays
 }: DatePickerWithRangeProps) {
-  console.log(days);
   const footer =
   days && days.length > 0 ? (
     <p>You selected {days.length} day(s).</p>
@@ -55,7 +53,7 @@ export function DatePickerWithRange({
             </>
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-auto p-0" align="start">
+        <PopoverContent className="w-auto p-0 bg-white dark:bg-neutral-900" align="start">
           <Calendar
             initialFocus
             mode="multiple"
@@ -64,6 +62,7 @@ export function DatePickerWithRange({
             onSelect={(days)=>{
               days?.sort((a,b)=>a.getTime()-b.getTime());
               setDays(days);
+
             }}
             footer={footer}
           />

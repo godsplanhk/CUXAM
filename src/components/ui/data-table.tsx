@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import {
   ColumnDef,
   flexRender,
@@ -9,7 +9,8 @@ import {
   getCoreRowModel,
   getSortedRowModel,
   useReactTable,
-  getPaginationRowModel
+  getPaginationRowModel,
+  // RowModel
 } from "@tanstack/react-table"
 
 import {
@@ -31,20 +32,21 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
 
-interface DataTableProps<TData, TValue> {
+export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+  setSelectedRows: React.Dispatch<React.SetStateAction<TData>[]>
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  setSelectedRows
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  );
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [filter,setFilter] = useState<string>("");
+  const [rowSelection, setRowSelection] = React.useState({})
   const table = useReactTable({
     data,
     columns,
@@ -54,22 +56,29 @@ export function DataTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
+    onRowSelectionChange: setRowSelection,
     state: {
       sorting,
       columnFilters,
+      rowSelection
     }
   });
-
+  useEffect(()=>{
+    setFilter(table.getAllColumns()[0].id)
+  },[table])
   return (
     <div className="z-0">
-      <div className="flex items-center py-4 ">
+      <div className="flex items-center py-4 gap-4">
         <Input
           placeholder={"Filter "+filter}
           value={(table.getColumn(filter)?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn(filter)?.setFilterValue(event.target.value)
+            {
+              table.getColumn(filter)?.setFilterValue(event.target.value);
+              table.getSelectedRowModel
+            }
           }
-          className="max-w-sm"
+          className="grow"
         />
          <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -157,6 +166,15 @@ export function DataTable<TData, TValue>({
           disabled={!table.getCanNextPage()}
         >
           Next
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={()=>{
+            setSelectedRows(table.getSelectedRowModel().rows.map(e=>e.original))
+          }}
+        >
+          Confirm
         </Button>
       </div>
     </div>

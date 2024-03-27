@@ -1,6 +1,5 @@
 
 import './App.css'
-import { useState } from 'react';
 import { Dashboard } from './Pages/Dashboard';
 import { Landing } from './Pages/Landing';
 import { useLocation} from 'react-router-dom';
@@ -13,8 +12,7 @@ import { ModeToggle } from './components/mode-toggle';
 import { Sidebar } from './components/ui/sidebar';
 import { Generate } from './Pages/Generate';
 
-import{RecoilRoot, useRecoilState} from 'recoil';
-import { isSidebarOpenState } from './state/atoms/sidebar';
+import{RecoilRoot} from 'recoil';
 import { Navbar } from './components/ui/navbar';
 function AppWrapper() {
   return (
