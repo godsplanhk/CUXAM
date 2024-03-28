@@ -12,6 +12,7 @@ app.use('/api/v1',ControllerRouter);
 app.use((err:Error, req:Request, res:Response, next:NextFunction) => {
     console.error(err.stack)
     res.status(500).send('Something broke!')
+    return;
   })
 app.listen(PORT,()=>{
     console.log("App listening on port", PORT);
