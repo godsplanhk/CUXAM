@@ -68,9 +68,9 @@ export function DataTable<TData, TValue>({
   useEffect(function (){confirmed.current=false;},[rowSelection])
   return (
     <div className="z-0">
-      <div className="flex items-center py-4 gap-4">
+      <div className="flex items-center py-4 gap-1">
         <div>Total: {table.getFilteredRowModel().rows.length}</div>
-        <div className='flex gap-4 justify-center grow'>
+        <div className='flex gap-1 justify-center grow'>
         <Input
           placeholder={"Filter "+filter}
           value={(table.getColumn(filter)?.getFilterValue() as string)}
