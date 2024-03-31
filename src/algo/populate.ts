@@ -6,7 +6,7 @@ import { ExamAtom, lSchedule, VenueAtoms } from '../types/algoAtoms.js';
 function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:lSchedule[],teacher: Teacher[]):{venue:VenueAtoms|null,external:Teacher|null}{
     const capacity =exam.sec.capacity;
     const sectionSchedule = schedule.filter(s=>s.exam.sec.id===exam.sec.id);
-    const internalTeacherSchedule = schedule.filter(s=>s.exam.Teacher===exam.Teacher||s.external.ECode===exam.Teacher);
+    const internalTeacherSchedule = schedule.filter(s=>s.exam.teacher.ECode===exam.teacher.ECode||s.external.ECode===exam.teacher.ECode);
     let selectedVenue:VenueAtoms|null=null;
     let externalTeacher: Teacher|null = null;
     let maxCapacity = 0;
@@ -21,7 +21,7 @@ function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:lSche
                 break;
             }
         }
-        externalTeacher = MostPreferredExternal(exam.Teacher,venue,teacher,schedule);
+        externalTeacher = MostPreferredExternal(exam.teacher.ECode,venue,teacher,schedule);
         if(externalTeacher===null){
             i++;
             continue;
@@ -67,7 +67,7 @@ function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teache
     teacher.sort(()=>Math.random()-0.5);
     for(let t of teacher){
         if(t.ECode!==internal){
-        const externalSchedule = schedule.filter(s=>s.exam.Teacher===t.ECode||s.external.ECode===t.ECode);
+        const externalSchedule = schedule.filter(s=>s.exam.teacher.ECode===t.ECode||s.external.ECode===t.ECode);
         const externalTodaySchedule = externalSchedule.filter(s=>s.venue.date.getTime()==venue.date.getTime())
         if(externalTodaySchedule.length<3){
             if(externalTodaySchedule.filter(s=>s.venue.timeSlot===venue.timeSlot).length===0){
@@ -80,7 +80,8 @@ function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teache
 export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],AvailableTeacher:Teacher[]):{schedule:lSchedule[],unscheduled:ExamAtom[]}{
     const schedule: lSchedule[]=[];
     const unscheduled:ExamAtom[] = [];
-    VenueAtoms.sort(()=>Math.random()-0.5);
+    VenueAtoms.sort((a,b)=>a.capacity-b.capacity);
+    examAtoms.sort(()=>Math.random()-0.5);
     examAtoms.forEach(exam=>{
         let venue = MostPreferredVenue(exam,VenueAtoms,schedule,AvailableTeacher)
         if(venue.venue ===null||venue.external===null){

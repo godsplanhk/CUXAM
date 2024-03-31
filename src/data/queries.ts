@@ -9,10 +9,27 @@ export async function getExamAtoms(sections: Section[]){
                 select:{
                     id:true,
                     capacity:true,
+                    batchR:{
+                        select:{
+                            BEME: true,
+                            branch: true,
+                            semester: true,
+                        }
+                    }
                 }
             },
-            Ccode:true,
-            Teacher:true
+            course:{
+                select: {
+                    code: true,
+                    Cname: true,
+                }
+            },
+            teacher:{
+                select:{
+                    ECode: true,
+                    Tname: true
+                }
+            }
         },
             where:{
                 section:{

@@ -14,12 +14,24 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+model Degree{
+  id String @id
+  // Batches Batches[]
+}
+
+model Branch{
+  id String @id
+}
+
 
 model Batches{
   id String @id
   branch String
   semester String
+  BEME String @default("BE")
+  // Degree Degree @relation(fields: [BEME],references: [id]) 
   course BatchCourse[]
+  section Section[]
 }
 model Course{
   code String @id
@@ -60,6 +72,7 @@ model Section{
   capacity Int @default(36)
   teacher ITeacher[]
   exam Schedule[]
+  batchR Batches @relation(fields: [batch],references: [id])
 }
 
 model Rooms{

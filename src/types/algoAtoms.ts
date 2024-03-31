@@ -6,12 +6,23 @@ export interface lSchedule{
     external: Teacher
 }
 export interface ExamAtom{
-    Ccode: string;
-    Teacher: string;
-    sec: {
+    teacher: {
+        ECode: string;
+        Tname: string;
+    };
+        sec: {
         id: string;
         capacity: number;
-    }};
+        batchR: {
+            branch: string;
+            semester: string;
+            BEME: string;
+        };
+    };
+    course: {
+        code: string;
+        Cname: string;
+    }}
     export interface VenueAtoms extends Rooms {
         date: Date
         timeSlot: number;

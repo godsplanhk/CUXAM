@@ -1,7 +1,5 @@
 import express from 'express';
-import { getExamAtoms } from '../../../data/queries.js';
 import { Generate } from '../../../algo/generate.js';
-import cors from 'cors';
 const router = express.Router();
 
 router.post('/getSchedule',async (req,res)=>{

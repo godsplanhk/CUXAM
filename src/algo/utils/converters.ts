@@ -17,7 +17,6 @@ export function convertlScheduleToDBSchedule(e: lSchedule):Schedule {
         }
         )
   }
-//TODO dbSch to lSchedule
 export interface ScheduleQuery extends Schedule{
     lab: Rooms
     externalR: Teacher
