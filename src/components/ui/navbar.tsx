@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Turn as Hamburger } from "hamburger-react";
 import { cn } from "../../lib/utils";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { isSidebarOpenState } from "@/state/atoms/sidebar";
 import { Button } from "./button";
 import { LogOut } from "lucide-react";
@@ -9,15 +9,26 @@ import { selectedBatchState } from "@/state/atoms/batch";
 import { datesState } from "@/state/atoms/dateRange";
 import { selectedTeacherState } from "@/state/atoms/teachers";
 import { selectedLabsState } from "@/state/atoms/labs";
-import axios from "axios";
+import api from "../../utils/axiosInstance.js";
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver'
 import { useLocation } from "react-router-dom";
 import { GenerateNavbarState } from "@/state/atoms/navbar";
+import { lSchedule,ExamAtom } from '../../types/algoAtoms';
+import LoadingBar from 'react-top-loading-bar';
 interface NavbarProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   className?: string;
 }
+
+const timeSlotDict: Record<number,{startTime:string,endTime:string}>={
+  1: {startTime: "09:30", endTime:"11:00"},
+  2: {startTime: "11:15", endTime:"12:45"},
+  3: {startTime: "01:15", endTime:"02:45"},
+  4: {startTime: "03:00", endTime:"04:30"},
+}
+
+
 export function Navbar({ className, children, ...props }: NavbarProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useRecoilState(isSidebarOpenState);
   const location = useLocation();
@@ -34,7 +45,7 @@ export function Navbar({ className, children, ...props }: NavbarProps) {
       ></Hamburger>
         {isGeneratePage && <GenerateNavBar></GenerateNavBar>}
       <Button variant="outline" size="sm" className="mr-20">
-        <LogOut color="white" />
+        <LogOut/>
       </Button>
       {children}
     </div>
@@ -49,18 +60,22 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
   const sTeacher = useRecoilValue(selectedTeacherState);
   const sLabs = useRecoilValue(selectedLabsState);
   const [NavInfo,setNavInfo] = useRecoilState(GenerateNavbarState);
+  const [progress,setProgress]=useState(0);
   return (
     <div
       className={cn("flex justify-between items-center h-16", className)}
       {...props}
     >
+      <LoadingBar color={"#FF0000"} progress={progress} onLoaderFinished={()=>setProgress(0)}></LoadingBar>
       <Button
         className="mr-2"
         variant="outline"
         size="sm"
-        onClick={async () => {
-          const dateSheet = await axios.post(
-            "https://cuxam.azurewebsites.net/api/v1/algo/getSchedule",
+        onClick={
+          async () => {
+            setProgress(50);
+          const dateSheet = await api.post(
+            "algo/getSchedule",
             {
               batches: sBatches,
               dates: sDates,
@@ -69,17 +84,50 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
             },
             { headers: { "Content-Type": "application/json" ,'Access-Control-Allow-Origin': '*' } }
           );
-          const excelData = dateSheet.data.schedule.map((exam: { exam: { Ccode: string; sec: { id: string; capacity: string; }; Teacher: string; }; venue: { labNo: string; block: string; capacity: string; date: string; timeSlot: string; }; external: { ECode: string; }; })=>{return {Ccode:exam.exam.Ccode,sectionId:exam.exam.sec.id,capacity:exam.exam.sec.capacity,teacher:exam.exam.Teacher,labNo:exam.venue.labNo,block: exam.venue.block,labCapacity: exam.venue.capacity,date:exam.venue.date.split('T')[0],timeSlot:exam.venue.timeSlot,external:exam.external.ECode}})
-          const worksheet = XLSX.utils.json_to_sheet(excelData);
+          setProgress(50);
+          const excelData = dateSheet.data.schedule.map((s: lSchedule)=> {
+            setProgress(progress+5/dateSheet.data.schedule.length);
+            return {
+              "Date": s.venue.date.split('T')[0],
+              "Start Time": timeSlotDict[s.venue.timeSlot].startTime,
+              "End Time": timeSlotDict[s.venue.timeSlot].endTime,
+              "Course": s.exam.sec.batchR.BEME,
+              "Branch": s.exam.sec.batchR.branch,
+              "Semester": s.exam.sec.batchR.semester,
+              "Subject Name": s.exam.course.Cname,
+              "Subject Code": s.exam.course.code,
+              "Class With Section": s.exam.sec.id.split('/')[0],
+              "Group": s.exam.sec.id.split('/')[1],
+              "Total Students": s.exam.sec.capacity,
+              "Block":s.venue.block,
+              "Lab No.": s.venue.labNo,
+              "Internal Examiner": s.exam.teacher.Tname,
+              "Internal ECode ": s.exam.teacher.ECode,
+              "External Examiner": s.external.Tname,
+              "External ECode": s.external.ECode
+          }
+          });
+          const unscheduleExceldata = dateSheet.data.unschedule.map((e:ExamAtom)=>{
+            setProgress(progress+5/dateSheet.data.unschedule.length)
+            return{
+              "Section":e.sec.id,
+              "Subject": e.course.Cname,
+              "Subject Code":e.course.code,
+              "Teacher":e.teacher.Tname,
+              "ECode":e.teacher.ECode,
+
+            }
+          })
+          const scheduleWorksheet = XLSX.utils.json_to_sheet(excelData);
         const workbook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+        XLSX.utils.book_append_sheet(workbook, scheduleWorksheet, "combined");
+        XLSX.utils.book_append_sheet(workbook, unscheduleExceldata, "Unschedule");
         setNavInfo({scheduled: dateSheet.data.schedule.length,unscheduled: dateSheet.data.unschedule.length,fitness: dateSheet.data.fitness});
         // Buffer to store the generated Excel file
         const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
         const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
-
+        setProgress(100);
         saveAs(blob, "data.xlsx");
-        console.log(NavInfo);
         }}
       >
         Generate

@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import {
   ColumnDef,
   flexRender,
@@ -30,12 +30,13 @@ import {
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { cn } from "@/utils/cn";
 
 
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
-  setSelectedRows: React.Dispatch<React.SetStateAction<TData>[]>
+  setSelectedRows: React.Dispatch<React.SetStateAction<[]>>
 }
 
 export function DataTable<TData, TValue>({
@@ -45,7 +46,6 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
-  const [filter,setFilter] = useState<string>("");
   const [rowSelection, setRowSelection] = React.useState({})
   const table = useReactTable({
     data,
@@ -63,26 +63,29 @@ export function DataTable<TData, TValue>({
       rowSelection
     }
   });
-  useEffect(()=>{
-    setFilter(table.getAllColumns()[0].id)
-  },[table])
+  const confirmed= useRef<boolean>(true);
+  const [filter,setFilter] = useState<string>(table.getAllColumns()[0].id);
+  useEffect(function (){confirmed.current=false;},[rowSelection])
   return (
     <div className="z-0">
       <div className="flex items-center py-4 gap-4">
+        <div>Total: {table.getFilteredRowModel().rows.length}</div>
+        <div className='flex gap-4 justify-center grow'>
         <Input
           placeholder={"Filter "+filter}
-          value={(table.getColumn(filter)?.getFilterValue() as string) ?? ""}
+          value={(table.getColumn(filter)?.getFilterValue() as string)}
           onChange={(event) =>
             {
               table.getColumn(filter)?.setFilterValue(event.target.value);
               table.getSelectedRowModel
             }
           }
-          className="grow"
+          className="w-auto"
         />
+
          <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
+            <Button variant="outline" className="ml-4">
               {filter?filter:"Select Filter"}
             </Button>
           </DropdownMenuTrigger>
@@ -92,12 +95,12 @@ export function DataTable<TData, TValue>({
               .map((column) => {
                 return (
                   <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.id ===filter}
-                    onCheckedChange={() =>
-                      setFilter(column.id)
-                    }
+                  key={column.id}
+                  className="capitalize"
+                  checked={column.id ===filter}
+                  onCheckedChange={() =>
+                    setFilter(column.id)
+                  }
                   >
                     {column.id}
                   </DropdownMenuCheckboxItem>
@@ -105,6 +108,7 @@ export function DataTable<TData, TValue>({
               })}
           </DropdownMenuContent>
         </DropdownMenu>
+              </div>
       </div>
     <div className="rounded-md border">
       <Table>
@@ -150,13 +154,15 @@ export function DataTable<TData, TValue>({
         </TableBody>
       </Table>
     </div>
-    <div className="flex items-center justify-end space-x-2 py-4">
+    <div className="md:flex items-center justify-end space-x-2 py-4 gap-4">
+      {table.getSelectedRowModel().rows.length} of {table.getCoreRowModel().rows.length} selected.
+            <div className="flex gap-4">
         <Button
           variant="outline"
           size="sm"
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
-        >
+          >
           Previous
         </Button>
         <Button
@@ -164,19 +170,22 @@ export function DataTable<TData, TValue>({
           size="sm"
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
-        >
+          >
           Next
         </Button>
         <Button
           variant="outline"
           size="sm"
+          className={cn("transition duration-2000",{"bg-green-500":confirmed.current})}
           onClick={()=>{
-            setSelectedRows(table.getSelectedRowModel().rows.map(e=>e.original))
+            setSelectedRows((table.getSelectedRowModel().rows.map(e=>e.original))as []);
+            confirmed.current= true;
           }}
-        >
+          >
           Confirm
         </Button>
       </div>
+          </div>
     </div>
   )
 }

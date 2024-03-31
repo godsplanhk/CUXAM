@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../utils/axiosInstance.js";
 import { atom, selector } from "recoil";
 
 export type TeacherProp={
@@ -11,7 +11,7 @@ export type TeacherProp={
 export const teachersSelector = selector({
     key: 'teacher',
     get: async ()=>{
-        const res = (await axios.get<TeacherProp[]>("https://cuxam.azurewebsites.net/api/v1/data/teachers"));
+        const res = (await api.get<TeacherProp[]>("data/teachers"));
         res.data.forEach(ele=>{
             ele.tags = [... new Set(ele.internal.map(i=>i.course.Cname))]
         })
@@ -19,7 +19,7 @@ export const teachersSelector = selector({
     }
 });
 
-export const selectedTeacherState = atom({
+export const selectedTeacherState = atom<[]>({
     key: "selectedTeacher",
-    default: {}
+    default: []
 });

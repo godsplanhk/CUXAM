@@ -16,7 +16,7 @@ export const WavyBackground = ({
   waveOpacity = 0.5,
   ...props
 }: {
-  children?: any;
+  children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
   colors?: string[];
@@ -29,7 +29,6 @@ export const WavyBackground = ({
 }) => {
   const {theme} = useTheme();
   let bgFill = 'black';
-  console.log(theme);
   const noise = createNoise3D();
   let w: number,
     h: number,
@@ -66,11 +65,11 @@ export const WavyBackground = ({
   };
 
   const waveColors = colors ?? [
-    "#38bdf8",
-    "#818cf8",
-    "#c084fc",
+    "#f83838",
+    "#f55e30",
+    "#f8bd1c",
     "#e879f9",
-    "#22d3ee",
+    "#ee2222",
   ];
   const drawWave = (n: number) => {
     nt += getSpeed();
@@ -79,7 +78,7 @@ export const WavyBackground = ({
       ctx.lineWidth = waveWidth || 50;
       ctx.strokeStyle = waveColors[i % waveColors.length];
       for (x = 0; x < w; x += 5) {
-        var y = noise(x / 800, 0.3 * i, nt) * 100;
+        const y = noise(x / 800, 0.3 * i, nt) * 100;
         ctx.lineTo(x, y + h * 0.35); // adjust for height, currently at 50% of the container
       }
       ctx.stroke();
@@ -91,7 +90,7 @@ export const WavyBackground = ({
     ctx.fillStyle = bgFill;
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, w, h);
-    drawWave(2);
+    drawWave(5);
     animationId = requestAnimationFrame(render);
   };
 

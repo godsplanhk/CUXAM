@@ -1,16 +1,16 @@
 // import { labsList } from "@/data/labs";
 import { atom, selector } from "recoil";
-import axios from 'axios';
+import api from "../../utils/axiosInstance.js";
 
 export const labsState = selector({
     key: "labs",
     get : async ()=>{
-        const res = await axios('https://cuxam.azurewebsites.net/api/v1/data/rooms');
+        const res = await api('data/rooms');
         return res.data;
     }
 })
 
-export const selectedLabsState = atom({
+export const selectedLabsState = atom<[]>({
     key: "selectedRooms",
-    default: {}
+    default: []
 })

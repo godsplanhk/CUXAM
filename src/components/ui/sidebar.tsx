@@ -1,22 +1,20 @@
 import { cn } from "@/lib/utils"
-import Rive from '@rive-app/react-canvas';
 import { Button } from "./button"
-import { ScrollArea } from "@radix-ui/react-scroll-area"
 import { RiAiGenerate } from "react-icons/ri";
 import { FaDatabase } from "react-icons/fa";
 import { RxAvatar } from "react-icons/rx";
 import { TypewriterEffectSmooth } from "./typewriter";
 import { TbSettings } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { isSidebarOpenState } from "@/state/atoms/sidebar";
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function Sidebar({ className, isOpen, setIsOpen }: SidebarProps){
-  const [isSidebarOpen, setIsSidebarOpen] = useRecoilState(isSidebarOpenState); 
+export function Sidebar({ className }: SidebarProps){
+  const isSidebarOpen = useRecoilValue(isSidebarOpenState); 
   const navigate = useNavigate();
   const words = [
     {
@@ -25,11 +23,10 @@ export function Sidebar({ className, isOpen, setIsOpen }: SidebarProps){
     }
     
   ]
-  isOpen = isOpen ?? isSidebarOpen;
-  setIsOpen = setIsOpen ?? setIsSidebarOpen;
+
   return (
-    <div className={cn("pb-1 flex flex-col justify-between w-40", className, {"hidden":!isOpen})}>
-      <div className="space-y-2 py-2 items-strectch">
+    <div className={cn("pb-1 flex flex-col justify-between w-40", className, {"hidden":!isSidebarOpen})}>
+      <div className="space-y-2 py-2 items-stretch">
         <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
             Actions

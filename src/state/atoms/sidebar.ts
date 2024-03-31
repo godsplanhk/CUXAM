@@ -2,6 +2,6 @@ import {atom} from 'recoil'
 
 export const isSidebarOpenState = atom({
   key: 'isSidebarOpen',
-  default: true,
+  default: false,
 });
 
