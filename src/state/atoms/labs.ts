@@ -5,7 +5,7 @@ import api from "../../utils/axiosInstance.js";
 export type Lab={
     labNo: string
     block: string
-    capacity: string
+    capacity: number
 }
 
 export const labsState = selector({

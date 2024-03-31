@@ -4,7 +4,7 @@ import api from "../../utils/axiosInstance.js";
 export type Batch={
     id: string
     branch: string
-    semester: string
+    semester: number
     BEME: string
 }
 
