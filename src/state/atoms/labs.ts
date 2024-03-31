@@ -2,6 +2,12 @@
 import { atom, selector } from "recoil";
 import api from "../../utils/axiosInstance.js";
 
+export type Lab={
+    labNo: string
+    block: string
+    capacity: string
+}
+
 export const labsState = selector({
     key: "labs",
     get : async ()=>{

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ColumnDef,  } from "@tanstack/react-table";
 import { ArrowUpDown, } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
+import { Batch } from "@/state/atoms/batch";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
