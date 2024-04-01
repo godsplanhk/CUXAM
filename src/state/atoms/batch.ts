@@ -12,7 +12,6 @@ export const batchState = selector({
 key: "batches",
 get: async()=>{
     const res = await api.get("data/batches");
-    console.log(res.data);
     return res.data;
 }
 })

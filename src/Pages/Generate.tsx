@@ -23,7 +23,6 @@ export function Generate() {
     const labRefresh = useRecoilRefresher_UNSTABLE(labsState);
     const teacherRefresh = useRecoilRefresher_UNSTABLE(teachersSelector);
     const authHeader = useAuthHeader();
-    console.log(authHeader);
     api.defaults.headers['Authorization']=authHeader?.split(' ')[1]??null;
   return (
     <div className="grid md:grid-cols-10 gap-1">
@@ -102,7 +101,6 @@ function TeacherSelection() {
 function BatchSelection() {
   const batches = useRecoilValue(batchState);
   const [selectedBatches, sBatches] = useRecoilState(selectedBatchState);
-  console.log("batches", batches);
 
   return (
     <div>

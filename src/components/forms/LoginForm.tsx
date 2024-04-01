@@ -35,11 +35,9 @@ export function LoginForm(){
         }
     );
     async function onSubmit(values: z.infer<typeof formSchema>){
-        console.log(values);
         try{
           const response = await api.post('/auth/login',values);
           const token = response.data.token;
-          console.log(token);
           if(signIn({
             auth: {
               token: token,

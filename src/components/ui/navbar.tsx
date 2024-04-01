@@ -131,7 +131,6 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
         XLSX.utils.book_append_sheet(workbook, scheduleWorksheet, "combined");
         XLSX.utils.book_append_sheet(workbook, unscheduleWorksheet, "Unschedule");
         setNavInfo({scheduled: dateSheet.data.schedule.length,unscheduled: dateSheet.data.unschedule.length,fitness: dateSheet.data.fitness});
-        console.log(scheduleWorksheet);
         // Buffer to store the generated Excel file
         const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
         const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
