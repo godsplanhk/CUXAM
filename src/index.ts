@@ -3,10 +3,17 @@ import dotenv from "dotenv";
 import ControllerRouter from "./apis/controller/controller.js";
 import cors from 'cors';
 import "express-async-errors";
+import cookieParser from 'cookie-parser';
 dotenv.config()
 const PORT = process.env.PORT|| 3000;
 const app = express();
-app.use(cors());
+const corsOptions ={
+  origin:'http://localhost:5173', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
+app.use(cookieParser());
 app.options('*', cors()) // include before other routes
 app.use(express.json({limit: '200kb'}));
 app.use('/api/v1',ControllerRouter);
