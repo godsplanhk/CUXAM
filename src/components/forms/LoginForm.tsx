@@ -15,8 +15,11 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useNavigate } from "react-router-dom";
-
+import { AxiosError } from "axios";
+import useSignIn from 'react-auth-kit/hooks/useSignIn';
+import api from '../../utils/axiosInstance'
 export function LoginForm(){
+    const signIn = useSignIn();
     const navigate = useNavigate();
     const formSchema = z.object({
         username: z.string().min(2).max(50),
@@ -31,8 +34,31 @@ export function LoginForm(){
             }
         }
     );
-    function onSubmit(values: z.infer<typeof formSchema>){
+    async function onSubmit(values: z.infer<typeof formSchema>){
         console.log(values);
+        try{
+          const response = await api.post('/auth/login',values);
+          const token = response.data.token;
+          console.log(token);
+          if(signIn({
+            auth: {
+              token: token,
+              type: 'Bearer'
+            }
+          })){
+            localStorage.setItem('token',token);
+            navigate("/generate");
+          }
+        }
+        catch(err){
+          if(err && err instanceof AxiosError){
+            alert(err);
+          }
+          else if(err&& err instanceof Error){
+            alert(err.message);
+          }
+        }
+
     }
     return (
         <CardContainer className="inter-var justify-center w-96">
@@ -71,15 +97,13 @@ export function LoginForm(){
             <FormItem className="flex flex-col gap-y-3">
               <FormLabel className="flex">Password</FormLabel>
               <FormControl>
-                <Input placeholder="password" {...field} />
+                <Input placeholder="password" type='password' {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" onClick={()=>{
-          navigate('/dashboard');
-        }}>Submit</Button>
+        <Button type="submit" onClick={()=>{form.handleSubmit}}>Submit</Button>
       </form>
     </Form>
             </CardItem>

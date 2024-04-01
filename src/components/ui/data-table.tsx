@@ -70,7 +70,7 @@ export function DataTable<TData, TValue>({
     <div className="z-0">
       <div className="flex items-center py-4 gap-1">
         <div>Total: {table.getFilteredRowModel().rows.length}</div>
-        <div className='flex gap-1 justify-center grow'>
+        <div className='flex gap-1 justify-center'>
         <Input
           placeholder={"Filter "+filter}
           value={(table.getColumn(filter)?.getFilterValue() as string)}
@@ -80,7 +80,7 @@ export function DataTable<TData, TValue>({
               table.getSelectedRowModel
             }
           }
-          className="w-auto"
+          className="max-w-52"
         />
 
          <DropdownMenu>

@@ -2,7 +2,7 @@
 import './App.css'
 import { Dashboard } from './Pages/Dashboard';
 import { Landing } from './Pages/Landing';
-import { useLocation} from 'react-router-dom';
+import { useLocation,Navigate} from 'react-router-dom';
 import {
   BrowserRouter,
   Route,
@@ -11,22 +11,33 @@ import {
 import { ModeToggle } from './components/mode-toggle';
 import { Sidebar } from './components/ui/sidebar';
 import { Generate } from './Pages/Generate';
-
 import{RecoilRoot} from 'recoil';
 import { Navbar } from './components/ui/navbar';
+import createStore from 'react-auth-kit/createStore';
+import AuthProvider from 'react-auth-kit';
+import AuthOutlet from '@auth-kit/react-router/AuthOutlet'
+import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated'
+const store = createStore({
+  authName:'_auth',
+  authType:'cookie',
+  cookieDomain: window.location.hostname,
+  cookieSecure: false,
+});
 function AppWrapper() {
   return (
     <RecoilRoot>
+      <AuthProvider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
+      </AuthProvider>
     </RecoilRoot>
   );
 }
 function App() {
-
   const location = useLocation();
-  const isAuthPage = location.pathname === '/login' || location.pathname === '/signup'||location.pathname === '/'; 
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/signup'||location.pathname === '/';
+  const isAuth = useIsAuthenticated();
   return (
     <div>
       <div className='grid sticky top-0 shadow-sm border-b backdrop-blur-md dark:backdrop-blur-md bg-black-500/3 dark:bg-black-500/30 dark:border-gray-700 '>
@@ -38,10 +49,12 @@ function App() {
 
       <div className='grow h-screen overflow-y-auto no-scrollbar'>
       <Routes>
-      <Route path='/' element={Landing()}></Route>
       <Route path='/login' element={Landing()}></Route>
-      <Route path='/dashboard' element={Dashboard()}></Route>
-      <Route path = '/generate' element={Generate()}></Route>
+      <Route element={<AuthOutlet fallbackPath='/login'/>}>
+      <Route path='/' element= {isAuth?<Navigate to={'/dashboard'} />:<Navigate to={'/login'}/>}/>
+      <Route path='/dashboard' element={<Dashboard/>}></Route>
+      <Route path = '/generate' element={<Generate/>}></Route>
+      </Route>
       </Routes>
       </div>
       </div>

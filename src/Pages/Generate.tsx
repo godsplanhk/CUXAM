@@ -12,7 +12,8 @@ import { Suspense } from "react";
 import { ErrorBoundary } from 'react-error-boundary';
 import { fallbackRender } from "@/components/errorBoundary";
 import { LoaderIcon } from "lucide-react";
-
+import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader';
+import api from '../utils/axiosInstance';
 function Loader(){
     return <LoaderIcon></LoaderIcon>
 
@@ -21,7 +22,9 @@ export function Generate() {
     const batchRefresh = useRecoilRefresher_UNSTABLE(batchState);
     const labRefresh = useRecoilRefresher_UNSTABLE(labsState);
     const teacherRefresh = useRecoilRefresher_UNSTABLE(teachersSelector);
-
+    const authHeader = useAuthHeader();
+    console.log(authHeader);
+    api.defaults.headers['Authorization']=authHeader?.split(' ')[1]??null;
   return (
     <div className="grid md:grid-cols-10 gap-1">
       <div className="md:col-span-3">

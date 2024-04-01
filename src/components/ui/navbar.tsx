@@ -12,10 +12,12 @@ import { selectedLabsState } from "@/state/atoms/labs";
 import api from "../../utils/axiosInstance.js";
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver'
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { GenerateNavbarState } from "@/state/atoms/navbar";
 import { lSchedule,ExamAtom } from '../../types/algoAtoms';
 import LoadingBar from 'react-top-loading-bar';
+import useSignOut from 'react-auth-kit/hooks/useSignOut';
+
 interface NavbarProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   className?: string;
@@ -33,6 +35,8 @@ export function Navbar({ className, children, ...props }: NavbarProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useRecoilState(isSidebarOpenState);
   const location = useLocation();
   const isGeneratePage = location.pathname === '/generate'; 
+  const signOut = useSignOut();
+  const navigate = useNavigate();
   return (
     <div
       className={cn("flex justify-between items-center h-16", className)}
@@ -44,7 +48,10 @@ export function Navbar({ className, children, ...props }: NavbarProps) {
         toggle={setIsSidebarOpen}
       ></Hamburger>
         {isGeneratePage && <GenerateNavBar></GenerateNavBar>}
-      <Button variant="outline" size="sm" className="mr-20">
+      <Button variant="outline" size="sm" className="mr-20" onClick={()=>{
+        signOut();
+        navigate('/login');
+      }}>
         <LogOut/>
       </Button>
       {children}
@@ -86,7 +93,7 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
           );
           setProgress(50);
           const excelData = dateSheet.data.schedule.map((s: lSchedule)=> {
-            setProgress(progress+5/dateSheet.data.schedule.length);
+            setProgress(progress+(15/dateSheet.data.schedule.length));
             return {
               "Date": s.venue.date.split('T')[0],
               "Start Time": timeSlotDict[s.venue.timeSlot].startTime,
@@ -108,7 +115,7 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
           }
           });
           const unscheduleExceldata = dateSheet.data.unschedule.map((e:ExamAtom)=>{
-            setProgress(progress+5/dateSheet.data.unschedule.length)
+            setProgress(progress+(15/dateSheet.data.unschedule.length));
             return{
               "Section":e.sec.id,
               "Subject": e.course.Cname,
@@ -118,11 +125,13 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
 
             }
           })
+          const unscheduleWorksheet = XLSX.utils.json_to_sheet(unscheduleExceldata);
           const scheduleWorksheet = XLSX.utils.json_to_sheet(excelData);
         const workbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(workbook, scheduleWorksheet, "combined");
-        XLSX.utils.book_append_sheet(workbook, unscheduleExceldata, "Unschedule");
+        XLSX.utils.book_append_sheet(workbook, unscheduleWorksheet, "Unschedule");
         setNavInfo({scheduled: dateSheet.data.schedule.length,unscheduled: dateSheet.data.unschedule.length,fitness: dateSheet.data.fitness});
+        console.log(scheduleWorksheet);
         // Buffer to store the generated Excel file
         const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
         const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
