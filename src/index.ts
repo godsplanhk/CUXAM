@@ -8,7 +8,7 @@ dotenv.config()
 const PORT = process.env.PORT|| 3000;
 const app = express();
 const corsOptions ={
-  origin:'http://localhost:5173', 
+  origin:process.env.CORS_ORIGIN?.split(',')??['http://localhost:5173','http://localhost:3000','https://cuxam.vercel.app'] ,
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
