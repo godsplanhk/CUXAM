@@ -14,6 +14,19 @@ import { fallbackRender } from "@/components/errorBoundary";
 import { LoaderIcon } from "lucide-react";
 import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader';
 import api from '../utils/axiosInstance';
+import { branchState, selectedBranchState } from "@/state/atoms/branch";
+import { branchColumns } from "@/data/branches";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button";
+import { Toaster } from "@/components/ui/toaster";
+
 function Loader(){
     return <LoaderIcon></LoaderIcon>
 
@@ -26,16 +39,16 @@ export function Generate() {
     api.defaults.headers['Authorization']=authHeader?.split(' ')[1]??null;
   return (
     <div className="grid md:grid-cols-10 gap-1">
-      <div className="md:col-span-3">
+      <div className="md:col-span-5 lg:col-span-3">
         <div className=" m-2 rounded-sm shadow-md border p-2 hover:shadow-md hover:shadow-green-500 h-min justify-center">
             <ErrorBoundary fallbackRender={fallbackRender} onError  ={()=>batchRefresh()}>
           <Suspense fallback={<Loader/>}>
-            <BatchSelection />
+            <BranchSelection />
           </Suspense>
             </ErrorBoundary>
         </div>
       </div>
-      <div className=" justify-center w-auto md:col-span-3 my-2 rounded-sm shadow-md border p-2 h-min hover:shadow-md hover:shadow-green-500">
+      <div className=" justify-center w-auto md:col-span-5 lg:col-span-3 my-2 rounded-sm shadow-md border p-2 h-min hover:shadow-md hover:shadow-green-500">
         <div>
           <DatePickerSelection />
         </div>
@@ -45,14 +58,14 @@ export function Generate() {
         </Suspense>
         </ErrorBoundary>
       </div>
-      <div className="md:col-span-4 m-2 rounded-sm shadow-md border p-2 h-min hover:shadow-md hover:shadow-green-500 overflow-auto">
+      <div className="md:col-span-10 lg:col-span-4 m-2 rounded-sm shadow-md border p-2 h-min hover:shadow-md hover:shadow-green-500 overflow-auto">
       <ErrorBoundary fallbackRender={fallbackRender} onError={()=>teacherRefresh()}>
       <Suspense fallback={<Loader/>}>
           <TeacherSelection />
         </Suspense>
         </ErrorBoundary>
       </div>
-      <div></div>
+      <Toaster/>
     </div>
   );
 }
@@ -90,6 +103,7 @@ function TeacherSelection() {
         {Selection("Teacher", selectedTeacher.length)}
       </div>
       <DataTable
+        tableName="Teacher Selection "
         columns={teacherColumns}
         data={teacher}
         setSelectedRows={sTeacher}
@@ -98,22 +112,51 @@ function TeacherSelection() {
   );
 }
 
-function BatchSelection() {
-  const batches = useRecoilValue(batchState);
-  const [selectedBatches, sBatches] = useRecoilState(selectedBatchState);
+function BranchSelection() {
+  const branches = useRecoilValue(branchState);
+  const [selectedBranches, sBranches] = useRecoilState(selectedBranchState);
 
   return (
     <div>
       <div>
-        <p className="text-left my-2">Choose Batch</p>
-        {Selection("Batches", selectedBatches.length)}
+        <p className="text-left my-2">Choose Branch</p>
+        {Selection("Branches", selectedBranches.length)}
       </div>
+      <DataTable
+        tableName="Branches Selection"
+        columns={branchColumns}
+        data={branches}
+        setSelectedRows={sBranches}
+      ></DataTable>
+    </div>
+  );
+}
+
+//FIXME FEATURE DIALOG
+
+export function BatchSelection() {
+  const batches = useRecoilValue(selectedBatchState);
+  const selectedBatches = useRecoilValue(selectedBatchState);
+
+  return (
+      <Dialog>
+  <DialogTrigger><Button variant={'outline'}>Confirm</Button></DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you absolutely sure?</DialogTitle>
+      <DialogDescription>
+        All the sections of selected batches will be selected.
+      </DialogDescription>
+      <p className="text-left my-2">Choose Batch</p>
+        {Selection("Batches", selectedBatches.length)}
       <DataTable
         columns={Batchcolumns}
         data={batches}
-        setSelectedRows={sBatches}
+        setSelectedRows={()=>{}}
       ></DataTable>
-    </div>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
   );
 }
 
@@ -128,6 +171,7 @@ function RoomSelection() {
         {Selection("Rooms", selectedLabs.length)}
       </div>
       <DataTable
+        tableName="Labs Selection"
         columns={LabsColumn}
         data={labs}
         setSelectedRows={setLabs}
