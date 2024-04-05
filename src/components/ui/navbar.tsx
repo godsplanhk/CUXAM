@@ -138,7 +138,6 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
           const tData = sTeacher.map((t:Teacher)=>{
             const scheduleCounter:Record<string|number,string|number> = {"Teacher Name": t.Tname,"ECode":t.ECode, 1:0,2:0,3:0,4:0};
             const TeacherSchedule = todaySchedule.filter((s:lSchedule)=>(s.exam.teacher.ECode===t.ECode||s.external.ECode===t.ECode));
-            console.log(TeacherSchedule);
             [1,2,3,4].forEach((ts)=>{
                 const currentTimeslotSchedule = TeacherSchedule.filter((s:lSchedule)=>s.venue.timeSlot===ts);
                 scheduleCounter[ts] = currentTimeslotSchedule.length;
