@@ -57,7 +57,6 @@ export function DatePickerWithRange({
           <Calendar
             initialFocus
             mode="multiple"
-            min={3}
             selected={days}
             onSelect={(days)=>{
               days?.sort((a,b)=>a.getTime()-b.getTime());
