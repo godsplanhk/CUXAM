@@ -134,10 +134,11 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
         // Buffer to store the generated Excel file
 
         sDates?.forEach((d)=>{
-          const todaySchedule = dateSheet.data.schedule.filter((s:lSchedule)=>s.venue.date===d.toISOString());
+          const todaySchedule = dateSheet.data.schedule.filter((s:lSchedule)=>s.venue.date.split('T')[0]===d.toISOString().split('T')[0]);
           const tData = sTeacher.map((t:Teacher)=>{
             const scheduleCounter:Record<string|number,string|number> = {"Teacher Name": t.Tname,"ECode":t.ECode, 1:0,2:0,3:0,4:0};
             const TeacherSchedule = todaySchedule.filter((s:lSchedule)=>(s.exam.teacher.ECode===t.ECode||s.external.ECode===t.ECode));
+            console.log(TeacherSchedule);
             [1,2,3,4].forEach((ts)=>{
                 const currentTimeslotSchedule = TeacherSchedule.filter((s:lSchedule)=>s.venue.timeSlot===ts);
                 scheduleCounter[ts] = currentTimeslotSchedule.length;
