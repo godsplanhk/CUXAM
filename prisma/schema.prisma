@@ -27,11 +27,12 @@ model Session{
 
 model Degree{
   id String @id
-  // Batches Batches[]
+  Batches Batches[]
 }
 
 model Branch{
   id String @id
+  batches Batches[]
 }
 
 
@@ -40,7 +41,8 @@ model Batches{
   branch String
   semester String
   BEME String @default("BE")
-  // Degree Degree @relation(fields: [BEME],references: [id]) 
+  Degree Degree @relation(fields: [BEME],references: [id])
+  branchR Branch @relation(fields: [branch],references: [id])
   course BatchCourse[]
   section Section[]
 }

@@ -1,9 +1,17 @@
 import express from "express";
 import { prisma } from '../../../data/client.js';
-import { getExamAtoms } from "../../../data/queries.js";
-import { Section, Batches } from '@prisma/client';
 
 const router = express.Router();
+
+router.get('/branches',async (req,res)=>{
+    res.send(await prisma.branch.findMany({
+        select: {
+            id:true,
+            batches: true
+        }
+    }));
+})
+
 router.get('/batches',async (req,res)=>{
     res.send(await prisma.batches.findMany());
 })
@@ -24,7 +32,7 @@ router.get('/sections',async (req,res)=>{
                     in: batches
                 }
             }
-        }))
+        }));
     }
 })
 

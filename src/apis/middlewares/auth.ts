@@ -8,9 +8,9 @@ interface customRequest extends Request{
 
 export async function auth(req:customRequest,res:Response,next: NextFunction){
     try{
-        const token = req.headers.authorization ?? req.cookies['next-auth.session-token'];
-        console.log(req.cookies);
+        let token = (req.headers.authorization ?? req.cookies['next-auth.session-token']) as string;
         if(token){
+            if(token.startsWith('Bearer'))token = token.split(' ')[1];
             const decoded = jwt.verify(token,JWT_SECRET) as {username: string};
             req.username = decoded.username ;
             next();
