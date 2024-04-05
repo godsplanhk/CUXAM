@@ -14,5 +14,5 @@ export async function Generate(batches:string[],rooms:Rooms[],date: Date[],teach
    const population = Population(examAtoms,venueAtoms,teacher)
    const fitness = fitnessCheckConsecutiveExam(section,population.schedule,date)
    
-    return {schedule:population.schedule,unschedule: population.unscheduled,fitness: 100-fitness};
+    return {schedule:population.schedule,unschedule: population.unscheduled,fitness: 100-fitness, venueAtoms: venueAtoms};
 }
