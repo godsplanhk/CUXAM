@@ -22,7 +22,6 @@ export const selectedBatchState = selector<Batch[]>({
     branches.forEach((branch) => {
       batches = batches.concat(branch.batches);
     });
-    console.log("selector", batches);
     return batches;
   },
 });

@@ -134,8 +134,6 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
         // Buffer to store the generated Excel file
 
         sDates?.forEach((d)=>{
-          console.log(d);
-          console.log(dateSheet.data.schedule);
           const todaySchedule = dateSheet.data.schedule.filter((s:lSchedule)=>s.venue.date===d.toISOString());
           const tData = sTeacher.map((t:Teacher)=>{
             const scheduleCounter:Record<string|number,string|number> = {"Teacher Name": t.Tname,"ECode":t.ECode, 1:0,2:0,3:0,4:0};
@@ -144,7 +142,7 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
                 const currentTimeslotSchedule = TeacherSchedule.filter((s:lSchedule)=>s.venue.timeSlot===ts);
                 scheduleCounter[ts] = currentTimeslotSchedule.length;
             })
-            return {"Teacher Name":scheduleCounter['Teacher Name'],"ECode": scheduleCounter['ECode'],"9:30-11:00": scheduleCounter[1],"11:15-12:45": scheduleCounter[2],"1:15-2:45":scheduleCounter[3],"3:00-4:30":scheduleCounter};
+            return {"Teacher Name":scheduleCounter['Teacher Name'],"ECode": scheduleCounter['ECode'],"9:30-11:00": scheduleCounter[1],"11:15-12:45": scheduleCounter[2],"1:15-2:45":scheduleCounter[3],"3:00-4:30":scheduleCounter[4]};
           })
           const timeFree = XLSX.utils.json_to_sheet(tData);
           XLSX.utils.book_append_sheet(workbook,timeFree,d.getDate().toString())
