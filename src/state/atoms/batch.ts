@@ -1,22 +1,28 @@
-import { atom, selector } from 'recoil';
-import api from "../../utils/axiosInstance.js";
+import { atom, selector } from "recoil";
+import { Branch, selectedBranchState } from "./branch.js";
 
-export type Batch={
-    id: string
-    branch: string
-    semester: number
-    BEME: string
-}
+export type Batch = {
+  id: string;
+  branch: string;
+  semester: number;
+  BEME: string;
+};
 
-export const batchState = selector({
-key: "batches",
-get: async()=>{
-    const res = await api.get("data/batches");
-    return res.data;
-}
-})
+export const batchState = atom({
+  key: "batches",
+  default: []
+  },
+);
 
-export const selectedBatchState = atom<[]>({
-    key: "selectedBatch",
-    default: []
+export const selectedBatchState = selector<Batch[]>({
+  key: "selectedBatch",
+  get: ({ get }) => {
+    const branches = get(selectedBranchState) as Branch[];
+    let batches: Batch[] = [];
+    branches.forEach((branch) => {
+      batches = batches.concat(branch.batches);
+    });
+    console.log("selector", batches);
+    return batches;
+  },
 });

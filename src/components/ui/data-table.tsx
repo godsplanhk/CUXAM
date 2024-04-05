@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useRef, useState } from "react"
+import React, {  FunctionComponent, useEffect, useRef, useState } from "react"
 import {
   ColumnDef,
   flexRender,
@@ -31,18 +31,23 @@ import {
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/utils/cn";
+import { useToast } from "./use-toast";
 
 
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
-  setSelectedRows: React.Dispatch<React.SetStateAction<[]>>
+  setSelectedRows: React.Dispatch<React.SetStateAction<[]>>,
+  tableName?: string
+  confirm?: FunctionComponent
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
-  setSelectedRows
+  setSelectedRows,
+  confirm,
+  tableName
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
@@ -66,9 +71,10 @@ export function DataTable<TData, TValue>({
   const confirmed= useRef<boolean>(true);
   const [filter,setFilter] = useState<string>(table.getAllColumns()[0].id);
   useEffect(function (){confirmed.current=false;},[rowSelection])
+  const {toast} = useToast();
   return (
     <div className="z-0">
-      <div className="flex items-center py-4 gap-1">
+      <div className="items-center py-4 gap-1 flex">
         <div>Total: {table.getFilteredRowModel().rows.length}</div>
         <div className='flex gap-1 justify-center'>
         <Input
@@ -173,17 +179,23 @@ export function DataTable<TData, TValue>({
           >
           Next
         </Button>
-        <Button
+         {confirm?
+         confirm(onclick=()=>{
+          toast({title: tableName+' confirmation', description: table.getSelectedRowModel().rows.length.toString()+ 'selected'});
+          setSelectedRows((table.getSelectedRowModel().rows.map(e=>e.original))as []);
+          confirmed.current= true;
+         }):
+         <Button
           variant="outline"
-          size="sm"
           className={cn("transition duration-2000",{"bg-green-500":confirmed.current})}
           onClick={()=>{
+            toast({title: tableName+' confirmation', description: table.getSelectedRowModel().rows.length.toString()+ ' elements selected'});
             setSelectedRows((table.getSelectedRowModel().rows.map(e=>e.original))as []);
             confirmed.current= true;
           }}
           >
-          Confirm
-        </Button>
+            Confirm
+        </Button>}
       </div>
           </div>
     </div>

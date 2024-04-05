@@ -14,7 +14,7 @@ import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver'
 import { useLocation, useNavigate } from "react-router-dom";
 import { GenerateNavbarState } from "@/state/atoms/navbar";
-import { lSchedule,ExamAtom } from '../../types/algoAtoms';
+import { lSchedule, ExamAtom, VenueAtoms, Teacher } from '../../types/algoAtoms';
 import LoadingBar from 'react-top-loading-bar';
 import useSignOut from 'react-auth-kit/hooks/useSignOut';
 
@@ -47,8 +47,8 @@ export function Navbar({ className, children, ...props }: NavbarProps) {
         toggled={isSidebarOpen}
         toggle={setIsSidebarOpen}
       ></Hamburger>
-        {isGeneratePage && <GenerateNavBar></GenerateNavBar>}
-      <Button variant="outline" size="sm" className="mr-20" onClick={()=>{
+        {isGeneratePage && <GenerateNavBar className="mr-20 md:m-0"></GenerateNavBar>}
+      <Button variant="outline" size="sm" className="mr-20 hidden md:flex" onClick={()=>{
         signOut();
         navigate('/login');
       }}>
@@ -80,7 +80,7 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
         size="sm"
         onClick={
           async () => {
-            setProgress(50);
+            setProgress(10)
           const dateSheet = await api.post(
             "algo/getSchedule",
             {
@@ -93,7 +93,7 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
           );
           setProgress(50);
           const excelData = dateSheet.data.schedule.map((s: lSchedule)=> {
-            setProgress(progress+(15/dateSheet.data.schedule.length));
+            setProgress((progress)=>progress+(15/dateSheet.data.schedule.length));
             return {
               "Date": s.venue.date.split('T')[0],
               "Start Time": timeSlotDict[s.venue.timeSlot].startTime,
@@ -115,7 +115,7 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
           }
           });
           const unscheduleExceldata = dateSheet.data.unschedule.map((e:ExamAtom)=>{
-            setProgress(progress+(15/dateSheet.data.unschedule.length));
+            setProgress((prev)=>prev+1/dateSheet.data.unschedule.length);
             return{
               "Section":e.sec.id,
               "Subject": e.course.Cname,
@@ -132,15 +132,40 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
         XLSX.utils.book_append_sheet(workbook, unscheduleWorksheet, "Unschedule");
         setNavInfo({scheduled: dateSheet.data.schedule.length,unscheduled: dateSheet.data.unschedule.length,fitness: dateSheet.data.fitness});
         // Buffer to store the generated Excel file
+
+        sDates?.forEach((d)=>{
+          console.log(d);
+          console.log(dateSheet.data.schedule);
+          const todaySchedule = dateSheet.data.schedule.filter((s:lSchedule)=>s.venue.date===d.toISOString());
+          const tData = sTeacher.map((t:Teacher)=>{
+            const scheduleCounter:Record<string|number,string|number> = {"Teacher Name": t.Tname,"ECode":t.ECode, 1:0,2:0,3:0,4:0};
+            const TeacherSchedule = todaySchedule.filter((s:lSchedule)=>(s.exam.teacher.ECode===t.ECode||s.external.ECode===t.ECode));
+            [1,2,3,4].forEach((ts)=>{
+                const currentTimeslotSchedule = TeacherSchedule.filter((s:lSchedule)=>s.venue.timeSlot===ts);
+                scheduleCounter[ts] = currentTimeslotSchedule.length;
+            })
+            return {"Teacher Name":scheduleCounter['Teacher Name'],"ECode": scheduleCounter['ECode'],"9:30-11:00": scheduleCounter[1],"11:15-12:45": scheduleCounter[2],"1:15-2:45":scheduleCounter[3],"3:00-4:30":scheduleCounter};
+          })
+          const timeFree = XLSX.utils.json_to_sheet(tData);
+          XLSX.utils.book_append_sheet(workbook,timeFree,d.getDate().toString())
+        })
+        let temp = dateSheet.data.venueAtoms;
+        temp = temp.map((e: VenueAtoms)=>{
+          return {"Lab No.": e.labNo,"Block":e.block,"Capacity":e.capacity,"Date":e.date.split('T')[0],"TimeSlot":timeSlotDict[e.timeSlot].startTime+'-'+timeSlotDict[e.timeSlot].endTime}
+        })
+        const freeVenue = XLSX.utils.json_to_sheet(temp);
+        XLSX.utils.book_append_sheet(workbook,freeVenue,"Free Classes")
         const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
         const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
         setProgress(100);
-        saveAs(blob, "data.xlsx");
+        saveAs(blob, "DateSheet.xlsx");
         }}
       >
         Generate
       </Button>
-      Schedule: {NavInfo.scheduled} Unscheduled : {NavInfo.unscheduled} Fitness: {NavInfo.fitness}
+      <div className="m-2">
+        Schedule: {NavInfo.scheduled} Unscheduled : {NavInfo.unscheduled} Fitness: {NavInfo.fitness}
+        </div>
     </div>
   );
 }
