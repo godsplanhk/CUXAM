@@ -16,17 +16,17 @@ function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:lSche
         let free = true;
         const currentDayITeacherSchedule = internalTeacherSchedule.filter(s=>s.venue.date.getTime()==venue.date.getTime());
         for(let s of currentDayITeacherSchedule){
-            if(s.venue.timeSlot===venue.timeSlot){
+            if(s.venue.timeSlot===venue.timeSlot ||currentDayITeacherSchedule.length>=3){
                 free=false;
                 break;
             }
         }
+        if(free){
         externalTeacher = MostPreferredExternal(exam.teacher.ECode,venue,teacher,schedule);
         if(externalTeacher===null){
             i++;
             continue;
         }
-        if(free){
         const currentDaySchedule = sectionSchedule.filter(s=>s.venue.date.getTime()===venue.date.getTime());
         if(currentDaySchedule.length==0){
             if(venue.capacity<exam.sec.capacity){
