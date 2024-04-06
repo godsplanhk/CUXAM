@@ -109,7 +109,6 @@ web_modules/
 # parcel-bundler cache (https://parceljs.org/)
 
 .parcel-cache
-bun.lockb
 
 # Next.js build output
 
