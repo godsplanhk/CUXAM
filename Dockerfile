@@ -1,7 +1,6 @@
 FROM oven/bun
 
 # Copy the lock and package file
-COPY bun.lockb . 
 COPY package.json . 
 COPY prisma .
 # Install dependencies
