@@ -17,6 +17,8 @@ import createStore from 'react-auth-kit/createStore';
 import AuthProvider from 'react-auth-kit';
 import AuthOutlet from '@auth-kit/react-router/AuthOutlet'
 import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated'
+import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader';
+import api from './utils/axiosInstance';
 const store = createStore({
   authName:'_auth',
   authType:'cookie',
@@ -38,6 +40,8 @@ function App() {
   const location = useLocation();
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup'||location.pathname === '/';
   const isAuth = useIsAuthenticated();
+  const authHeader = useAuthHeader();
+  api.defaults.headers['Authorization']=authHeader?.split(' ')[1]??null;
   return (
     <div>
       <div className='grid sticky top-0 shadow-sm border-b backdrop-blur-md dark:backdrop-blur-md bg-black-500/3 dark:bg-black-500/30 dark:border-gray-700 '>

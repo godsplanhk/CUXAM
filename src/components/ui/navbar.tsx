@@ -7,16 +7,17 @@ import { Button } from "./button";
 import { LogOut } from "lucide-react";
 import { selectedBatchState } from "@/state/atoms/batch";
 import { datesState } from "@/state/atoms/dateRange";
-import { selectedTeacherState } from "@/state/atoms/teachers";
+import { selectedTeacherState, TeacherProp, teachersSelector } from "@/state/atoms/teachers";
 import { selectedLabsState } from "@/state/atoms/labs";
 import api from "../../utils/axiosInstance.js";
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver'
 import { useLocation, useNavigate } from "react-router-dom";
 import { GenerateNavbarState } from "@/state/atoms/navbar";
-import { lSchedule, ExamAtom, VenueAtoms, Teacher } from '../../types/algoAtoms';
+import { lSchedule, ExamAtom, VenueAtoms } from '../../types/algoAtoms';
 import LoadingBar from 'react-top-loading-bar';
 import useSignOut from 'react-auth-kit/hooks/useSignOut';
+import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 
 interface NavbarProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
@@ -37,6 +38,8 @@ export function Navbar({ className, children, ...props }: NavbarProps) {
   const isGeneratePage = location.pathname === '/generate'; 
   const signOut = useSignOut();
   const navigate = useNavigate();
+  const authHeader = useAuthHeader();
+  api.defaults.headers['Authorization']=authHeader?.split(' ')[1]??null;
   return (
     <div
       className={cn("flex justify-between items-center h-16", className)}
@@ -65,6 +68,7 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
   const sBatches = useRecoilValue(selectedBatchState);
   const sDates = useRecoilValue(datesState);
   const sTeacher = useRecoilValue(selectedTeacherState);
+  const teacher = useRecoilValue(teachersSelector);
   const sLabs = useRecoilValue(selectedLabsState);
   const [NavInfo,setNavInfo] = useRecoilState(GenerateNavbarState);
   const [progress,setProgress]=useState(0);
@@ -135,14 +139,14 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
 
         sDates?.forEach((d)=>{
           const todaySchedule = dateSheet.data.schedule.filter((s:lSchedule)=>s.venue.date.split('T')[0]===d.toISOString().split('T')[0]);
-          const tData = sTeacher.map((t:Teacher)=>{
-            const scheduleCounter:Record<string|number,string|number> = {"Teacher Name": t.Tname,"ECode":t.ECode, 1:0,2:0,3:0,4:0};
+          const tData = teacher.map((t:TeacherProp)=>{
+            const scheduleCounter:Record<string|number,string|number|string[]> = {"Teacher Name": t.Tname,"ECode":t.ECode, 1:0,2:0,3:0,4:0,"tags":t.tags.toString()};
             const TeacherSchedule = todaySchedule.filter((s:lSchedule)=>(s.exam.teacher.ECode===t.ECode||s.external.ECode===t.ECode));
             [1,2,3,4].forEach((ts)=>{
                 const currentTimeslotSchedule = TeacherSchedule.filter((s:lSchedule)=>s.venue.timeSlot===ts);
                 scheduleCounter[ts] = currentTimeslotSchedule.length;
             })
-            return {"Teacher Name":scheduleCounter['Teacher Name'],"ECode": scheduleCounter['ECode'],"9:30-11:00": scheduleCounter[1],"11:15-12:45": scheduleCounter[2],"1:15-2:45":scheduleCounter[3],"3:00-4:30":scheduleCounter[4]};
+            return {"Teacher Name":scheduleCounter['Teacher Name'],"ECode": scheduleCounter['ECode'],"Tags":scheduleCounter['tags'],"9:30-11:00": scheduleCounter[1],"11:15-12:45": scheduleCounter[2],"1:15-2:45":scheduleCounter[3],"3:00-4:30":scheduleCounter[4]};
           })
           const timeFree = XLSX.utils.json_to_sheet(tData);
           XLSX.utils.book_append_sheet(workbook,timeFree,d.getDate().toString())
