@@ -25,6 +25,10 @@ router.post("/signup",async (req,res)=>{
             res.status(401).json(err);
         }
     }
+    else{
+        res.sendStatus(422);
+    }
+
 });
 
 router.post('/login',async(req,res)=>{

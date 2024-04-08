@@ -41,6 +41,7 @@ router.get('/teachers',async(req,res)=>{
         select:{
             ECode:true,
             Tname:true,
+            tags:true,
             internal: {
                 select:{
                     course:{

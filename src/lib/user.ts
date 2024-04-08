@@ -20,6 +20,8 @@ export async function validatePassword(data:{username:string,password:string}){
             username: data.username
         }
     });
+
+    console.log(await prisma.user.findMany());
     if(user){
         const hash = crypto.pbkdf2Sync(data.password,user.salt,1000,64,'sha512').toString('hex');
         if(hash===user.hash){

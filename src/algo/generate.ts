@@ -11,7 +11,8 @@ export async function Generate(batches:string[],rooms:Rooms[],date: Date[],teach
    const examAtoms = await getExamAtoms(section);
    date= date.map(d=>new Date(d.getFullYear(),d.getMonth(),d.getDate()));
    const venueAtoms = getVenueAtoms(rooms,date);
-   const population = Population(examAtoms,venueAtoms,teacher)
+   const selectedTeacher = teacher.filter(teacher=>teacher.tags.length==1&&teacher.tags[0]=='CSE');
+   const population = Population(examAtoms,venueAtoms,selectedTeacher)
    const fitness = fitnessCheckConsecutiveExam(section,population.schedule,date)
    
     return {schedule:population.schedule,unschedule: population.unscheduled,fitness: 100-fitness, venueAtoms: venueAtoms};

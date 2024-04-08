@@ -85,7 +85,7 @@ export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],Availabl
     examAtoms.forEach(exam=>{
         let venue = MostPreferredVenue(exam,VenueAtoms,schedule,AvailableTeacher)
         if(venue.venue ===null||venue.external===null){
-            console.log(venue);
+            // console.log(venue);
             unscheduled.push(exam);
         }
         else{

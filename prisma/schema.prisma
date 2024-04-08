@@ -22,7 +22,10 @@ model User{
 }
 
 model Session{
-  id String @id
+  id String @id @default(uuid())
+  startYear String
+  endYear String
+  term String
 }
 
 model Degree{
@@ -32,6 +35,7 @@ model Degree{
 
 model Branch{
   id String @id
+  name String?
   batches Batches[]
 }
 
@@ -64,6 +68,7 @@ model Teacher{
   ECode String @id
   Tname String
   tags String[]
+  gender String
   internal ITeacher[]
   exam Schedule[]
 }
