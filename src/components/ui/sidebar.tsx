@@ -10,6 +10,8 @@ import { useRecoilValue } from "recoil";
 import { isSidebarOpenState } from "@/state/atoms/sidebar";
 import useSignOut from 'react-auth-kit/hooks/useSignOut';
 import { LogOut } from "lucide-react";
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser';
+
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,10 +20,11 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 export function Sidebar({ className }: SidebarProps){
   const isSidebarOpen = useRecoilValue(isSidebarOpenState); 
   const navigate = useNavigate();
-  const signOut =useSignOut()
+  const signOut =useSignOut();
+  const auth = useAuthUser<{name:string}>();
   const words = [
     {
-      text: "Hare Krishna",
+      text: auth==null?"No Name":auth.name,
       className: "text-red-500 dark:text-red-500"
     }
     

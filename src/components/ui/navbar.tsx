@@ -79,7 +79,7 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
     >
       <LoadingBar color={"#FF0000"} progress={progress} onLoaderFinished={()=>setProgress(0)}></LoadingBar>
       <Button
-        className="mr-2"
+        className="mr-2 shadow-md bg-green-500"
         variant="outline"
         size="sm"
         onClick={

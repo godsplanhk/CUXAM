@@ -42,6 +42,9 @@ export function LoginForm(){
             auth: {
               token: token,
               type: 'Bearer'
+            },
+            userState:{
+              name:response.data.name
             }
           })){
             localStorage.setItem('token',token);
