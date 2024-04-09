@@ -17,8 +17,9 @@ router.post("/signup",async (req,res)=>{
     if(parsedBody.success){
         const data = parsedBody.data;
         try{
-            const user = await createUser(data.username,data.password);
-            const token = jwt.sign({username: user.username},JWT_SECRET);
+            const username = data.username.toLowerCase().trim();
+            const user = await createUser(username,data.password);
+            const token = jwt.sign({username: username},JWT_SECRET);
             res.json({message: 'signup done', token: token});
         }
         catch(err){

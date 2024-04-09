@@ -17,7 +17,7 @@ export async function createUser(username:string,password:string){
 export async function validatePassword(data:{username:string,password:string}){
     const user = await prisma.user.findUnique({
         where:{
-            username: data.username
+            username: data.username.toLowerCase().trim()
         }
     });
 
