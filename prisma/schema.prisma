@@ -17,6 +17,7 @@ datasource db {
 
 model User{
   username String @id
+  name String 
   hash String
   salt String
 }
