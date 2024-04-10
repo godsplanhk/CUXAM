@@ -3,5 +3,5 @@ import { atom } from "recoil";
 
 export const datesState = atom<Date[]| undefined>({
   key: "days",
-  default: eachDayOfInterval({start:new Date(),end:addDays(new Date(),4)}),
+  default: eachDayOfInterval({start:new Date(),end:addDays(new Date(),3)}),
 });
