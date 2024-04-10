@@ -30,4 +30,6 @@ const prisma = new PrismaClient()
 //     data: [{'id': 'BDA'}, {'id': 'CSBS'}, {'id': 'DevOps'}, {'id': 'IS'}, {'id': 'CC'}, {'id': 'BCB'}, {'id': 'AIML'}, {'id': 'GG'}, {'id': 'IoT'}, {'id': 'Kargil'}]
 // })
 
-await prisma.user.deleteMany();
+// await prisma.user.delete({
+//     where: {username:"E15868"}
+// });

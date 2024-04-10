@@ -15,11 +15,17 @@ function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:lSche
     for(let venue of venueAtoms){
         let free = true;
         const currentDayITeacherSchedule = internalTeacherSchedule.filter(s=>s.venue.date.getTime()==venue.date.getTime());
-        for(let s of currentDayITeacherSchedule){
-            if(s.venue.timeSlot===venue.timeSlot ||currentDayITeacherSchedule.length>=3){
-                free=false;
-                break;
+        const pattern = currentDayITeacherSchedule.map(s=>s.venue.timeSlot).toSorted().join('');
+        if(!((pattern=='12'&&venue.timeSlot==3)||(pattern=='13'&&venue.timeSlot==2)||(pattern=='23'&&venue.timeSlot==1)||(pattern=='23'&&venue.timeSlot==4)||(pattern=='24'&&venue.timeSlot==3)||(pattern=='34'&&venue.timeSlot==2))){
+            for(let s of currentDayITeacherSchedule){
+                if((s.venue.timeSlot===venue.timeSlot ||currentDayITeacherSchedule.length>=3)){
+                    free=false;
+                    break;
+                }
             }
+        }
+        else{
+            free=false;
         }
         if(free){
         externalTeacher = MostPreferredExternal(exam.teacher.ECode,venue,teacher,schedule);
@@ -68,10 +74,13 @@ function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teache
     for(let t of teacher){
         if(t.ECode!==internal){
         const externalSchedule = schedule.filter(s=>s.exam.teacher.ECode===t.ECode||s.external.ECode===t.ECode);
-        const externalTodaySchedule = externalSchedule.filter(s=>s.venue.date.getTime()==venue.date.getTime())
+        const externalTodaySchedule = externalSchedule.filter(s=>s.venue.date.getTime()==venue.date.getTime());
+        const pattern = externalTodaySchedule.map(s=>s.venue.timeSlot).toSorted().join('');
         if(externalTodaySchedule.length<3){
-            if(externalTodaySchedule.filter(s=>s.venue.timeSlot===venue.timeSlot).length===0){
-                return t;
+            if(!((pattern=='12'&&venue.timeSlot==3)||(pattern=='13'&&venue.timeSlot==2)||(pattern=='23'&&venue.timeSlot==1)||(pattern=='23'&&venue.timeSlot==4)||(pattern=='24'&&venue.timeSlot==3)||(pattern=='34'&&venue.timeSlot==2))){
+                if(externalTodaySchedule.filter(s=>s.venue.timeSlot===venue.timeSlot).length===0){
+                    return t;
+                }
             }
         }}
     }
