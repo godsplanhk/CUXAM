@@ -84,8 +84,8 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
         size="sm"
         onClick={
           async () => {
-            setProgress(10)
-          const dateSheet = await api.post(
+            setProgress(10);
+            const dateSheet = await api.post(
             "algo/getSchedule",
             {
               batches: sBatches,
@@ -99,7 +99,7 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
           const excelData = dateSheet.data.schedule.map((s: lSchedule)=> {
             setProgress((progress)=>progress+(15/dateSheet.data.schedule.length));
             return {
-              "Date": s.venue.date.split('T')[0],
+              "Date": new Date(s.venue.date).toLocaleDateString(),
               "Start Time": timeSlotDict[s.venue.timeSlot].startTime,
               "End Time": timeSlotDict[s.venue.timeSlot].endTime,
               "Course": s.exam.sec.batchR.BEME,
@@ -138,7 +138,7 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
         // Buffer to store the generated Excel file
 
         sDates?.forEach((d)=>{
-          const todaySchedule = dateSheet.data.schedule.filter((s:lSchedule)=>s.venue.date.split('T')[0]===d.toISOString().split('T')[0]);
+          const todaySchedule = dateSheet.data.schedule.filter((s:lSchedule)=>s.venue.date===d.toISOString());
           const tData = teacher.map((t:TeacherProp)=>{
             const scheduleCounter:Record<string|number,string|number|string[]> = {"Teacher Name": t.Tname,"ECode":t.ECode, 1:0,2:0,3:0,4:0,"tags":t.tags.toString()};
             const TeacherSchedule = todaySchedule.filter((s:lSchedule)=>(s.exam.teacher.ECode===t.ECode||s.external.ECode===t.ECode));
@@ -153,7 +153,7 @@ function GenerateNavBar({ className, ...props }: GenerateProps) {
         })
         let temp = dateSheet.data.venueAtoms;
         temp = temp.map((e: VenueAtoms)=>{
-          return {"Lab No.": e.labNo,"Block":e.block,"Capacity":e.capacity,"Date":e.date.split('T')[0],"TimeSlot":timeSlotDict[e.timeSlot].startTime+'-'+timeSlotDict[e.timeSlot].endTime}
+          return {"Lab No.": e.labNo,"Block":e.block,"Capacity":e.capacity,"Date":e.date,"TimeSlot":timeSlotDict[e.timeSlot].startTime+'-'+timeSlotDict[e.timeSlot].endTime}
         })
         const freeVenue = XLSX.utils.json_to_sheet(temp);
         XLSX.utils.book_append_sheet(workbook,freeVenue,"Free Classes")
