@@ -1,6 +1,8 @@
-import { Teacher } from '@prisma/client';
+import { Teacher, SoftSkillSchedule } from '@prisma/client';
 
 import { ExamAtom, lSchedule, VenueAtoms } from '../types/algoAtoms.js';
+import { prisma } from '../data/client.js';
+import { convertSoftSkillTolSchedule } from './utils/converters.js';
 
 
 function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:lSchedule[],teacher: Teacher[]):{venue:VenueAtoms|null,external:Teacher|null}{
@@ -86,8 +88,16 @@ function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teache
     }
     return null;
 }
-export function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],AvailableTeacher:Teacher[]):{schedule:lSchedule[],unscheduled:ExamAtom[]}{
-    const schedule: lSchedule[]=[];
+export async function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],AvailableTeacher:Teacher[]):Promise<{ schedule: lSchedule[]; unscheduled: ExamAtom[]; }>{
+    const schedule: lSchedule[]=(await prisma.softSkillSchedule.findMany({
+        include: {
+            sec: {
+                include:{
+                    batchR: true
+                }
+            }
+        }
+    })).map(e=>convertSoftSkillTolSchedule(e));
     const unscheduled:ExamAtom[] = [];
     VenueAtoms.sort((a,b)=>a.capacity-b.capacity);
     examAtoms.sort(()=>Math.random()-0.5);

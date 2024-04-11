@@ -17,7 +17,7 @@ datasource db {
 
 model User{
   username String @id
-  name String 
+  name String
   hash String
   salt String
 }
@@ -92,6 +92,7 @@ model Section{
   teacher ITeacher[]
   exam Schedule[]
   batchR Batches @relation(fields: [batch],references: [id])
+  softSkill SoftSkillSchedule[]
 }
 
 model Rooms{
@@ -118,5 +119,24 @@ model Schedule{
   iTeacher ITeacher @relation(fields: [sectionId,Ccode],references: [section,Ccode])
   externalR Teacher @relation(fields: [external], references: [ECode])
   lab Rooms @relation(fields: [labNo,block], references: [labNo,block])
+  @@unique([sectionId,Ccode])
+}
+
+model SoftSkillSchedule{
+  created DateTime @default(now())
+  sectionId String
+  Ccode String
+  Cname String
+  IEcode String
+  ITname String
+  labNo String
+  block String
+  capacity String
+  date DateTime
+  timeSlot Int
+  EEcode String
+  ETname String
+  tags String[] @default(["DCPD"])
+  sec Section @relation(fields: [sectionId],references: [id])
   @@unique([sectionId,Ccode])
 }

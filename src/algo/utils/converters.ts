@@ -1,4 +1,4 @@
-import { Rooms, Schedule, Teacher, ITeacher } from '@prisma/client';
+import { Rooms, Schedule, Teacher, ITeacher, SoftSkillSchedule, Section } from '@prisma/client';
 import { prisma } from "../../data/client.js";
 import { lSchedule } from "../../types/algoAtoms.js";
 
@@ -30,3 +30,41 @@ export interface ScheduleQuery extends Schedule{
 //         external:e.externalR
 //     }
 // }
+export interface SoftSkillConverterProps extends SoftSkillSchedule{
+    sec: {
+        id: string;
+        capacity: number;
+        batchR: {
+            branch: string;
+            semester: string;
+            BEME: string;
+        }}
+};
+export function convertSoftSkillTolSchedule(softSch:SoftSkillConverterProps){
+    return {
+        exam: {
+            teacher:{
+                ECode: softSch.IEcode,
+                Tname: softSch.ITname
+            },
+            sec:softSch.sec,
+            course:{
+                code: softSch.Ccode,
+                Cname: softSch.Cname,
+        }
+    },
+    venue: {
+        labNo: softSch.labNo,
+        block: softSch.block,
+        capacity: parseInt(softSch.capacity),
+        date: softSch.date,
+        timeSlot: softSch.timeSlot
+    },
+    external: {
+        ECode: softSch.EEcode,
+        Tname: softSch.ETname,
+        tags: softSch.tags,
+        gender: 'NA'
+
+    }
+}}
