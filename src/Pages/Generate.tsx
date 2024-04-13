@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/toaster";
+import { GenerateBar } from "@/components/ui/navbar";
 
 function Loader(){
     return <LoaderIcon></LoaderIcon>
@@ -58,13 +59,14 @@ export function Generate() {
         </Suspense>
         </ErrorBoundary>
       </div>
-      <div className="md:col-span-10 lg:col-span-4 m-2 rounded-sm shadow-md border p-2 h-min hover:shadow-md hover:shadow-green-500 overflow-auto">
       <ErrorBoundary fallbackRender={fallbackRender} onError={()=>teacherRefresh()}>
       <Suspense fallback={<Loader/>}>
+      <div className="md:col-span-10 lg:col-span-4 m-2 rounded-sm shadow-md border p-2 h-min hover:shadow-md hover:shadow-green-500 overflow-auto items-center justify-center">
           <TeacherSelection />
+          <GenerateBar/>
+      </div>
         </Suspense>
         </ErrorBoundary>
-      </div>
       <Toaster/>
     </div>
   );

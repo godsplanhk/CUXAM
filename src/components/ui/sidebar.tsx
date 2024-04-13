@@ -11,6 +11,7 @@ import { isSidebarOpenState } from "@/state/atoms/sidebar";
 import useSignOut from 'react-auth-kit/hooks/useSignOut';
 import { LogOut } from "lucide-react";
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser';
+import { ModeToggle } from "../mode-toggle";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;
@@ -69,6 +70,9 @@ export function Sidebar({ className }: SidebarProps){
       }}>
         <LogOut/>LogOut
       </Button>
+      <div className='md:hidden'>
+            <ModeToggle></ModeToggle>
+        </div>
     </div>
   )
 }

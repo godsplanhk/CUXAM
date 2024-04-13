@@ -44,8 +44,10 @@ function App() {
   api.defaults.headers['Authorization']=authHeader?.split(' ')[1]??null;
   return (
     <div>
-      <div className='grid sticky top-0 shadow-sm border-b backdrop-blur-md dark:backdrop-blur-md bg-black-500/3 dark:bg-black-500/30 dark:border-gray-700 '>
+      <div className='grid sticky top-0 shadow-sm border-b backdrop-blur-md dark:backdrop-blur-md bg-black-500/3 dark:bg-black-500/30 dark:border-gray-700'>
+        <div className='hidden md:flex'>
             <ModeToggle></ModeToggle>
+        </div>
 
     {!isAuthPage && <Navbar></Navbar>}
       </div>
