@@ -19,7 +19,6 @@ import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 import { LogOut } from "lucide-react";
 import {Vortex} from "react-loader-spinner";
 import { useState } from "react";
-
 interface NavbarProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   className?: string;
@@ -88,6 +87,10 @@ export function GenerateBar({ className, ...props }: GenerateProps) {
           async () => {
             setGenerate(true);
             const data = [];
+            sDates?.forEach(d=>{
+              d.setHours(5);
+              d.setMinutes(30);
+            })
             const dateSheet = await api.post(
             "algo/getSchedule",
             {
@@ -239,7 +242,6 @@ export function GenerateBar({ className, ...props }: GenerateProps) {
         // XLSX.utils.book_append_sheet(workbook,freeVenue,"Free Classes")
         // const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
         // const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
-        console.log(sDates?sDates[0].toLocaleString().split(' ')[0]:1);
         const settings = {
           fileName: "CUXAM DateSheet  "+(sDates?sDates[0].toLocaleString().split(' ')[0].replace(",",""):"1")+"-"+(sDates?sDates[sDates.length-1].toLocaleString().split(" ")[0].replace(",",""):"2"), // Name of the resulting spreadsheet
           extraLength: 1, // A bigger number means that columns will be wider
