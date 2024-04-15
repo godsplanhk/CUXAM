@@ -46,8 +46,10 @@ function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:lSche
             venueAtoms.splice(i,1);
             break;
         }
-        else if(currentDaySchedule.length<2){
-            if(currentDaySchedule[0].venue.timeSlot!=venue.timeSlot){
+        else if(currentDaySchedule.length==1){
+            const pattern = currentDaySchedule[0].venue.timeSlot;
+            const venueTimeSlot = venue.timeSlot;
+            if(pattern!=venueTimeSlot&&(Math.abs(venueTimeSlot-pattern)!=1)){
                 if(venue.capacity<exam.sec.capacity){
                     preferredVenue.push({venue:venue,ind:i,external:externalTeacher});
                     i++;
