@@ -8,7 +8,7 @@ export function fitnessCheckConsecutiveExam(section: Section[],schedule:lSchedul
         for(let d of dates){
             const todaySchedule = sectionSchedule.filter((element)=>element.venue.date.getTime()===d.getTime());
             if(todaySchedule.length==2){
-                if(todaySchedule[1].venue.timeSlot-todaySchedule[1].venue.timeSlot==1){
+                if(Math.abs(todaySchedule[1].venue.timeSlot-todaySchedule[0].venue.timeSlot)==1){
                     fitness.push(1);
                 }
                 else{
