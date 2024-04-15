@@ -47,7 +47,7 @@ model Batches{
   semester String
   BEME String @default("BE")
   Degree Degree @relation(fields: [BEME],references: [id])
-  branchR Branch @relation(fields: [branch],references: [id])
+  branchR Branch @relation(fields: [branch],references: [id], onDelete: Cascade)
   course BatchCourse[]
   section Section[]
 }
@@ -91,7 +91,7 @@ model Section{
   capacity Int @default(36)
   teacher ITeacher[]
   exam Schedule[]
-  batchR Batches @relation(fields: [batch],references: [id])
+  batchR Batches @relation(fields: [batch],references: [id], onDelete: Cascade)
   softSkill SoftSkillSchedule[]
 }
 

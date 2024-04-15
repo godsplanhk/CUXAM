@@ -100,6 +100,8 @@ export async function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],Av
             }
         }
     })).map(e=>convertSoftSkillTolSchedule(e));
+    console.log(schedule[0]);
+    console.log(VenueAtoms[0]);
     const unscheduled:ExamAtom[] = [];
     VenueAtoms.sort((a,b)=>a.capacity-b.capacity);
     examAtoms.sort(()=>Math.random()-0.5);
