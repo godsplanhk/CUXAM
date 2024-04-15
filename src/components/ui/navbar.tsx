@@ -170,9 +170,8 @@ export function GenerateBar({ className, ...props }: GenerateProps) {
         // XLSX.utils.book_append_sheet(workbook, unscheduleWorksheet, "Unschedule");
         setNavInfo({scheduled: dateSheet.data.schedule.length,unscheduled: dateSheet.data.unschedule.length,fitness: dateSheet.data.fitness});
         // Buffer to store the generated Excel file
-
         sDates?.forEach((d)=>{
-          const todaySchedule = dateSheet.data.schedule.filter((s:lSchedule)=>s.venue.date===d.toISOString());
+          const todaySchedule = dateSheet.data.schedule.filter((s:lSchedule)=>s.venue.date.split('T')[0]===d.toISOString().split('T')[0]);
           const tData = teacher.map((t:TeacherProp)=>{
             const scheduleCounter:Record<string|number,string|number|string[]> = {"Teacher Name": t.Tname,"ECode":t.ECode, 1:0,2:0,3:0,4:0,"tags":t.tags.toString()};
             const TeacherSchedule = todaySchedule.filter((s:lSchedule)=>(s.exam.teacher.ECode===t.ECode||s.external.ECode===t.ECode));
