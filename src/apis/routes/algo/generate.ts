@@ -10,7 +10,7 @@ router.post('/getSchedule',async (req,res)=>{
     const labs = body.labs;
     const teachers = body.teachers;
     let dates = body.dates;
-    const Udates = dates.map((e: string)=>new Date(e.split('T')[0]));
+    const Udates:Date[] = dates.map((d: string) =>new Date(d));
     const DatesheetRes = await Generate(batchesId,labs,Udates,teachers);
     res.header({'Access-Control-Allow-Origin': '*',}).json(DatesheetRes);
 });

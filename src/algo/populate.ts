@@ -74,7 +74,7 @@ function MostPreferredVenue(exam:ExamAtom,venueAtoms:VenueAtoms[],schedule:lSche
 }
 
 function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teacher[],schedule: lSchedule[]){
-    teacher.sort(()=>Math.random()-0.5);
+    teacher.sort(()=>Math.random()-Math.random());
     for(let t of teacher){
         if(t.ECode!==internal){
         const externalSchedule = schedule.filter(s=>s.exam.teacher.ECode===t.ECode||s.external.ECode===t.ECode);

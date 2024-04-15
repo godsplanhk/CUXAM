@@ -6,7 +6,6 @@ import xlsx, { IJsonSheet,IContent } from 'json-as-xlsx';
 import { fitnessCheckConsecutiveExam } from "./fitness.js";
 
 export async function Generate(batches:string[],rooms:Rooms[],date: Date[],teacher: Teacher[]){
-
     const section = await getAllSections(batches);
    const examAtoms = await getExamAtoms(section);
    const venueAtoms = getVenueAtoms(rooms,date);
