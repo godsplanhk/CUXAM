@@ -18,9 +18,13 @@ import { useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
 import useSignIn from 'react-auth-kit/hooks/useSignIn';
 import api from '../../utils/axiosInstance'
+import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
+
 export function LoginForm() {
   const signIn = useSignIn();
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
   const formSchema = z.object({
     username: z.string().min(2).max(50),
     password: z.string().min(5),
@@ -63,7 +67,7 @@ export function LoginForm() {
   }
   return (
     <CardContainer className="inter-var justify-center w-96">
-      <CardBody className="backdrop-blur-sm h-auto w-auto bg-white/30 relative group/card dark:hover:shadow-2xl dark:bg-black xs:w-[20rem] sm:w-[30rem] rounded-xl p-6 border flex flex-col items-center">
+      <CardBody className="drop-shadow-[0_30px_30px_rgba(130,0,0,.50)] backdrop-blur-sm h-auto w-auto bg-slate-50/30 relative group/card dark:hover:shadow-2xl dark:bg-slate-950 xs:w-[20rem] sm:w-[30rem] rounded-xl p-6 border flex flex-col items-center">
         <CardItem
           className="text-xl text-red-500 font-bold dark:text-Red"
         >
@@ -83,7 +87,7 @@ export function LoginForm() {
                 name="username"
                 render={({ field }) => (
                   <FormItem className="flex flex-col gap-y-2">
-                    <FormLabel className="flex">Username</FormLabel>
+                    <FormLabel className="flex text-sm">Username</FormLabel>
                     <FormControl>
                       <Input placeholder="username" {...field} />
                     </FormControl>
@@ -96,15 +100,27 @@ export function LoginForm() {
                 name="password"
                 render={({ field }) => (
                   <FormItem className="flex flex-col gap-y-2">
-                    <FormLabel className="flex">Password</FormLabel>
-                    <FormControl>
-                      <Input placeholder="password" type='password' {...field} />
-                    </FormControl>
+                    <FormLabel className="flex text-sm">Password</FormLabel>
+                    <div className="flex w-full relative">
+                      <FormControl>
+                        <Input className="w-full pr-10" placeholder="password" type={showPassword ? "text" : "password"} {...field} />
+                      </FormControl>
+                      <span
+                        className="absolute inset-y-0 right-2 flex items-center text-xs cursor-pointer"
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        {showPassword ? (
+                          <EyeOff className="h-5 w-5 text-gray-400" />
+                        ) : (
+                          <Eye className="h-5 w-5 text-gray-400" />
+                        )}
+                      </span></div>
+
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <Button type="submit" onClick={() => { form.handleSubmit }}>Submit</Button>
+              <Button className="text-base font-medium" type="submit" onClick={() => { form.handleSubmit }}>Submit</Button>
             </form>
           </Form>
         </CardItem>

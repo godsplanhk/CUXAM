@@ -53,7 +53,7 @@ function App() {
       </div>
     {!isAuthPage && <Sidebar className="md:w-52 float-left h-full justify-left border-b border-r rounded-br-lg shadow-sm"></Sidebar>}
 
-      <div className='grow h-screen overflow-y-auto no-scrollbar'>
+      <div className='grow overflow-y-auto no-scrollbar'>
       <Routes>
       <Route path='/login' element={Landing()}></Route>
       <Route element={<AuthOutlet fallbackPath='/login'/>}>
