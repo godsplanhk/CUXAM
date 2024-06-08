@@ -20,11 +20,13 @@ import useSignIn from 'react-auth-kit/hooks/useSignIn';
 import api from '../../utils/axiosInstance'
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import {FormLoader} from "@/components/formLoader"
 
 export function LoginForm() {
   const signIn = useSignIn();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const formSchema = z.object({
     username: z.string().min(2).max(50),
     password: z.string().min(5),
@@ -39,6 +41,7 @@ export function LoginForm() {
     }
   );
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
     try {
       const response = await api.post('/auth/login', values);
       const token = response.data.token;
@@ -62,8 +65,9 @@ export function LoginForm() {
       else if (err && err instanceof Error) {
         alert(err.message);
       }
+    } finally{
+      setIsLoading(false);
     }
-
   }
   return (
     <CardContainer className="inter-var justify-center w-96">
@@ -74,7 +78,7 @@ export function LoginForm() {
           CUXAM
         </CardItem>
         <CardItem className="text-xl text-blue-500 font-bold max-w-sm mt-2 dark:text-neutral-300">
-          Login
+          User Login
         </CardItem>
         <CardItem
           as="div"
@@ -115,12 +119,11 @@ export function LoginForm() {
                           <Eye className="h-5 w-5 text-gray-400" />
                         )}
                       </span></div>
-
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <Button className="text-base font-medium" type="submit" onClick={() => { form.handleSubmit }}>Submit</Button>
+              <Button className="text-base font-medium" type="submit" onClick={() => { form.handleSubmit }}>{isLoading ? <FormLoader /> : 'Submit'}</Button>
             </form>
           </Form>
         </CardItem>
