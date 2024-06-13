@@ -3,7 +3,8 @@
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/node": "^20.14.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
@@ -25,12 +26,14 @@
     "jsonwebtoken": "^9.0.2",
     "papaparse": "^5.4.1",
     "prisma": "^5.12.0",
-    "typescript": "^5.4.3",
     "zod": "^3.22.4"
   },
   "scripts": {
     "build": "tsc -b",
     "dev": "bun src/index.ts",
     "production": "node dist/index.js"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   }
 }

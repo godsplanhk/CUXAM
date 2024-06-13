@@ -133,6 +133,7 @@ model SoftSkillSchedule{
   block String
   capacity String
   date DateTime
+  dateIndex Int?
   timeSlot Int
   EEcode String
   ETname String

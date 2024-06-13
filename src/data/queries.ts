@@ -1,4 +1,4 @@
-import { Section } from "@prisma/client";
+import { Section, Rooms } from '@prisma/client';
 import { prisma } from "./client.js";
 
 export async function getExamAtoms(sections: Section[]){

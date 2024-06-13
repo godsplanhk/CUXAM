@@ -21,7 +21,7 @@ router.get('/rooms',async (req,res)=>{
 })
 
 router.get('/sections',async (req,res)=>{
-    if(req.body==undefined){
+    if(req.body==undefined||JSON.stringify(req.body)=='{}'){
         res.send(await prisma.section.findMany());
     }
     else{
