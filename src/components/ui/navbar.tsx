@@ -81,8 +81,8 @@ export function GenerateBar({ className, ...props }: GenerateProps) {
       {...props}
     >
       <Button
-        className="mr-2 shadow-md bg-green-500 hover:bg-green-700 w-full"
-        variant="outline"
+        className="mr-2 shadow-md bg-green-500 hover:bg-green-700 w-11/12 text-base"
+        variant="outline" disabled={generate}
         onClick={
           async () => {
             setGenerate(true);
@@ -264,7 +264,7 @@ export function GenerateBar({ className, ...props }: GenerateProps) {
         <Vortex
           visible={generate}
           ariaLabel="vortex-loading"
-          height={'60'}
+          height={'50'}
           wrapperStyle={{}}
           wrapperClass="vortex-wrapper"
           colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}

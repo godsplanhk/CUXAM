@@ -1,5 +1,5 @@
 "use client"
-import React, {  FunctionComponent, useEffect, useRef, useState } from "react"
+import React, { FunctionComponent, useEffect, useRef, useState } from "react"
 import {
   ColumnDef,
   flexRender,
@@ -32,7 +32,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/utils/cn";
 import { useToast } from "./use-toast";
-
+import { ArrowLeft, ArrowRight, ArrowUp, ArrowDown } from 'lucide-react';
 
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -68,136 +68,139 @@ export function DataTable<TData, TValue>({
       rowSelection
     }
   });
-  const confirmed= useRef<boolean>(true);
-  const [filter,setFilter] = useState<string>(table.getAllColumns()[0].id);
-  useEffect(function (){confirmed.current=false;},[rowSelection])
-  const {toast} = useToast();
+  const confirmed = useRef<boolean>(true);
+  const [filter, setFilter] = useState<string>(table.getAllColumns()[0].id);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  useEffect(function () { confirmed.current = false; }, [rowSelection])
+  const { toast } = useToast();
   return (
     <div className="z-0">
-      <div className="items-center py-4 gap-1 flex">
+      <div className="items-center py-4 gap-2 flex justify-center">
         <div>Total: {table.getFilteredRowModel().rows.length}</div>
         <div className='flex gap-1 justify-center'>
-        <Input
-          placeholder={"Filter "+filter}
-          value={(table.getColumn(filter)?.getFilterValue() as string)}
-          onChange={(event) =>
-            {
+          <Input
+            placeholder={"Filter " + filter}
+            value={(table.getColumn(filter)?.getFilterValue() as string)}
+            onChange={(event) => {
               table.getColumn(filter)?.setFilterValue(event.target.value);
               table.getSelectedRowModel
             }
-          }
-          className="max-w-52"
-        />
+            }
+            className="max-w-52"
+          />
 
-         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-4">
-              {filter?filter:"Select Filter"}
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="bg-white dark:bg-neutral-900">
-            {table
-              .getAllColumns()
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                  key={column.id}
-                  className="capitalize"
-                  checked={column.id ===filter}
-                  onCheckedChange={() =>
-                    setFilter(column.id)
-                  }
-                  >
-                    {column.id}
-                  </DropdownMenuCheckboxItem>
-                )
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu>
-              </div>
+          <DropdownMenu onOpenChange={setIsFilterOpen}>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="ml-2">
+                <div className="flex justify-center items-center gap-1">
+                  {filter ? filter : "Select Filter"}
+                  {isFilterOpen ? <ArrowUp size={20}/> : <ArrowDown size={20}/>}
+                </div>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="bg-white dark:bg-neutral-900">
+              {table
+                .getAllColumns()
+                .map((column) => {
+                  return (
+                    <DropdownMenuCheckboxItem
+                      key={column.id}
+                      className="capitalize"
+                      checked={column.id === filter}
+                      onCheckedChange={() =>
+                        setFilter(column.id)
+                      }
+                    >
+                      {column.id}
+                    </DropdownMenuCheckboxItem>
+                  )
+                })}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
+      <div className="rounded-md border">
+        <Table>
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => {
+                  return (
+                    <TableHead key={header.id}>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
                           header.column.columnDef.header,
                           header.getContext()
                         )}
-                  </TableHead>
-                ) 
-              })}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {table.getRowModel().rows?.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                data-state={row.getIsSelected() && "selected"}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
+                    </TableHead>
+                  )
+                })}
               </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
-    </div>
-    <div className="md:flex items-center justify-end space-x-2 py-4 gap-4">
-      {table.getSelectedRowModel().rows.length} of {table.getCoreRowModel().rows.length} selected.
-            <div className="flex gap-4">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-          >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-          >
-          Next
-        </Button>
-         {confirm?
-         confirm(onclick=()=>{
-          toast({title: tableName+' confirmation', description: table.getSelectedRowModel().rows.length.toString()+ 'selected'});
-          setSelectedRows((table.getSelectedRowModel().rows.map(e=>e.original))as []);
-          confirmed.current= true;
-         }):
-         <Button
-          variant="outline"
-          className={cn("transition duration-2000",{"bg-green-500":confirmed.current})}
-          onClick={()=>{
-            toast({title: tableName+' confirmation', description: table.getSelectedRowModel().rows.length.toString()+ ' elements selected'});
-            setSelectedRows((table.getSelectedRowModel().rows.map(e=>e.original))as []);
-            confirmed.current= true;
-          }}
-          >
-            Confirm
-        </Button>}
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows?.length ? (
+              table.getRowModel().rows.map((row) => (
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() && "selected"}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id}>
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={columns.length} className="h-24 text-center">
+                  No results.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
       </div>
-          </div>
+      <div className="flex items-center justify-center space-x-2 py-4 gap-4">
+        {table.getSelectedRowModel().rows.length} of {table.getCoreRowModel().rows.length} selected
+        <div className="flex gap-4">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            <ArrowLeft />
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+          >
+            <ArrowRight />
+          </Button>
+          {confirm ?
+            confirm(onclick = () => {
+              toast({ title: tableName + ' confirmation', description: table.getSelectedRowModel().rows.length.toString() + 'selected' });
+              setSelectedRows((table.getSelectedRowModel().rows.map(e => e.original)) as []);
+              confirmed.current = true;
+            }) :
+            <Button
+              variant="outline"
+              className={cn("transition duration-2000 text-base", { "bg-green-500": confirmed.current })}
+              onClick={() => {
+                toast({ title: tableName + ' confirmation', description: table.getSelectedRowModel().rows.length.toString() + ' elements selected' });
+                setSelectedRows((table.getSelectedRowModel().rows.map(e => e.original)) as []);
+                confirmed.current = true;
+              }}
+            >
+              Confirm
+            </Button>}
+        </div>
+      </div>
     </div>
   )
 }
