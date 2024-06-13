@@ -90,7 +90,7 @@ function MostPreferredExternal(internal: string,venue:VenueAtoms,teacher: Teache
     }
     return null;
 }
-export async function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],AvailableTeacher:Teacher[]):Promise<{ schedule: lSchedule[]; unscheduled: ExamAtom[]; }>{
+export async function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],AvailableTeacher:Teacher[],date: Date[]):Promise<{ schedule: lSchedule[]; unscheduled: ExamAtom[]; }>{
     const schedule: lSchedule[]=(await prisma.softSkillSchedule.findMany({
         include: {
             sec: {
@@ -99,7 +99,7 @@ export async function Population(examAtoms:ExamAtom[],VenueAtoms:VenueAtoms[],Av
                 }
             }
         }
-    })).map(e=>convertSoftSkillTolSchedule(e));
+    })).map(e=>convertSoftSkillTolSchedule(e,date));
     const unscheduled:ExamAtom[] = [];
     VenueAtoms.sort((a,b)=>a.capacity-b.capacity);
     examAtoms.sort(()=>Math.random()-0.5);

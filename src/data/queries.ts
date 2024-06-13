@@ -1,5 +1,7 @@
-import { Section, Rooms } from '@prisma/client';
+import { Section, Rooms, Teacher } from '@prisma/client';
 import { prisma } from "./client.js";
+import { softSkill } from '../../prisma/seedsData.js';
+import { number } from 'zod';
 
 export async function getExamAtoms(sections: Section[]){
     return await prisma.iTeacher.findMany(

@@ -40,8 +40,10 @@ export interface SoftSkillConverterProps extends SoftSkillSchedule{
             BEME: string;
         }}
 };
-export function convertSoftSkillTolSchedule(softSch:SoftSkillConverterProps){
-    return {
+export function convertSoftSkillTolSchedule(softSch:SoftSkillConverterProps,date: Date[]){
+    if(date.length<=4)
+    {
+        return {
         exam: {
             teacher:{
                 ECode: softSch.IEcode,
@@ -67,4 +69,35 @@ export function convertSoftSkillTolSchedule(softSch:SoftSkillConverterProps){
         gender: 'NA'
 
     }
-}}
+    }
+    }
+    else {
+        return {
+            exam: {
+                teacher:{
+                    ECode: softSch.IEcode,
+                    Tname: softSch.ITname
+                },
+                sec:softSch.sec,
+                course:{
+                    code: softSch.Ccode,
+                    Cname: softSch.Cname,
+            }
+        },
+        venue: {
+            labNo: softSch.labNo,
+            block: softSch.block,
+            capacity: parseInt(softSch.capacity),
+            date: date[softSch.dateIndex?softSch.dateIndex-1:0],
+            timeSlot: softSch.timeSlot
+        },
+        external: {
+            ECode: softSch.EEcode,
+            Tname: softSch.ETname,
+            tags: softSch.tags,
+            gender: 'NA'
+    
+        }
+        }
+    }
+}
