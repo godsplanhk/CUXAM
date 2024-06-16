@@ -18,15 +18,17 @@ import { useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
 import useSignIn from 'react-auth-kit/hooks/useSignIn';
 import api from '../../utils/axiosInstance'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import {FormLoader} from "@/components/formLoader"
+import {WaitingLoader} from "@/components/waitingLoader";
 
 export function LoginForm() {
   const signIn = useSignIn();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isWaiting, setIsWaiting] = useState(false);
   const formSchema = z.object({
     username: z.string().min(2).max(50),
     password: z.string().min(5),
@@ -40,8 +42,20 @@ export function LoginForm() {
       }
     }
   );
+
+  useEffect(()=>{
+    let timer: NodeJS.Timeout
+    if(isLoading){
+      timer = setTimeout(()=>{
+        setIsWaiting(true);
+      }, 5000)
+    }
+    return ()=> clearTimeout(timer)
+  }, [isLoading]);
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
+    setIsWaiting(false);
     try {
       const response = await api.post('/auth/login', values);
       const token = response.data.token;
@@ -67,8 +81,14 @@ export function LoginForm() {
       }
     } finally{
       setIsLoading(false);
+      setIsWaiting(false);
     }
   }
+
+  if (isWaiting) {
+    return <WaitingLoader loading={isLoading}/>;
+  }
+
   return (
     <CardContainer className="inter-var justify-center w-96">
       <CardBody className="drop-shadow-[0_30px_30px_rgba(130,0,0,.50)] backdrop-blur-sm h-auto w-auto bg-slate-50/30 relative group/card dark:hover:shadow-2xl dark:bg-slate-950 xs:w-[20rem] sm:w-[30rem] rounded-xl p-6 border flex flex-col items-center">
@@ -123,7 +143,7 @@ export function LoginForm() {
                   </FormItem>
                 )}
               />
-              <Button className="text-base font-medium" type="submit" onClick={() => { form.handleSubmit }}>{isLoading ? <FormLoader /> : 'Submit'}</Button>
+              <Button className="text-base font-medium" type="submit" disabled={isLoading} onClick={() => { form.handleSubmit }}>{isLoading ? <FormLoader /> : 'Submit'}</Button>
             </form>
           </Form>
         </CardItem>

@@ -41,7 +41,7 @@ export function Generate() {
   return (
     <div className="grid md:grid-cols-10 gap-1">
       <div className="md:col-span-5 lg:col-span-3">
-        <div className=" m-2 rounded-sm shadow-md border p-2 hover:shadow-md hover:shadow-green-500 h-min justify-center">
+        <div className="m-2 rounded-sm border p-2 h-min justify-center shadow-md hover:shadow hover:shadow-green-500">
             <ErrorBoundary fallbackRender={fallbackRender} onError  ={()=>batchRefresh()}>
           <Suspense fallback={<Loader/>}>
             <BranchSelection />
@@ -49,7 +49,7 @@ export function Generate() {
             </ErrorBoundary>
         </div>
       </div>
-      <div className=" justify-center w-auto md:col-span-5 lg:col-span-3 my-2 rounded-sm shadow-md border p-2 h-min hover:shadow-md hover:shadow-green-500">
+      <div className=" justify-center w-auto md:col-span-5 lg:col-span-3 my-2 rounded-sm border p-2 h-min shadow-md hover:shadow hover:shadow-green-500">
         <div>
           <DatePickerSelection />
         </div>
@@ -61,7 +61,7 @@ export function Generate() {
       </div>
       <ErrorBoundary fallbackRender={fallbackRender} onError={()=>teacherRefresh()}>
       <Suspense fallback={<Loader/>}>
-      <div className="md:col-span-10 lg:col-span-4 m-2 rounded-sm shadow-md border p-2 h-min hover:shadow-md hover:shadow-green-500 overflow-auto items-center justify-center">
+      <div className="md:col-span-10 lg:col-span-4 m-2 rounded-sm shadow-md border p-2 h-min hover:shadow hover:shadow-green-500 overflow-auto items-center justify-center">
           <TeacherSelection />
           <GenerateBar/>
       </div>
