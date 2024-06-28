@@ -269,7 +269,7 @@ export function GenerateBar({ className, ...props }: GenerateProps) {
           wrapperClass="vortex-wrapper"
           colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
         />
-        Generate
+        {generate ? 'Generating' : 'Generate'}
       </Button>
     </div>
   );
