@@ -19,6 +19,7 @@ import AuthOutlet from '@auth-kit/react-router/AuthOutlet'
 import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated'
 import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader';
 import api from './utils/axiosInstance';
+import { UserManagement } from './Pages/UserManagement';
 const store = createStore({
   authName: '_auth',
   authType: 'cookie',
@@ -64,6 +65,7 @@ function App() {
             <Route path='/' element={isAuth ? <Navigate to={'/dashboard'} /> : <Navigate to={'/login'} />} />
             <Route path='/dashboard' element={<Dashboard />}></Route>
             <Route path='/generate' element={<Generate />}></Route>
+            <Route path='/user-management' element={<UserManagement />}></Route>
           </Route>
         </Routes>
       </div>
