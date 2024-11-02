@@ -14,6 +14,7 @@ const signUpSchema = z.object({
 
 router.post("/signup",async (req,res)=>{
     const body = req.body;
+    console.log(body);
     const parsedBody = signUpSchema.safeParse(body);
     if(parsedBody.success){
         const data = parsedBody.data;
@@ -39,6 +40,7 @@ const signInSchema = z.object({
 })
 
 router.post('/login',async(req,res)=>{
+    console.log(req);
     const body = req.body;
     const parsedBody=signInSchema.safeParse(body);
     if(parsedBody.success){
@@ -48,7 +50,7 @@ router.post('/login',async(req,res)=>{
             if(passwordCheck){
                 const token = jwt.sign({username: data.username},JWT_SECRET,{expiresIn: '1h'});
                 res.json({
-                    message:'logged in',token: token,username:user?.username,name:user?.name
+                    message:'logged in',token: token,username:user?.username,name:user?.name,role:user?.role
                 });
                 return;
             }

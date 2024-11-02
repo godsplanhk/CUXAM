@@ -17,6 +17,7 @@ datasource db {
 
 model User{
   username String @id
+  role user_type @default(user)
   name String
   hash String
   salt String
@@ -140,4 +141,10 @@ model SoftSkillSchedule{
   tags String[] @default(["DCPD"])
   sec Section @relation(fields: [sectionId],references: [id])
   @@unique([sectionId,Ccode])
+}
+
+enum user_type{
+  superadmin
+  admin
+  user
 }
