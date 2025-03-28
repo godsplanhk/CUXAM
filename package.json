@@ -31,7 +31,7 @@
   "scripts": {
     "build": "tsc -b",
     "dev": "bun src/index.ts",
-    "production": "node dist/index.js"
+    "production": "node dist/src/index.js"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
