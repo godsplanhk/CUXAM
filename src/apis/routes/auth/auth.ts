@@ -40,7 +40,6 @@ const signInSchema = z.object({
 })
 
 router.post('/login',async(req,res)=>{
-    console.log(req);
     const body = req.body;
     const parsedBody=signInSchema.safeParse(body);
     if(parsedBody.success){

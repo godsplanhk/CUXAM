@@ -23,8 +23,9 @@ export async function validatePassword(data:{username:string,password:string}){
     });
 
     if(user){
-        const hash = crypto.pbkdf2Sync(data.password,user.salt,1000,64,'sha512').toString('hex');
-        if(hash===user.hash){
+        const hash = crypto.pbkdf2Sync(data.password, user.salt, 1000, 64, 'sha512').toString('hex');
+        console.log("hash", hash, "user", user.hash);
+        if (hash === user.hash) {
             return {passwordCheck:true,user:user};
         }
     }

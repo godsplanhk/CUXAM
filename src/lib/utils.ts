@@ -2,7 +2,6 @@ import { Batches, Branch,SoftSkillSchedule,Teacher } from "@prisma/client";
 import { prisma } from "../data/client.js";
 import teacherData from "../../files/teacher_0.json" with {type: "json"};
 import softSkillData from "../../files/SoftSkill_0.json" with {type: "json"};
-import { prisma } from '../data/client';
 type FacultyMember = {
     post: string;
     gender: string;
