@@ -1,0 +1,611 @@
+[ {
+  "batch" : "23BCC",
+  "group" : "A",
+  "id" : "23BCC-1/A",
+  "capacity" : 34
+}, {
+  "batch" : "23BCC",
+  "group" : "B",
+  "id" : "23BCC-1/B",
+  "capacity" : 27
+}, {
+  "batch" : "22BCC",
+  "group" : "A",
+  "id" : "22BCC-1/A",
+  "capacity" : 37
+}, {
+  "batch" : "22BCC",
+  "group" : "B",
+  "id" : "22BCC-1/B",
+  "capacity" : 37
+}, {
+  "batch" : "22BCC",
+  "group" : "A",
+  "id" : "22BCC-2/A",
+  "capacity" : 36
+}, {
+  "batch" : "21BCC",
+  "group" : "A",
+  "id" : "21BCC-1/A",
+  "capacity" : 26
+}, {
+  "batch" : "21BCC",
+  "group" : "B",
+  "id" : "21BCC-1/B",
+  "capacity" : 24
+}, {
+  "batch" : "21BCC",
+  "group" : "A",
+  "id" : "21BCC-2/A",
+  "capacity" : 26
+}, {
+  "batch" : "21BCC",
+  "group" : "B",
+  "id" : "21BCC-2/B",
+  "capacity" : 28
+}, {
+  "batch" : "23BDA",
+  "group" : "A",
+  "id" : "23BDA-1 /A",
+  "capacity" : 36
+}, {
+  "batch" : "23BDA",
+  "group" : "B",
+  "id" : "23BDA-1/B",
+  "capacity" : 36
+}, {
+  "batch" : "23BDA",
+  "group" : "A",
+  "id" : "23BDA-2/A",
+  "capacity" : 36
+}, {
+  "batch" : "23BDA",
+  "group" : "B",
+  "id" : "23BDA-2/B",
+  "capacity" : 34
+}, {
+  "batch" : "22BDA",
+  "group" : "A",
+  "id" : "22BDA-1/A",
+  "capacity" : 38
+}, {
+  "batch" : "22BDA",
+  "group" : "B",
+  "id" : "22BDA-1/B",
+  "capacity" : 38
+}, {
+  "batch" : "22BDA",
+  "group" : "A",
+  "id" : "22BDA-2/A",
+  "capacity" : 38
+}, {
+  "batch" : "22BDA",
+  "group" : "B",
+  "id" : "22BDA-2/B",
+  "capacity" : 41
+}, {
+  "batch" : "21BDA",
+  "group" : "A",
+  "id" : "21BDA-1/A",
+  "capacity" : 39
+}, {
+  "batch" : "21BDA",
+  "group" : "B",
+  "id" : "21BDA-1/B",
+  "capacity" : 39
+}, {
+  "batch" : "21BDA",
+  "group" : "A",
+  "id" : "21BDA-2/A",
+  "capacity" : 38
+}, {
+  "batch" : "21BDA",
+  "group" : "B",
+  "id" : "21BDA-2/B",
+  "capacity" : 28
+}, {
+  "batch" : "23BIT",
+  "group" : "A",
+  "id" : "23BIT-1/A",
+  "capacity" : 21
+}, {
+  "batch" : "22BIT",
+  "group" : "A",
+  "id" : "22BIT-1/A",
+  "capacity" : 22
+}, {
+  "batch" : "22BIT",
+  "group" : "B",
+  "id" : "22BIT-1/B",
+  "capacity" : 21
+}, {
+  "batch" : "21BIT",
+  "group" : "A",
+  "id" : "21BIT-1/A",
+  "capacity" : 33
+}, {
+  "batch" : "21BIT",
+  "group" : "B",
+  "id" : "21BIT-1/B",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "A",
+  "id" : "23AML-1/A",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "B",
+  "id" : "23AML-1/B",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "A",
+  "id" : "23AML-2/A",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "B",
+  "id" : "23AML-2/B",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "A",
+  "id" : "23AML-3/A",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "B",
+  "id" : "23AML-3/B",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "A",
+  "id" : "23AML-4/A",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "B",
+  "id" : "23AML-4/B",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "A",
+  "id" : "23AML-5/A",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "B",
+  "id" : "23AML-5/B",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "A",
+  "id" : "23AML-6/A",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "B",
+  "id" : "23AML-6/B",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "A",
+  "id" : "23AML-7/A",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "B",
+  "id" : "23AML-7/B",
+  "capacity" : 33
+}, {
+  "batch" : "23AML",
+  "group" : "A",
+  "id" : "23AML-8/A",
+  "capacity" : 36
+}, {
+  "batch" : "23AML",
+  "group" : "B",
+  "id" : "23AML-8/B",
+  "capacity" : 36
+}, {
+  "batch" : "23AML",
+  "group" : "A",
+  "id" : "23AML-9/A",
+  "capacity" : 36
+}, {
+  "batch" : "23AML",
+  "group" : "B",
+  "id" : "23AML-9/B",
+  "capacity" : 36
+}, {
+  "batch" : "23AML",
+  "group" : "A",
+  "id" : "23AML-10/A",
+  "capacity" : 36
+}, {
+  "batch" : "23AML",
+  "group" : "B",
+  "id" : "23AML-10/B",
+  "capacity" : 36
+}, {
+  "batch" : "23AML",
+  "group" : "A",
+  "id" : "23AML-11/A",
+  "capacity" : 36
+}, {
+  "batch" : "23AML",
+  "group" : "B",
+  "id" : "23AML-11/B",
+  "capacity" : 36
+}, {
+  "batch" : "22AML",
+  "group" : "A",
+  "id" : "22AML-1/A",
+  "capacity" : 33
+}, {
+  "batch" : "22AML",
+  "group" : "B",
+  "id" : "22AML-1/B",
+  "capacity" : 34
+}, {
+  "batch" : "22AML",
+  "group" : "A",
+  "id" : "22AML-2/A",
+  "capacity" : 36
+}, {
+  "batch" : "22AML",
+  "group" : "B",
+  "id" : "22AML-2/B",
+  "capacity" : 34
+}, {
+  "batch" : "22AML",
+  "group" : "A",
+  "id" : "22AML-3/A",
+  "capacity" : 36
+}, {
+  "batch" : "22AML",
+  "group" : "B",
+  "id" : "22AML-3/B",
+  "capacity" : 35
+}, {
+  "batch" : "22AML",
+  "group" : "A",
+  "id" : "22AML-4/A",
+  "capacity" : 37
+}, {
+  "batch" : "22AML",
+  "group" : "B",
+  "id" : "22AML-4/B",
+  "capacity" : 35
+}, {
+  "batch" : "22AML",
+  "group" : "A",
+  "id" : "22AML-5/A",
+  "capacity" : 35
+}, {
+  "batch" : "22AML",
+  "group" : "B",
+  "id" : "22AML-5/B",
+  "capacity" : 34
+}, {
+  "batch" : "22AML",
+  "group" : "A",
+  "id" : "22AML-6/A",
+  "capacity" : 37
+}, {
+  "batch" : "22AML",
+  "group" : "B",
+  "id" : "22AML-6/B",
+  "capacity" : 37
+}, {
+  "batch" : "22AML",
+  "group" : "A",
+  "id" : "22AML-7/A",
+  "capacity" : 36
+}, {
+  "batch" : "22AML",
+  "group" : "B",
+  "id" : "22AML-7/B",
+  "capacity" : 36
+}, {
+  "batch" : "22AML",
+  "group" : "A",
+  "id" : "22AML-8/A",
+  "capacity" : 36
+}, {
+  "batch" : "22AML",
+  "group" : "B",
+  "id" : "22AML-8/B",
+  "capacity" : 36
+}, {
+  "batch" : "22AML",
+  "group" : "A",
+  "id" : "22AML-9/A",
+  "capacity" : 36
+}, {
+  "batch" : "22AML",
+  "group" : "B",
+  "id" : "22AML-9/B",
+  "capacity" : 38
+}, {
+  "batch" : "22AML",
+  "group" : "A",
+  "id" : "22AML-10/A",
+  "capacity" : 38
+}, {
+  "batch" : "22AML",
+  "group" : "B",
+  "id" : "22AML-10/B",
+  "capacity" : 42
+}, {
+  "batch" : "21AML",
+  "group" : "A",
+  "id" : "21AML-1/A",
+  "capacity" : 35
+}, {
+  "batch" : "21AML",
+  "group" : "B",
+  "id" : "21AML-1/B",
+  "capacity" : 38
+}, {
+  "batch" : "21AML",
+  "group" : "A",
+  "id" : "21AML-2/A",
+  "capacity" : 34
+}, {
+  "batch" : "21AML",
+  "group" : "B",
+  "id" : "21AML-2/B",
+  "capacity" : 35
+}, {
+  "batch" : "21AML",
+  "group" : "A",
+  "id" : "21AML-3/A",
+  "capacity" : 33
+}, {
+  "batch" : "21AML",
+  "group" : "B",
+  "id" : "21AML-3/B",
+  "capacity" : 32
+}, {
+  "batch" : "21AML",
+  "group" : "A",
+  "id" : "21AML-4/A",
+  "capacity" : 36
+}, {
+  "batch" : "21AML",
+  "group" : "B",
+  "id" : "21AML-4/B",
+  "capacity" : 35
+}, {
+  "batch" : "21AML",
+  "group" : "A",
+  "id" : "21AML-5/A",
+  "capacity" : 37
+}, {
+  "batch" : "21AML",
+  "group" : "B",
+  "id" : "21AML-5/B",
+  "capacity" : 36
+}, {
+  "batch" : "21AML",
+  "group" : "A",
+  "id" : "21AML-6/A",
+  "capacity" : 35
+}, {
+  "batch" : "21AML",
+  "group" : "B",
+  "id" : "21AML-6/B",
+  "capacity" : 35
+}, {
+  "batch" : "21AML",
+  "group" : "A",
+  "id" : "21AML-7/A",
+  "capacity" : 33
+}, {
+  "batch" : "21AML",
+  "group" : "B",
+  "id" : "21AML-7/B",
+  "capacity" : 35
+}, {
+  "batch" : "21AML",
+  "group" : "A",
+  "id" : "21AML-8/A",
+  "capacity" : 33
+}, {
+  "batch" : "21AML",
+  "group" : "B",
+  "id" : "21AML-8/B",
+  "capacity" : 34
+}, {
+  "batch" : "21AML",
+  "group" : "A",
+  "id" : "21AML-9/A",
+  "capacity" : 35
+}, {
+  "batch" : "21AML",
+  "group" : "B",
+  "id" : "21AML-9/B",
+  "capacity" : 34
+}, {
+  "batch" : "21AML",
+  "group" : "A",
+  "id" : "21AML-10/A",
+  "capacity" : 37
+}, {
+  "batch" : "21AML",
+  "group" : "B",
+  "id" : "21AML-10/B",
+  "capacity" : 38
+}, {
+  "batch" : "21AML",
+  "group" : "A",
+  "id" : "21AML-11/A",
+  "capacity" : 36
+}, {
+  "batch" : "21AML",
+  "group" : "B",
+  "id" : "21AML-11/B",
+  "capacity" : 33
+}, {
+  "batch" : "21AML",
+  "group" : "A",
+  "id" : "21AML-12/A",
+  "capacity" : 36
+}, {
+  "batch" : "21AML",
+  "group" : "B",
+  "id" : "21AML-12/B",
+  "capacity" : 32
+}, {
+  "batch" : "23BCG",
+  "group" : "A",
+  "id" : "23BCG-1/A",
+  "capacity" : 22
+}, {
+  "batch" : "22BCG",
+  "group" : "A",
+  "id" : "22BCG-1/A",
+  "capacity" : 31
+}, {
+  "batch" : "22BCG",
+  "group" : "B",
+  "id" : "22BCG-1/B",
+  "capacity" : 8
+}, {
+  "batch" : "23CBS",
+  "group" : "A",
+  "id" : "23CBS-1/A",
+  "capacity" : 33
+}, {
+  "batch" : "23CBS",
+  "group" : "B",
+  "id" : "23CBS-1/B",
+  "capacity" : 33
+}, {
+  "batch" : "22CBS",
+  "group" : "A",
+  "id" : "22CBS-1/A",
+  "capacity" : 25
+}, {
+  "batch" : "21CBS",
+  "group" : "A",
+  "id" : "21CBS-1/A",
+  "capacity" : 24
+}, {
+  "batch" : "21CBS",
+  "group" : "B",
+  "id" : "21CBS-1/B",
+  "capacity" : 24
+}, {
+  "batch" : "22BCB",
+  "group" : "A",
+  "id" : "22BCB-1/A",
+  "capacity" : 35
+}, {
+  "batch" : "22BCB",
+  "group" : "B",
+  "id" : "22BCB-1/B",
+  "capacity" : 38
+}, {
+  "batch" : "21BCB",
+  "group" : "A",
+  "id" : "21BCB-1/A",
+  "capacity" : 32
+}, {
+  "batch" : "21BCB",
+  "group" : "B",
+  "id" : "21BCB-1/B",
+  "capacity" : 32
+}, {
+  "batch" : "23BIS",
+  "group" : "A",
+  "id" : "23BIS-1/A",
+  "capacity" : 38
+}, {
+  "batch" : "23BIS",
+  "group" : "B",
+  "id" : "23BIS-1/B",
+  "capacity" : 39
+}, {
+  "batch" : "23BIS",
+  "group" : "A",
+  "id" : "23BIS-2/A",
+  "capacity" : 42
+}, {
+  "batch" : "23BIS",
+  "group" : "B",
+  "id" : "23BIS-2/B",
+  "capacity" : 40
+}, {
+  "batch" : "23BCB",
+  "group" : "B",
+  "id" : "23BCB-1/B",
+  "capacity" : 40
+}, {
+  "batch" : "22BIS",
+  "group" : "A",
+  "id" : "22BIS-1/A",
+  "capacity" : 26
+}, {
+  "batch" : "22BIS",
+  "group" : "B",
+  "id" : "22BIS-1/B",
+  "capacity" : 33
+}, {
+  "batch" : "22BIS",
+  "group" : "A",
+  "id" : "22BIS-2/A",
+  "capacity" : 30
+}, {
+  "batch" : "22BIS",
+  "group" : "B",
+  "id" : "22BIS-2/B",
+  "capacity" : 29
+}, {
+  "batch" : "21BIS",
+  "group" : "A",
+  "id" : "21BIS-1/A",
+  "capacity" : 35
+}, {
+  "batch" : "21BIS",
+  "group" : "B",
+  "id" : "21BIS-1/B",
+  "capacity" : 34
+}, {
+  "batch" : "21BIS",
+  "group" : "A",
+  "id" : "21BIS-2/A",
+  "capacity" : 22
+}, {
+  "batch" : "21BIS",
+  "group" : "B",
+  "id" : "21BIS-2/B",
+  "capacity" : 22
+}, {
+  "batch" : "23BCD",
+  "group" : "A",
+  "id" : "23BCD-1/A",
+  "capacity" : 26
+}, {
+  "batch" : "22BCD",
+  "group" : "A",
+  "id" : "22BCD-1/A",
+  "capacity" : 24
+}, {
+  "batch" : "22BCD",
+  "group" : "B",
+  "id" : "22BCD-1/B",
+  "capacity" : 23
+}, {
+  "batch" : "21BCD",
+  "group" : "A",
+  "id" : "21BCD-1/A",
+  "capacity" : 35
+}, {
+  "batch" : "24MCC",
+  "group" : "A",
+  "id" : "24MCC-1/A",
+  "capacity" : 14
+} ]

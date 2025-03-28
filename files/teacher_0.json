@@ -1,0 +1,727 @@
+[ {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr. Sandeep Kautish",
+  "ECode" : "E17021",
+  "designation" : "Director"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Veeramanickam M",
+  "ECode" : "E17381",
+  "designation" : "Associate Director"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr. Mandeep Tinna",
+  "ECode" : "E1326",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr. Aman Kaushik",
+  "ECode" : "E5942",
+  "designation" : "HOD"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr.Priyanka Kaushik",
+  "ECode" : "E13618",
+  "designation" : "Professor - HoD AIML"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Nitin Jain",
+  "ECode" : "E8466",
+  "designation" : "Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Krishnendu Rarhi",
+  "ECode" : "E9621",
+  "designation" : "Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Pramod Vishwakarma",
+  "ECode" : "E9758",
+  "designation" : "Assistant Professor-  Program Leader GG"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr Monica Luthra",
+  "ECode" : "E9836",
+  "designation" : "Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Gurpreet Singh",
+  "ECode" : "E9842",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Yogiraj Bhale",
+  "ECode" : "E10488",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Hariharan",
+  "ECode" : "E11201",
+  "designation" : "Associate Professor - Program Leader AIML"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Deepak Kumar",
+  "ECode" : "E11296",
+  "designation" : "Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Shivani Aggarwal",
+  "ECode" : "E11286",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Gurwinder Singh",
+  "ECode" : "E11253",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Yashika Sharma",
+  "ECode" : "E11567",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Shweta",
+  "ECode" : "E12791",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Saurabh Singhal",
+  "ECode" : "E12800",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Abhishek Ankur",
+  "ECode" : "E12833",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Vijay Bhardwaj",
+  "ECode" : "E12849",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr.Siddharth Kumar",
+  "ECode" : "E12853",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Neeru Bala",
+  "ECode" : "E13122",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr. Nirmalya Basu",
+  "ECode" : "E13248",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms. Pragatie Chawla",
+  "ECode" : "E13244",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Dayal Chandra Sati",
+  "ECode" : "E13263",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms. Lata Gupta",
+  "ECode" : "E13365",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr. Anil Manohar Dogra",
+  "ECode" : "E13431",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms. Shaveta Jain",
+  "ECode" : "E13464",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr. Kushagra Agarwal",
+  "ECode" : "E13465",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr. Madan Lal Saini",
+  "ECode" : "E13485",
+  "designation" : "Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Sant Kumar Maurya",
+  "ECode" : "E13548",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr.Krishna Kaushal Singh",
+  "ECode" : "E13828",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Mohit Lalit",
+  "ECode" : "E13845",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Amanpreet Kaur Dhaliwal",
+  "ECode" : "E13851",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Mahadev",
+  "ECode" : "E13868",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Ravneet Kaur",
+  "ECode" : "E11361",
+  "designation" : "Assistant Professor - Program Leader IS"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr Deepti Sharma",
+  "ECode" : "E14308",
+  "designation" : "Professor - Program Leader CC"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr Alankrita Aggarwal",
+  "ECode" : "E14496",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Jitender ",
+  "ECode" : "E14621",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Aaskaran Bishnoi",
+  "ECode" : "E15060",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr Geeta Rani",
+  "ECode" : "E15227",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr Satinderjit Kaur",
+  "ECode" : "E15282",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Surinder Chauhan",
+  "ECode" : "E15372",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Aarti",
+  "ECode" : "E15380",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Jagjit Singh",
+  "ECode" : "E15190",
+  "designation" : "Senior Technical Trainer"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Ranjan Walia",
+  "ECode" : "E14288",
+  "designation" : "Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr Kalpana Singh",
+  "ECode" : "E14950",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Ankit Garg",
+  "ECode" : "E14961",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Dhawan Singh",
+  "ECode" : "E14960",
+  "designation" : "Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr. Sonal Rattan",
+  "ECode" : "E15123",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "ECE",
+  "gender" : "Male",
+  "name" : "Mr Gaurav Soni",
+  "ECode" : "E9610",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "ECE",
+  "gender" : "Male",
+  "name" : "Mr Nikhil Aggarwal",
+  "ECode" : "E9191",
+  "designation" : "Assistant Professor - Program Leader IoT/CSBS"
+}, {
+  "post" : "Maths",
+  "gender" : "Male",
+  "name" : "Dr Anil Sharma",
+  "ECode" : "E12015",
+  "designation" : "Assistant professor "
+}, {
+  "post" : "Maths",
+  "gender" : "Female",
+  "name" : "Ms Savita",
+  "ECode" : "E3620",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "Maths",
+  "gender" : "Male",
+  "name" : "Dr Manoj Gaur",
+  "ECode" : "E14879",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "AIT-CSE",
+  "gender" : "Female",
+  "name" : "Ms Sheetal Laroiya",
+  "ECode" : "E15433",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "AIT-CSE",
+  "gender" : "Female",
+  "name" : "Ms Nikita",
+  "ECode" : "E15134",
+  "designation" : "Technical Trainer"
+}, {
+  "post" : "AIT-CSE",
+  "gender" : "Female",
+  "name" : "Ms Geetanjali",
+  "ECode" : "E15507",
+  "designation" : "Teaching Assistant"
+}, {
+  "post" : "AIT-CSE",
+  "gender" : "Female",
+  "name" : "Ms Tanvi",
+  "ECode" : "E15506",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr.Kamaljit Singh Saini",
+  "ECode" : "E3040",
+  "designation" : "Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Mamta",
+  "ECode" : "E15565",
+  "designation" : "Technical Trainer"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Ankur Gupta",
+  "ECode" : "E15733",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Jayashree Mohanty",
+  "ECode" : "E15737",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Sonali Kapoor",
+  "ECode" : "E15786",
+  "designation" : "Senior Technical Trainer"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Abhishek Tiwari",
+  "ECode" : "E15792",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Upasana Tiwari",
+  "ECode" : "E15791",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr. Preet Kamal",
+  "ECode" : "E15857",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Komal Mehta",
+  "ECode" : "E15888",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Pavandeep Kaur",
+  "ECode" : "E15947",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Jaswinder Singh",
+  "ECode" : "E15978",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Bhavna Nayyer",
+  "ECode" : "E15505",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Ankur Sharma",
+  "ECode" : "E13693",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr Navjeet Kaur",
+  "ECode" : "E16069",
+  "designation" : "Associate Professor-Program Leader BDA"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms.Kirti",
+  "ECode" : "E16189",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Ruksana",
+  "ECode" : "E16227",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Raghav Mehra",
+  "ECode" : "E16302",
+  "designation" : "Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Geetanjali Pandey",
+  "ECode" : "E16323",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Anudeep Kaur",
+  "ECode" : "E16380",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Reema",
+  "ECode" : "E16536",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Tejinderpal Singh",
+  "ECode" : "E16552",
+  "designation" : "Technical Trainer"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Sakshi",
+  "ECode" : "E16561",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Preeti Khera",
+  "ECode" : "E16576",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Gurpreet Kaur",
+  "ECode" : "E16578",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms. Rubbina",
+  "ECode" : "E16582",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr. Prabjot Singh",
+  "ECode" : "E16592",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr. Saurav Kumar Chauhan",
+  "ECode" : "E16638",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr.Uzzal Mondal",
+  "ECode" : "E16641",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Prabhjot Kaur",
+  "ECode" : "E16646",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Rosevir Singh",
+  "ECode" : "E16685",
+  "designation" : "Teaching Assistant"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Shakshi Kattna",
+  "ECode" : "E16687",
+  "designation" : "Teaching Assistant"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms.Priyanka Nanda ",
+  "ECode" : "E16695",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr. Ratish Kumar",
+  "ECode" : "E14394",
+  "designation" : "Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr. Neetu",
+  "ECode" : "E17077",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms.Somdatta Patra ",
+  "ECode" : "E15047",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr.Abhishek Pandey",
+  "ECode" : "E17100",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr.Vijay Mohan Shrimal",
+  "ECode" : "E17122",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr.Amardeep Singh",
+  "ECode" : "E17149",
+  "designation" : "Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Kiranpreet Bedi",
+  "ECode" : "E17436",
+  "designation" : "Teaching Assistant"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Rohit Singh",
+  "ECode" : "E17419",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Sidrah Fayaz Wani",
+  "ECode" : "E17441",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Alok Das",
+  "ECode" : "E17477",
+  "designation" : "Technical Trainer"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Suman Narayan",
+  "ECode" : "E17608",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Navjot Singh",
+  "ECode" : "E17618",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Shilpa Sharma",
+  "ECode" : "E17638",
+  "designation" : "Technical Trainer"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Rakesh Thakur",
+  "ECode" : "E17641",
+  "designation" : "Technical Trainer"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Jagpreet Singh",
+  "ECode" : "E17662",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr. Harjot Singh",
+  "ECode" : "E17695",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Kangan Arora",
+  "ECode" : "E17842",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Richa Tiwari",
+  "ECode" : "E17833",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr Poonam Singh",
+  "ECode" : "E17832",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Sukhpreet Singh",
+  "ECode" : "E17779",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Navjot Singh Talwandi",
+  "ECode" : "E17908",
+  "designation" : "Technical Trainer"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr. Bhavana Bansal",
+  "ECode" : "E17891",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Sonam Sharma",
+  "ECode" : "E17997",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Dr Harpreet Kaur",
+  "ECode" : "E1496",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr Syed Irfan Yakoob",
+  "ECode" : "E17752",
+  "designation" : "Associate Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Mr Akhilesh Kumar Shah",
+  "ECode" : "E17769",
+  "designation" : "Technical Trainer"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms Shivani Sharma",
+  "ECode" : "E18070",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Male",
+  "name" : "Dr. Raghav Mehra",
+  "ECode" : "E16308",
+  "designation" : "Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Palvi Mahajan",
+  "ECode" : "E17222",
+  "designation" : "Assistant Professor"
+}, {
+  "post" : "UIE-CSE",
+  "gender" : "Female",
+  "name" : "Ms. Ruksana",
+  "ECode" : "E16277",
+  "designation" : "Assistant Professor"
+} ]

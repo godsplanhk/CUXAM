@@ -1,0 +1,1681 @@
+[ {
+  "Ccode" : "23CSH-241",
+  "section" : "23BCC-1/A",
+  "Teacher" : "E14961"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BCC-1/B",
+  "Teacher" : "E14961"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BCC-1/A",
+  "Teacher" : "E17149"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BCC-1/B",
+  "Teacher" : "E17149"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BCC-1/A",
+  "Teacher" : "E16582"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BCC-1/B",
+  "Teacher" : "E16582"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BCC-1/A",
+  "Teacher" : "E17641"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BCC-1/B",
+  "Teacher" : "E17641"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BCC-1/A",
+  "Teacher" : "E14308"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BCC-1/B",
+  "Teacher" : "E17662"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BCC-2/A",
+  "Teacher" : "E14308"
+}, {
+  "Ccode" : "22CSH-331",
+  "section" : "22BCC-1/A",
+  "Teacher" : "E15733"
+}, {
+  "Ccode" : "22CSH-331",
+  "section" : "22BCC-1/B",
+  "Teacher" : "E15733"
+}, {
+  "Ccode" : "22CSH-331",
+  "section" : "22BCC-2/A",
+  "Teacher" : "E15733"
+}, {
+  "Ccode" : "22CSH-332",
+  "section" : "22BCC-1/A",
+  "Teacher" : "E15505"
+}, {
+  "Ccode" : "22CSH-332",
+  "section" : "22BCC-1/B",
+  "Teacher" : "E15505"
+}, {
+  "Ccode" : "22CSH-332",
+  "section" : "22BCC-2/A",
+  "Teacher" : "E15505"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BCC-1/A",
+  "Teacher" : "E15565"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BCC-1/B",
+  "Teacher" : "E15565"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BCC-2/A",
+  "Teacher" : "E15565"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BCC-2/B",
+  "Teacher" : "E15565"
+}, {
+  "Ccode" : "21CSH-446",
+  "section" : "21BCC-1/A",
+  "Teacher" : "E17477"
+}, {
+  "Ccode" : "21CSH-446",
+  "section" : "21BCC-1/B",
+  "Teacher" : "E17477"
+}, {
+  "Ccode" : "21CSH-446",
+  "section" : "21BCC-2/A",
+  "Teacher" : "E17477"
+}, {
+  "Ccode" : "21CSH-446",
+  "section" : "21BCC-2/B",
+  "Teacher" : "E17477"
+}, {
+  "Ccode" : "21CSH-445",
+  "section" : "21BCC-1/A",
+  "Teacher" : "E17122"
+}, {
+  "Ccode" : "21CSH-445",
+  "section" : "21BCC-1/B",
+  "Teacher" : "E17122"
+}, {
+  "Ccode" : "21CSH-445",
+  "section" : "21BCC-2/A",
+  "Teacher" : "E17122"
+}, {
+  "Ccode" : "21CSH-445",
+  "section" : "21BCC-2/B",
+  "Teacher" : "E17122"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BDA-1 /A",
+  "Teacher" : "E15737"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BDA-1/B",
+  "Teacher" : "E15737"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BDA-2/A",
+  "Teacher" : "E15737"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BDA-2/B",
+  "Teacher" : "E15737"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BDA-1 /A",
+  "Teacher" : "E17832"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BDA-1/B",
+  "Teacher" : "E17832"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BDA-2/A",
+  "Teacher" : "E17832"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BDA-2/B",
+  "Teacher" : "E17832"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BDA-1 /A",
+  "Teacher" : "E16069"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BDA-1/B",
+  "Teacher" : "E16069"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BDA-2/A",
+  "Teacher" : "E16069"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BDA-2/B",
+  "Teacher" : "E16069"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BDA-1 /A",
+  "Teacher" : "E16561"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BDA-1/B",
+  "Teacher" : "E16561"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BDA-2/A",
+  "Teacher" : "E16561"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BDA-2/B",
+  "Teacher" : "E16561"
+}, {
+  "Ccode" : "22CSH-344",
+  "section" : "22BDA-1/A",
+  "Teacher" : "E15227"
+}, {
+  "Ccode" : "22CSH-344",
+  "section" : "22BDA-1/B",
+  "Teacher" : "E15227"
+}, {
+  "Ccode" : "22CSH-344",
+  "section" : "22BDA-2/A",
+  "Teacher" : "E15227"
+}, {
+  "Ccode" : "22CSH-344",
+  "section" : "22BDA-2/B",
+  "Teacher" : "E15227"
+}, {
+  "Ccode" : "22CSH-342",
+  "section" : "22BDA-1/A",
+  "Teacher" : "E9836"
+}, {
+  "Ccode" : "22CSH-342",
+  "section" : "22BDA-1/B",
+  "Teacher" : "E9836"
+}, {
+  "Ccode" : "22CSH-342",
+  "section" : "22BDA-2/A",
+  "Teacher" : "E9836"
+}, {
+  "Ccode" : "22CSH-342",
+  "section" : "22BDA-2/B",
+  "Teacher" : "E9836"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BDA-1/A",
+  "Teacher" : "E17997"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BDA-1/B",
+  "Teacher" : "E17997"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BDA-2/A",
+  "Teacher" : "E17997"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BDA-2/B",
+  "Teacher" : "E17997"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22BDA-1/A",
+  "Teacher" : "E15047"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22BDA-1/B",
+  "Teacher" : "E15047"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22BDA-2/A",
+  "Teacher" : "E15047"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22BDA-2/B",
+  "Teacher" : "E15047"
+}, {
+  "Ccode" : "21CSH-440",
+  "section" : "21BDA-1/A",
+  "Teacher" : "E15947"
+}, {
+  "Ccode" : "21CSH-440",
+  "section" : "21BDA-1/B",
+  "Teacher" : "E15947"
+}, {
+  "Ccode" : "21CSH-440",
+  "section" : "21BDA-2/A",
+  "Teacher" : "E15947"
+}, {
+  "Ccode" : "21CSH-440",
+  "section" : "21BDA-2/B",
+  "Teacher" : "E15947"
+}, {
+  "Ccode" : "21CSH-436",
+  "section" : "21BDA-1/A",
+  "Teacher" : "E12791"
+}, {
+  "Ccode" : "21CSH-436",
+  "section" : "21BDA-1/B",
+  "Teacher" : "E12791"
+}, {
+  "Ccode" : "21CSH-436",
+  "section" : "21BDA-2/A",
+  "Teacher" : "E12791"
+}, {
+  "Ccode" : "21CSH-436",
+  "section" : "21BDA-2/B",
+  "Teacher" : "E12791"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BDA-1/A",
+  "Teacher" : "E16561"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BDA-1/B",
+  "Teacher" : "E15227"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BDA-2/A",
+  "Teacher" : "E15947"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BDA-2/B",
+  "Teacher" : "E15947"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BIT-1/A",
+  "Teacher" : "E9191"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BIT-1/A",
+  "Teacher" : "E13693"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BIT-1/A",
+  "Teacher" : "E15792"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BIT-1/A",
+  "Teacher" : "E13828"
+}, {
+  "Ccode" : "22CSH-337",
+  "section" : "22BIT-1/A",
+  "Teacher" : "E14288"
+}, {
+  "Ccode" : "22CSH-337",
+  "section" : "22BIT-1/B",
+  "Teacher" : "E14288"
+}, {
+  "Ccode" : "22CSH-339",
+  "section" : "22BIT-1/A",
+  "Teacher" : "E13693"
+}, {
+  "Ccode" : "22CSH-339",
+  "section" : "22BIT-1/B",
+  "Teacher" : "E13693"
+}, {
+  "Ccode" : "22CSH-341",
+  "section" : "22BIT-1/A",
+  "Teacher" : "E13693"
+}, {
+  "Ccode" : "22CSH-341",
+  "section" : "22BIT-1/B",
+  "Teacher" : "E13693"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BIT-1/A",
+  "Teacher" : "E15123"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BIT-1/B",
+  "Teacher" : "E15123"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BIT-1/A",
+  "Teacher" : "E16552"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BIT-1/B",
+  "Teacher" : "E16552"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21BIT-1/A",
+  "Teacher" : "E13431"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21BIT-1/B",
+  "Teacher" : "E13431"
+}, {
+  "Ccode" : "21CSH-433",
+  "section" : "21BIT-1/A",
+  "Teacher" : "E9610"
+}, {
+  "Ccode" : "21CSH-433",
+  "section" : "21BIT-1/B",
+  "Teacher" : "E9610"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-1/A",
+  "Teacher" : "E13485"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-1/B",
+  "Teacher" : "E13485"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-1/A",
+  "Teacher" : "E13464"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-1/B",
+  "Teacher" : "E13464"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-1/A",
+  "Teacher" : "E15791"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-1/B",
+  "Teacher" : "E15791"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-1/A",
+  "Teacher" : "E17908"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-1/B",
+  "Teacher" : "E17908"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-2/A",
+  "Teacher" : "E17100"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-2/B",
+  "Teacher" : "E17100"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-2/A",
+  "Teacher" : "E16536"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-2/B",
+  "Teacher" : "E16536"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-2/A",
+  "Teacher" : "E15791"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-2/B",
+  "Teacher" : "E15791"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-2/A",
+  "Teacher" : "E17908"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-2/B",
+  "Teacher" : "E17908"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-3/A",
+  "Teacher" : "E13485"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-3/B",
+  "Teacher" : "E13485"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-3/A",
+  "Teacher" : "E16536"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-3/B",
+  "Teacher" : "E16536"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-3/A",
+  "Teacher" : "E17779"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-3/B",
+  "Teacher" : "E17779"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-3/A",
+  "Teacher" : "E15507"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-3/B",
+  "Teacher" : "E15507"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-4/A",
+  "Teacher" : "E11286"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-4/B",
+  "Teacher" : "E11286"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-4/A",
+  "Teacher" : "E16308"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-4/B",
+  "Teacher" : "E16308"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-4/A",
+  "Teacher" : "E15372"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-4/B",
+  "Teacher" : "E15372"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-4/A",
+  "Teacher" : "E15507"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-4/B",
+  "Teacher" : "E15507"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-5/A",
+  "Teacher" : "E11286"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-5/B",
+  "Teacher" : "E11286"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-5/A",
+  "Teacher" : "E16308"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-5/B",
+  "Teacher" : "E16308"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-5/A",
+  "Teacher" : "E15372"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-5/B",
+  "Teacher" : "E15372"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-5/A",
+  "Teacher" : "E13263"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-5/B",
+  "Teacher" : "E13263"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-6/A",
+  "Teacher" : "E16576"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-6/B",
+  "Teacher" : "E16576"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-6/A",
+  "Teacher" : "E13868"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-6/B",
+  "Teacher" : "E13868"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-6/A",
+  "Teacher" : "E16189"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-6/B",
+  "Teacher" : "E16189"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-6/A",
+  "Teacher" : "E13263"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-6/B",
+  "Teacher" : "E13263"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-7/A",
+  "Teacher" : "E16576"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-7/B",
+  "Teacher" : "E16576"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-7/A",
+  "Teacher" : "E13868"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-7/B",
+  "Teacher" : "E13868"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-7/A",
+  "Teacher" : "E16189"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-7/B",
+  "Teacher" : "E16189"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-7/A",
+  "Teacher" : "E17891"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-7/B",
+  "Teacher" : "E17891"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-8/A",
+  "Teacher" : "E16646"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-8/B",
+  "Teacher" : "E16646"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-8/A",
+  "Teacher" : "E12800"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-8/B",
+  "Teacher" : "E12800"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-8/A",
+  "Teacher" : "E15506"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-8/B",
+  "Teacher" : "E17779"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-8/A",
+  "Teacher" : "E17891"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-8/B",
+  "Teacher" : "E17891"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-9/A",
+  "Teacher" : "E16646"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-9/B",
+  "Teacher" : "E16646"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-9/A",
+  "Teacher" : "E13548"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-9/B",
+  "Teacher" : "E13548"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-9/A",
+  "Teacher" : "E16695"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-9/B",
+  "Teacher" : "E16695"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-9/A",
+  "Teacher" : "E15978"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-9/B",
+  "Teacher" : "E15978"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-10/A",
+  "Teacher" : "E16641"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-10/B",
+  "Teacher" : "E16641"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-10/A",
+  "Teacher" : "E14950"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-10/B",
+  "Teacher" : "E14950"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-10/A",
+  "Teacher" : "E16695"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-10/B",
+  "Teacher" : "E16695"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-10/A",
+  "Teacher" : "E16380"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-10/B",
+  "Teacher" : "E16380"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-11/A",
+  "Teacher" : "E16641"
+}, {
+  "Ccode" : "23CSH-233",
+  "section" : "23AML-11/B",
+  "Teacher" : "E16641"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-11/A",
+  "Teacher" : "E13464"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23AML-11/B",
+  "Teacher" : "E13464"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-11/A",
+  "Teacher" : "E15190"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23AML-11/B",
+  "Teacher" : "E15190"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-11/A",
+  "Teacher" : "E15978"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23AML-11/B",
+  "Teacher" : "E15978"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-1/A",
+  "Teacher" : "E11201"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-1/B",
+  "Teacher" : "E17222"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-1/A",
+  "Teacher" : "E14621"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-1/B",
+  "Teacher" : "E14621"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-1/A",
+  "Teacher" : "E15380"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-1/B",
+  "Teacher" : "E16189"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-1/A",
+  "Teacher" : "E15060"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-1/B",
+  "Teacher" : "E15060"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-2/A",
+  "Teacher" : "E12849"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-2/B",
+  "Teacher" : "E12849"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-2/A",
+  "Teacher" : "E14621"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-2/B",
+  "Teacher" : "E14621"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-2/A",
+  "Teacher" : "E15380"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-2/B",
+  "Teacher" : "E17833"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-2/A",
+  "Teacher" : "E15507"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-2/B",
+  "Teacher" : "E14394"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-3/A",
+  "Teacher" : "E11286"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-3/B",
+  "Teacher" : "E15786"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-3/A",
+  "Teacher" : "E14496"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-3/B",
+  "Teacher" : "E14496"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-3/A",
+  "Teacher" : "E14496"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-3/B",
+  "Teacher" : "E14496"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-3/A",
+  "Teacher" : "E14621"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-3/B",
+  "Teacher" : "E12849"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-4/A",
+  "Teacher" : "E13548"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-4/B",
+  "Teacher" : "E13122"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-4/A",
+  "Teacher" : "E14496"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-4/B",
+  "Teacher" : "E14496"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-4/A",
+  "Teacher" : "E14496"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-4/B",
+  "Teacher" : "E16380"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-4/A",
+  "Teacher" : "E18070"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-4/B",
+  "Teacher" : "E14496"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-5/A",
+  "Teacher" : "E12849"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-5/B",
+  "Teacher" : "E12849"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-5/A",
+  "Teacher" : "E17419"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-5/B",
+  "Teacher" : "E17419"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-5/A",
+  "Teacher" : "E16592"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-5/B",
+  "Teacher" : "E16592"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-5/A",
+  "Teacher" : "E18070"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-5/B",
+  "Teacher" : "E14394"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-6/A",
+  "Teacher" : "E14394"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-6/B",
+  "Teacher" : "E14394"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-6/A",
+  "Teacher" : "E17419"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-6/B",
+  "Teacher" : "E17436"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-6/A",
+  "Teacher" : "E16592"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-6/B",
+  "Teacher" : "E16592"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-6/A",
+  "Teacher" : "E17833"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-6/B",
+  "Teacher" : "E17833"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-7/A",
+  "Teacher" : "E11201"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-7/B",
+  "Teacher" : "E17695"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-7/A",
+  "Teacher" : "E17436"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-7/B",
+  "Teacher" : "E17436"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-7/A",
+  "Teacher" : "E17419"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-7/B",
+  "Teacher" : "E17419"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-7/A",
+  "Teacher" : "E18070"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-7/B",
+  "Teacher" : "E18070"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-8/A",
+  "Teacher" : "E14394"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-8/B",
+  "Teacher" : "E16189"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-8/A",
+  "Teacher" : "E17436"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-8/B",
+  "Teacher" : "E17436"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-8/A",
+  "Teacher" : "E16277"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-8/B",
+  "Teacher" : "E16277"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-8/A",
+  "Teacher" : "E15060"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-8/B",
+  "Teacher" : "E15060"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-9/A",
+  "Teacher" : "E15786"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-9/B",
+  "Teacher" : "E15786"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-9/A",
+  "Teacher" : "E15134"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-9/B",
+  "Teacher" : "E15134"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-9/A",
+  "Teacher" : "E16277"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-9/B",
+  "Teacher" : "E16277"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-9/A",
+  "Teacher" : "E15060"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-9/B",
+  "Teacher" : "E15060"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-10/A",
+  "Teacher" : "E15786"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22AML-10/B",
+  "Teacher" : "E15786"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-10/A",
+  "Teacher" : "E15134"
+}, {
+  "Ccode" : "22CSH-340",
+  "section" : "22AML-10/B",
+  "Teacher" : "E15134"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-10/A",
+  "Teacher" : "E16380"
+}, {
+  "Ccode" : "22CSH-345",
+  "section" : "22AML-10/B",
+  "Teacher" : "E16380"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-10/A",
+  "Teacher" : "E14960"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22AML-10/B",
+  "Teacher" : "E14960"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-1/A",
+  "Teacher" : "E11201"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-1/B",
+  "Teacher" : "E17100"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-1/A",
+  "Teacher" : "E17695"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-1/B",
+  "Teacher" : "E17695"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-1/A",
+  "Teacher" : "E13365"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-1/B",
+  "Teacher" : "E13365"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-2/A",
+  "Teacher" : "E13122"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-2/B",
+  "Teacher" : "E11286"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-2/A",
+  "Teacher" : "E17695"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-2/B",
+  "Teacher" : "E17695"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-2/A",
+  "Teacher" : "E13365"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-2/B",
+  "Teacher" : "E13365"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-3/A",
+  "Teacher" : "E13365"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-3/B",
+  "Teacher" : "E13365"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-3/A",
+  "Teacher" : "E13248"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-3/B",
+  "Teacher" : "E13248"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-3/A",
+  "Teacher" : "E13851"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-3/B",
+  "Teacher" : "E13851"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-4/A",
+  "Teacher" : "E12853"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-4/B",
+  "Teacher" : "E12853"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-4/A",
+  "Teacher" : "E13248"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-4/B",
+  "Teacher" : "E13248"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-4/A",
+  "Teacher" : "E13851"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-4/B",
+  "Teacher" : "E13851"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-5/A",
+  "Teacher" : "E17100"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-5/B",
+  "Teacher" : "E15786"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-5/A",
+  "Teacher" : "E12853"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-5/B",
+  "Teacher" : "E12853"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-5/A",
+  "Teacher" : "E13845"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-5/B",
+  "Teacher" : "E13845"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-6/A",
+  "Teacher" : "E1496"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-6/B",
+  "Teacher" : "E1496"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-6/A",
+  "Teacher" : "E12853"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-6/B",
+  "Teacher" : "E12853"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-6/A",
+  "Teacher" : "E13845"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-6/B",
+  "Teacher" : "E13845"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-7/A",
+  "Teacher" : "E1496"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-7/B",
+  "Teacher" : "E1496"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-7/A",
+  "Teacher" : "E16685"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-7/B",
+  "Teacher" : "E16685"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-7/A",
+  "Teacher" : "E15857"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-7/B",
+  "Teacher" : "E15857"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-8/A",
+  "Teacher" : "E15134"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-8/B",
+  "Teacher" : "E16641"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-8/A",
+  "Teacher" : "E16685"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-8/B",
+  "Teacher" : "E16685"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-8/A",
+  "Teacher" : "E15857"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-8/B",
+  "Teacher" : "E15857"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-9/A",
+  "Teacher" : "E15978"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-9/B",
+  "Teacher" : "E18070"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-9/A",
+  "Teacher" : "E11296"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-9/B",
+  "Teacher" : "E11296"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-9/A",
+  "Teacher" : "E17608"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-9/B",
+  "Teacher" : "E17608"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-10/A",
+  "Teacher" : "E17100"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-10/B",
+  "Teacher" : "E15506"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-10/A",
+  "Teacher" : "E11296"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-10/B",
+  "Teacher" : "E15506"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-10/A",
+  "Teacher" : "E17608"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-10/B",
+  "Teacher" : "E17608"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-11/A",
+  "Teacher" : "E16536"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-11/B",
+  "Teacher" : "E15282"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-11/A",
+  "Teacher" : "E15506"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-11/B",
+  "Teacher" : "E15506"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-11/A",
+  "Teacher" : "E15282"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-11/B",
+  "Teacher" : "E15282"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-12/A",
+  "Teacher" : "E15190"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21AML-12/B",
+  "Teacher" : "E16592"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-12/A",
+  "Teacher" : "E15506"
+}, {
+  "Ccode" : "21CSH-432",
+  "section" : "21AML-12/B",
+  "Teacher" : "E15506"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-12/A",
+  "Teacher" : "E15282"
+}, {
+  "Ccode" : "21CSH-434",
+  "section" : "21AML-12/B",
+  "Teacher" : "E15282"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BCG-1/A",
+  "Teacher" : "E9758"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BCG-1/A",
+  "Teacher" : "E9758"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BCG-1/B",
+  "Teacher" : "E9758"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BCG-1/A",
+  "Teacher" : "E9758"
+}, {
+  "Ccode" : "23CSH-234",
+  "section" : "23CBS-1/A",
+  "Teacher" : "E15792"
+}, {
+  "Ccode" : "23CSH-234",
+  "section" : "23CBS-1/B",
+  "Teacher" : "E15792"
+}, {
+  "Ccode" : "23CSH-246",
+  "section" : "23CBS-1/A",
+  "Teacher" : "E11253"
+}, {
+  "Ccode" : "23CSH-246",
+  "section" : "23CBS-1/B",
+  "Teacher" : "E11253"
+}, {
+  "Ccode" : "23CSH-239",
+  "section" : "23CBS-1/A",
+  "Teacher" : "E16552"
+}, {
+  "Ccode" : "23CSH-239",
+  "section" : "23CBS-1/B",
+  "Teacher" : "E16552"
+}, {
+  "Ccode" : "22CSH-348",
+  "section" : "22CBS-1/A",
+  "Teacher" : "E16552"
+}, {
+  "Ccode" : "22CSH-338",
+  "section" : "22CBS-1/A",
+  "Teacher" : "E10488"
+}, {
+  "Ccode" : "22CSH-337",
+  "section" : "22CBS-1/A",
+  "Teacher" : "E14288"
+}, {
+  "Ccode" : "21CSH-450",
+  "section" : "21CBS-1/A",
+  "Teacher" : "E13828"
+}, {
+  "Ccode" : "21CSH-450",
+  "section" : "21CBS-1/B",
+  "Teacher" : "E13828"
+}, {
+  "Ccode" : "21CSH-439",
+  "section" : "21CBS-1/A",
+  "Teacher" : "E13431"
+}, {
+  "Ccode" : "21CSH-439",
+  "section" : "21CBS-1/B",
+  "Teacher" : "E13431"
+}, {
+  "Ccode" : "21CSH-436",
+  "section" : "21CBS-1/A",
+  "Teacher" : "E10488"
+}, {
+  "Ccode" : "21CSH-436",
+  "section" : "21CBS-1/B",
+  "Teacher" : "E10488"
+}, {
+  "Ccode" : "22CSH-346",
+  "section" : "22BCB-1/A",
+  "Teacher" : "E16578"
+}, {
+  "Ccode" : "22CSH-346",
+  "section" : "22BCB-1/B",
+  "Teacher" : "E16578"
+}, {
+  "Ccode" : "22CSH-347",
+  "section" : "22BCB-1/A",
+  "Teacher" : "E16687"
+}, {
+  "Ccode" : "22CSH-347",
+  "section" : "22BCB-1/B",
+  "Teacher" : "E16687"
+}, {
+  "Ccode" : "21CSH-442",
+  "section" : "21BCB-1/A",
+  "Teacher" : "E16578"
+}, {
+  "Ccode" : "21CSH-442",
+  "section" : "21BCB-1/B",
+  "Teacher" : "E16578"
+}, {
+  "Ccode" : "21CSH-443",
+  "section" : "21BCB-1/A",
+  "Teacher" : "E17441"
+}, {
+  "Ccode" : "21CSH-443",
+  "section" : "21BCB-1/B",
+  "Teacher" : "E17441"
+}, {
+  "Ccode" : "21CSH-444",
+  "section" : "21BCB-1/A",
+  "Teacher" : "E16687"
+}, {
+  "Ccode" : "21CSH-444",
+  "section" : "21BCB-1/B",
+  "Teacher" : "E16687"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BIS-1/A",
+  "Teacher" : "E11361"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BIS-1/B",
+  "Teacher" : "E11361"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BIS-2/A",
+  "Teacher" : "E11361"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BIS-2/B",
+  "Teacher" : "E11361"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BCB-1/B",
+  "Teacher" : "E11361"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BIS-1/A",
+  "Teacher" : "E11567"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BIS-1/B",
+  "Teacher" : "E11567"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BIS-2/A",
+  "Teacher" : "E11567"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BIS-2/B",
+  "Teacher" : "E11567"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BCB-1/B",
+  "Teacher" : "E11567"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BIS-1/A",
+  "Teacher" : "E12833"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BIS-1/B",
+  "Teacher" : "E12833"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BIS-2/A",
+  "Teacher" : "E12833"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BIS-2/B",
+  "Teacher" : "E12833"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BCB-1/B",
+  "Teacher" : "E12833"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BIS-1/A",
+  "Teacher" : "E1326"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BIS-1/B",
+  "Teacher" : "E1326"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BIS-2/B",
+  "Teacher" : "E16578"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BCB-1/B",
+  "Teacher" : "E16578"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BIS-2/A",
+  "Teacher" : "E17441"
+}, {
+  "Ccode" : "22CSH-349",
+  "section" : "22BIS-1/A",
+  "Teacher" : "E17752"
+}, {
+  "Ccode" : "22CSH-349",
+  "section" : "22BIS-1/B",
+  "Teacher" : "E17752"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BIS-1/A",
+  "Teacher" : "E1326"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BIS-1/B",
+  "Teacher" : "E1326"
+}, {
+  "Ccode" : "22CSH-336",
+  "section" : "22BIS-1/A",
+  "Teacher" : "E9842"
+}, {
+  "Ccode" : "22CSH-336",
+  "section" : "22BIS-1/B",
+  "Teacher" : "E9842"
+}, {
+  "Ccode" : "22CSH-349",
+  "section" : "22BIS-2/A",
+  "Teacher" : "E17752"
+}, {
+  "Ccode" : "22CSH-349",
+  "section" : "22BIS-2/B",
+  "Teacher" : "E17752"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BIS-2/A",
+  "Teacher" : "E1326"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BIS-2/B",
+  "Teacher" : "E1326"
+}, {
+  "Ccode" : "22CSH-336",
+  "section" : "22BIS-2/A",
+  "Teacher" : "E15888"
+}, {
+  "Ccode" : "22CSH-336",
+  "section" : "22BIS-2/B",
+  "Teacher" : "E15888"
+}, {
+  "Ccode" : "21CSH-441",
+  "section" : "21BIS-1/A",
+  "Teacher" : "E17769"
+}, {
+  "Ccode" : "21CSH-441",
+  "section" : "21BIS-1/B",
+  "Teacher" : "E17769"
+}, {
+  "Ccode" : "21CSH-431",
+  "section" : "21BIS-1/A",
+  "Teacher" : "E15433"
+}, {
+  "Ccode" : "21CSH-431",
+  "section" : "21BIS-1/B",
+  "Teacher" : "E15433"
+}, {
+  "Ccode" : "21CSH-437",
+  "section" : "21BIS-1/A",
+  "Teacher" : "E9842"
+}, {
+  "Ccode" : "21CSH-437",
+  "section" : "21BIS-1/B",
+  "Teacher" : "E9842"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BIS-1/A",
+  "Teacher" : "E11567"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BIS-1/B",
+  "Teacher" : "E17441"
+}, {
+  "Ccode" : "21CSH-441",
+  "section" : "21BIS-2/A",
+  "Teacher" : "E8466"
+}, {
+  "Ccode" : "21CSH-441",
+  "section" : "21BIS-2/B",
+  "Teacher" : "E17769"
+}, {
+  "Ccode" : "21CSH-431",
+  "section" : "21BIS-2/A",
+  "Teacher" : "E15433"
+}, {
+  "Ccode" : "21CSH-431",
+  "section" : "21BIS-2/B",
+  "Teacher" : "E15433"
+}, {
+  "Ccode" : "21CSH-437",
+  "section" : "21BIS-2/A",
+  "Teacher" : "E15888"
+}, {
+  "Ccode" : "21CSH-437",
+  "section" : "21BIS-2/B",
+  "Teacher" : "E15888"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BIS-2/A",
+  "Teacher" : "E17769"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BIS-2/B",
+  "Teacher" : "E17769"
+}, {
+  "Ccode" : "23CSH-241",
+  "section" : "23BCD-1/A",
+  "Teacher" : "E14961"
+}, {
+  "Ccode" : "23CSH-245",
+  "section" : "23BCD-1/A",
+  "Teacher" : "E17149"
+}, {
+  "Ccode" : "23CSH-242",
+  "section" : "23BCD-1/A",
+  "Teacher" : "E16582"
+}, {
+  "Ccode" : "23CSH-243",
+  "section" : "23BCD-1/A",
+  "Teacher" : "E17641"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BCD-1/A",
+  "Teacher" : "E16582"
+}, {
+  "Ccode" : "22CSH-335",
+  "section" : "22BCD-1/B",
+  "Teacher" : "E16582"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22BCD-1/A",
+  "Teacher" : "E3040"
+}, {
+  "Ccode" : "22CSP-343",
+  "section" : "22BCD-1/B",
+  "Teacher" : "E3040"
+}, {
+  "Ccode" : "21CSP-441",
+  "section" : "21BCD-1/A",
+  "Teacher" : "E15565"
+}, {
+  "Ccode" : "21CSH-448",
+  "section" : "21BCD-1/A",
+  "Teacher" : "E3040"
+}, {
+  "Ccode" : "24CSH-631",
+  "section" : "24MCC-1/A",
+  "Teacher" : "E17662"
+}, {
+  "Ccode" : "24CSH635",
+  "section" : "24MCC-1/A",
+  "Teacher" : "E17638"
+} ]
