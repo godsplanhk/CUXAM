@@ -58,4 +58,4 @@ jobs:
           app-name: 'cuxam-backend'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E5DEB9BD3BAC4C69804046C11B4E098C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_108A589ED605436E9DAA47B8758DD3C5 }}
